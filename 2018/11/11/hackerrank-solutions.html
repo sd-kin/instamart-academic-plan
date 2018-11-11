@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Решения | instamart acadenic plan</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Решения" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="BASIC SELECT" />
+<meta property="og:description" content="BASIC SELECT" />
+<link rel="canonical" href="https://sd-kin.github.io/instamart-academic-plan/2018/11/11/hackerrank-solutions.html" />
+<meta property="og:url" content="https://sd-kin.github.io/instamart-academic-plan/2018/11/11/hackerrank-solutions.html" />
+<meta property="og:site_name" content="instamart acadenic plan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-11T20:55:22+03:00" />
+<script type="application/ld+json">
+{"url":"https://sd-kin.github.io/instamart-academic-plan/2018/11/11/hackerrank-solutions.html","description":"BASIC SELECT","headline":"Решения","dateModified":"2018-11-11T20:55:22+03:00","datePublished":"2018-11-11T20:55:22+03:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sd-kin.github.io/instamart-academic-plan/2018/11/11/hackerrank-solutions.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/instamart-academic-plan/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sd-kin.github.io/instamart-academic-plan/feed.xml" title="instamart acadenic plan" /></head>
+<body>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Решения</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-11-11T20:55:22+03:00" itemprop="datePublished">Nov 11, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="basic-select">BASIC SELECT</h2>
+
+<h4 id="revising-the-select-query-i">Revising the Select Query I</h4>
+
+<blockquote>
+  <p>Query all columns for all American cities in CITY with populations larger than 100000. The CountryCode for America is USA.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'USA'</span> <span class="k">AND</span> <span class="n">POPULATION</span> <span class="o">&gt;=</span> <span class="mi">100000</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="revising-the-select-query-ii">Revising the Select Query II</h4>
+
+<blockquote>
+  <p>Query the names of all American cities in CITY with populations larger than 120000. The CountryCode for America is USA.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'USA'</span> <span class="k">AND</span> <span class="n">POPULATION</span> <span class="o">&gt;=</span> <span class="mi">120000</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="select-all">Select All</h4>
+
+<blockquote>
+  <p>Query all columns (attributes) for every row in the CITY table.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="select-by-id">Select By ID</h4>
+
+<blockquote>
+  <p>Query all columns for a city in CITY with the ID 1661.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">=</span><span class="mi">1661</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="japanese-cities-attributes">Japanese Cities’ Attributes</h4>
+
+<blockquote>
+  <p>Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'JPN'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="japanese-cities-names">Japanese Cities’ Names</h4>
+
+<blockquote>
+  <p>Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">'JPN'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-1">Weather Observation Station 1</h4>
+<blockquote>
+  <p>Query a list of CITY and STATE from the STATION table.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">STATE</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-3">Weather Observation Station 3</h4>
+<blockquote>
+  <p>Query a list of CITY names from STATION with even ID numbers only. You may print the results in any order, but must exclude duplicates from your answer.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">ID</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-4">Weather Observation Station 4</h4>
+
+<blockquote>
+  <p>Let N be the number of CITY entries in STATION, and let N1 be the number of distinct CITY names in STATION; query the value of N - N1  from STATION. In other words, find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="o">-</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span></code></pre></figure>
+
+<h4 id="weather-observation-station-5">Weather Observation Station 5</h4>
+<blockquote>
+  <p>Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">CITY</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">CITY</span> <span class="k">ASC</span> <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-6">Weather Observation Station 6</h4>
+<blockquote>
+  <p>Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'^[aeiou].*'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-7">Weather Observation Station 7</h4>
+<blockquote>
+  <p>Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'.*[aeiou]$'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-8">Weather Observation Station 8</h4>
+<blockquote>
+  <p>Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'^[aeiou].*[aeiou]$'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-9">Weather Observation Station 9</h4>
+<blockquote>
+  <p>Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'^[^aeiou].*'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-10">Weather Observation Station 10</h4>
+
+<blockquote>
+  <p>Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'.*[^aeiou]$'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-11">Weather Observation Station 11</h4>
+
+<blockquote>
+  <p>Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'(^[^aeiou].*)|(.*[^aeiou]$)'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="weather-observation-station-12">Weather Observation Station 12</h4>
+<blockquote>
+  <p>Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">CITY</span> <span class="n">REGEXP</span> <span class="s1">'^[^aeiou].*[^aeiou]$'</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="higher-than-75-marks">Higher Than 75 Marks</h4>
+<blockquote>
+  <p>Query the Name of any student in STUDENTS who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">STUDENTS</span> <span class="k">WHERE</span> <span class="n">MARKS</span> <span class="o">&gt;</span> <span class="mi">75</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">NAME</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ID</span> <span class="k">ASC</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="employee-names">Employee Names</h4>
+<blockquote>
+  <p>Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">Employee</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="employee-salaries">Employee Salaries</h4>
+
+<blockquote>
+  <p>Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than 2000 per month who have been employees for less than 10  months. Sort your result by ascending employee_id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">Employee</span> <span class="k">WHERE</span> <span class="n">salary</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="k">AND</span> <span class="n">months</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">employee_id</span> <span class="k">ASC</span><span class="p">;</span></code></pre></figure>
+
+<h2 id="basic-join">BASIC JOIN</h2>
+
+<h4 id="ollivanders-inventory">Ollivander’s Inventory</h4>
+<blockquote>
+  <p>Harry Potter and his friends are at Ollivander’s with Ron, finally replacing Charlie’s old broken wand. Hermione decides the best way to choose is by determining the minimum number of gold galleons needed to buy each non-evil wand of high power and age. Write a query to print the id, age, coins_needed, and power of the wands that Ron’s interested in, sorted in order of descending power. If more than one wand has same power, sort the result in order of descending age.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">w</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">w</span><span class="p">.</span><span class="n">coins_needed</span><span class="p">,</span> <span class="n">w</span><span class="p">.</span><span class="n">power</span>
+<span class="k">FROM</span> <span class="n">Wands</span> <span class="k">as</span> <span class="n">w</span> <span class="k">JOIN</span> <span class="n">Wands_Property</span> <span class="k">as</span> <span class="n">p</span> <span class="k">on</span> <span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">code</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">p</span><span class="p">.</span><span class="n">is_evil</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">w</span><span class="p">.</span><span class="n">coins_needed</span> <span class="o">=</span> 
+  <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">coins_needed</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">Wands</span> <span class="k">as</span> <span class="n">w1</span> 
+    <span class="k">join</span> <span class="n">Wands_Property</span> <span class="k">as</span> <span class="n">p1</span> <span class="k">ON</span> <span class="p">(</span><span class="n">w1</span><span class="p">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="n">code</span><span class="p">)</span>
+  <span class="k">WHERE</span> <span class="n">w1</span><span class="p">.</span><span class="n">power</span> <span class="o">=</span> <span class="n">w</span><span class="p">.</span><span class="n">power</span> <span class="k">AND</span> <span class="n">p1</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">w</span><span class="p">.</span><span class="n">power</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">age</span> <span class="k">DESC</span></code></pre></figure>
+
+<h4 id="challenges">Challenges</h4>
+
+<blockquote>
+  <p>Julia asked her students to create some coding challenges. Write a query to print the hacker_id, name, and the total number of challenges created by each student. Sort your results by the total number of challenges in descending order. If more than one student created the same number of challenges, then sort the result by hacker_id. If more than one student created the same number of challenges and the count is less than the maximum number of challenges created, then exclude those students from the result.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> 
+       <span class="n">h</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> 
+       <span class="k">COUNT</span><span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">challenge_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">c_count</span>
+<span class="k">FROM</span> <span class="n">Hackers</span> <span class="n">h</span>
+<span class="k">JOIN</span> <span class="n">Challenges</span> <span class="k">c</span> <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">HAVING</span> <span class="n">c_count</span> <span class="o">=</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">c2</span><span class="p">.</span><span class="n">challenge_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">c_max</span>
+     <span class="k">FROM</span> <span class="n">challenges</span> <span class="k">as</span> <span class="n">c2</span> 
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">c2</span><span class="p">.</span><span class="n">hacker_id</span> 
+     <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">c_max</span> <span class="k">DESC</span> <span class="k">limit</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">OR</span> <span class="n">c_count</span> <span class="k">IN</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">c_compare</span> <span class="k">AS</span> <span class="n">c_unique</span>
+     <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">h2</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> 
+                  <span class="n">h2</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> 
+                  <span class="k">COUNT</span><span class="p">(</span><span class="n">challenge_id</span><span class="p">)</span> <span class="k">AS</span> <span class="n">c_compare</span>
+           <span class="k">FROM</span> <span class="n">Hackers</span> <span class="n">h2</span>
+           <span class="k">JOIN</span> <span class="n">Challenges</span> <span class="k">c</span> <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">h2</span><span class="p">.</span><span class="n">hacker_id</span>
+           <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">h2</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h2</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="n">counts</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">c_compare</span>
+     <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">c_compare</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">c_count</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="contest-leaderboard">Contest Leaderboard</h4>
+
+<blockquote>
+  <p>You did such a great job helping Julia with her last coding contest challenge that she wants you to work on this one, too! The total score of a hacker is the sum of their maximum scores for all of the challenges. Write a query to print the hacker_id, name, and total score of the hackers ordered by the descending score. If more than one hacker achieved the same total score, then sort the result by ascending hacker_id. Exclude all hackers with a total score of 0 from your result.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>  <span class="n">A</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SCORE</span><span class="p">)</span>
+<span class="k">FROM</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="k">MAX</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SCORE</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="k">MAX</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SCORE</span><span class="p">)</span> <span class="k">ELSE</span> <span class="k">NULL</span> <span class="k">END</span> <span class="n">SCORE</span> <span class="k">FROM</span> <span class="n">Hackers</span> <span class="n">H</span>
+    <span class="k">JOIN</span> <span class="n">Submissions</span> <span class="n">S</span> <span class="k">ON</span> <span class="n">S</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="n">A</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">A</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SCORE</span><span class="p">)</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">SUM</span><span class="p">(</span><span class="n">SCORE</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="k">ASC</span></code></pre></figure>
+
+<h4 id="asian-population">Asian Population</h4>
+
+<blockquote>
+  <p>Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is ‘Asia’.</p>
+</blockquote>
+
+<p>Note: CITY.CountryCode and COUNTRY.Code are matching key columns.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="k">C</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">C</span>
+  <span class="k">JOIN</span> <span class="n">COUNTRY</span> <span class="n">CT</span> <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">CT</span><span class="p">.</span><span class="n">CODE</span>
+<span class="k">WHERE</span> <span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Asia'</span></code></pre></figure>
+
+<h4 id="african-cities">African Cities</h4>
+
+<blockquote>
+  <p>Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is ‘Africa’.</p>
+</blockquote>
+
+<p>Note: CITY.CountryCode and COUNTRY.Code are matching key columns.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">C</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">CITY</span> <span class="k">C</span>
+  <span class="k">JOIN</span> <span class="n">COUNTRY</span> <span class="n">CR</span> <span class="k">ON</span> <span class="n">CR</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">COUNTRYCODE</span>
+<span class="k">WHERE</span> <span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Africa'</span></code></pre></figure>
+
+<h4 id="average-population-of-each-continent">Average Population of Each Continent</h4>
+
+<blockquote>
+  <p>Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.</p>
+</blockquote>
+
+<p>Note: CITY.CountryCode and COUNTRY.Code are matching key columns.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CR</span><span class="p">.</span><span class="n">CONTINENT</span><span class="p">,</span> <span class="n">FLOOR</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="k">C</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">CITY</span> <span class="k">C</span>
+  <span class="k">JOIN</span> <span class="n">COUNTRY</span> <span class="n">CR</span> <span class="k">ON</span> <span class="n">CR</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">COUNTRYCODE</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CR</span><span class="p">.</span><span class="n">CONTINENT</span></code></pre></figure>
+
+<h4 id="the-report">The Report</h4>
+
+<blockquote>
+  <p>You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks. Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn’t want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade – i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use “NULL” as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.Write a query to help Eve.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">CASE</span> <span class="k">WHEN</span> <span class="k">g</span><span class="p">.</span><span class="n">Grade</span> <span class="o">&gt;=</span> <span class="mi">8</span>
+  <span class="k">THEN</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span>
+  <span class="k">ELSE</span> <span class="k">NULL</span>
+  <span class="k">END</span><span class="p">,</span>
+  <span class="k">g</span><span class="p">.</span><span class="n">Grade</span><span class="p">,</span>
+  <span class="n">s</span><span class="p">.</span><span class="n">Marks</span>
+<span class="k">FROM</span> <span class="n">Students</span> <span class="n">s</span>
+  <span class="k">JOIN</span> <span class="n">Grades</span> <span class="k">g</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">Marks</span> <span class="k">BETWEEN</span> <span class="k">g</span><span class="p">.</span><span class="n">Min_Mark</span> <span class="k">AND</span> <span class="k">g</span><span class="p">.</span><span class="n">Max_Mark</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">g</span><span class="p">.</span><span class="n">Grade</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="n">Name</span> <span class="k">ASC</span></code></pre></figure>
+
+<h4 id="top-competitors">Top Competitors</h4>
+
+<blockquote>
+  <p>Julia just finished conducting a coding contest, and she needs your help assembling the leaderboard! Write a query to print the respective hacker_id and name of hackers who achieved full scores for more than one challenge. Order your output in descending order by the total number of challenges in which the hacker earned a full score. If more than one hacker received full scores in same number of challenges, then sort them by ascending hacker_id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">FROM</span> <span class="n">Hackers</span> <span class="n">h</span>
+  <span class="k">JOIN</span> <span class="n">Submissions</span> <span class="n">s</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span>
+  <span class="k">JOIN</span> <span class="n">Challenges</span> <span class="n">ch</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">challenge_id</span> <span class="o">=</span> <span class="n">ch</span><span class="p">.</span><span class="n">challenge_id</span>
+  <span class="k">JOIN</span> <span class="n">Difficulty</span> <span class="n">d</span> <span class="k">ON</span> <span class="n">d</span><span class="p">.</span><span class="n">difficulty_level</span> <span class="o">=</span> <span class="n">ch</span><span class="p">.</span><span class="n">difficulty_level</span>
+<span class="k">WHERE</span> <span class="n">s</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">d</span><span class="p">.</span><span class="n">score</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">hacker_id</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">distinct</span> <span class="n">s</span><span class="p">.</span><span class="n">challenge_id</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span> <span class="k">ASC</span></code></pre></figure>
+
+<h2 id="advanced-select">Advanced select</h2>
+
+<h4 id="type-of-triangle">Type of Triangle</h4>
+
+<blockquote>
+  <p>Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:</p>
+</blockquote>
+
+<p>Equilateral: It’s a triangle with  sides of equal length.
+Isosceles: It’s a triangle with  sides of equal length.
+Scalene: It’s a triangle with  sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don’t form a triangle.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> 
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="k">NOT</span><span class="p">(</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span> <span class="o">&gt;</span> <span class="k">C</span> <span class="k">AND</span> <span class="n">A</span> <span class="o">+</span> <span class="k">C</span> <span class="o">&gt;</span> <span class="n">B</span> <span class="k">AND</span> <span class="n">B</span> <span class="o">+</span> <span class="k">C</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">'Not A Triangle'</span>
+    <span class="k">WHEN</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span> <span class="k">AND</span> <span class="n">A</span> <span class="o">=</span> <span class="k">C</span> <span class="k">AND</span> <span class="n">B</span> <span class="o">=</span> <span class="k">C</span> <span class="k">THEN</span> <span class="s1">'Equilateral'</span>
+    <span class="k">WHEN</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span> <span class="k">OR</span> <span class="n">A</span> <span class="o">=</span> <span class="k">C</span> <span class="k">OR</span> <span class="n">B</span> <span class="o">=</span> <span class="k">C</span> <span class="k">THEN</span> <span class="s1">'Isosceles'</span>
+    <span class="k">ELSE</span> <span class="s1">'Scalene'</span>
+  <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">TRIANGLES</span></code></pre></figure>
+
+<h4 id="the-pads">The PADS</h4>
+
+<blockquote>
+  <p>Generate the following two result sets:
+Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format: There are a total of [occupation_count] [occupation]s.
+where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.</p>
+</blockquote>
+
+<p>Note: There will be at least two entries in the table for each type of occupation.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="s1">'('</span><span class="p">,</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">Occupation</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">')'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">Name</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'There are a total of '</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Occupation</span><span class="p">),</span> <span class="s1">' '</span><span class="p">,</span> <span class="k">LOWER</span><span class="p">(</span><span class="n">Occupation</span><span class="p">),</span> <span class="s1">'s.'</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Occupation</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">Occupation</span><span class="p">)</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">Occupation</span> <span class="k">ASC</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="occupations">Occupations</h4>
+
+<blockquote>
+  <p>Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.</p>
+</blockquote>
+
+<p>Note: Print NULL when there are no more names corresponding to an occupation.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="o">@</span><span class="n">doc_number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">prof_number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">sign_number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">act_number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">doctors</span><span class="p">),</span> <span class="k">MIN</span><span class="p">(</span><span class="n">professors</span><span class="p">),</span> <span class="k">MIN</span><span class="p">(</span><span class="n">signers</span><span class="p">),</span> <span class="k">MIN</span><span class="p">(</span><span class="n">actors</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> 
+  <span class="p">(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Doctor'</span> <span class="k">THEN</span> <span class="p">(</span><span class="o">@</span><span class="n">doc_number</span><span class="p">:</span><span class="o">=@</span><span class="n">doc_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Professor'</span> <span class="k">THEN</span> <span class="p">(</span><span class="o">@</span><span class="n">prof_number</span><span class="p">:</span><span class="o">=@</span><span class="n">prof_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Singer'</span> <span class="k">THEN</span> <span class="p">(</span><span class="o">@</span><span class="n">sign_number</span><span class="p">:</span><span class="o">=@</span><span class="n">sign_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Actor'</span> <span class="k">THEN</span> <span class="p">(</span><span class="o">@</span><span class="n">act_number</span><span class="p">:</span><span class="o">=@</span><span class="n">act_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">END</span><span class="p">)</span> <span class="k">AS</span> <span class="n">rank</span><span class="p">,</span>
+  <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Doctor'</span> <span class="k">THEN</span> <span class="n">name</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">doctors</span><span class="p">,</span>
+  <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Professor'</span> <span class="k">THEN</span> <span class="n">name</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">professors</span><span class="p">,</span>
+  <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Singer'</span> <span class="k">THEN</span> <span class="n">name</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">signers</span><span class="p">,</span>
+  <span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">occupation</span> <span class="o">=</span> <span class="s1">'Actor'</span> <span class="k">THEN</span> <span class="n">name</span> <span class="k">END</span> <span class="k">AS</span> <span class="n">actors</span> 
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span><span class="p">)</span> <span class="n">ranked</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">rank</span></code></pre></figure>
+
+<h4 id="binary-tree-nodes">Binary Tree Nodes</h4>
+
+<blockquote>
+  <p>You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N. Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:</p>
+</blockquote>
+
+<blockquote>
+  <p>Root: If node is root node.
+Leaf: If node is leaf node.
+Inner: If node is neither root nor leaf node.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">N</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">P</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">THEN</span> <span class="s1">'Root'</span>
+    <span class="k">WHEN</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">BST</span> <span class="k">WHERE</span> <span class="n">P</span> <span class="o">=</span> <span class="n">z</span><span class="p">.</span><span class="n">N</span><span class="p">)</span> <span class="k">THEN</span> <span class="s1">'Leaf'</span>
+    <span class="k">ELSE</span> <span class="s1">'Inner'</span>
+<span class="k">END</span>
+<span class="k">FROM</span> <span class="n">BST</span> <span class="n">z</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">N</span></code></pre></figure>
+
+<h4 id="new-companies">New Companies</h4>
+
+<blockquote>
+  <p>Amber’s conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: Founder -&gt; Lead Manager -&gt; Senior Manager -&gt; Manager -&gt; Employee
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.</p>
+</blockquote>
+
+<p>Note:</p>
+
+<p>The tables may contain duplicate records.
+The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> 
+  <span class="n">company_code</span><span class="p">,</span> 
+  <span class="n">founder</span><span class="p">,</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">lead_manager_code</span> <span class="p">)</span> <span class="k">FROM</span> <span class="n">Lead_Manager</span> <span class="n">LM</span> <span class="k">WHERE</span> <span class="n">LM</span><span class="p">.</span><span class="n">company_code</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">company_code</span> <span class="p">),</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">senior_manager_code</span> <span class="p">)</span> <span class="k">FROM</span> <span class="n">Senior_Manager</span> <span class="n">sm</span> <span class="k">WHERE</span> <span class="n">sm</span><span class="p">.</span><span class="n">company_code</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">company_code</span> <span class="p">),</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">manager_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Manager</span> <span class="n">m</span>  <span class="k">WHERE</span> <span class="n">m</span><span class="p">.</span><span class="n">company_code</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">company_code</span> <span class="p">),</span>
+  <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">employee_code</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">Employee</span> <span class="n">e</span>  <span class="k">WHERE</span> <span class="n">e</span><span class="p">.</span><span class="n">company_code</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">company_code</span> <span class="p">)</span>
+  
+<span class="k">FROM</span> <span class="n">COMPANY</span> <span class="k">C</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">company_code</span></code></pre></figure>
+
+<h2 id="advanced-join">Advanced join</h2>
+
+<h4 id="projects">Projects</h4>
+
+<blockquote>
+  <p>You are given a table, Projects, containing three columns: Task_ID, Start_Date and End_Date. It is guaranteed that the difference between the End_Date and the Start_Date is equal to 1 day for each row in the table. If the End_Date of the tasks are consecutive, then they are part of the same project. Samantha is interested in finding the total number of different projects completed.Write a query to output the start and end dates of projects listed by the number of days it took to complete the project in ascending order. If there is more than one project that have the same number of completion days, then order by the start date of the project.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">Start_Date</span><span class="p">,</span> <span class="k">min</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">End_Date</span><span class="p">)</span> <span class="k">FROM</span> <span class="p">(</span> 
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">Start_Date</span> <span class="k">FROM</span> <span class="n">Projects</span> <span class="n">p</span> <span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Projects</span> <span class="k">WHERE</span> <span class="n">End_Date</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">Start_Date</span><span class="p">))</span> <span class="n">a</span><span class="p">,</span> 
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">End_Date</span> <span class="k">FROM</span> <span class="n">Projects</span> <span class="n">p</span> <span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Projects</span> <span class="k">WHERE</span> <span class="n">Start_Date</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">End_Date</span><span class="p">))</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">a</span><span class="p">.</span><span class="n">Start_Date</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">End_Date</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">a</span><span class="p">.</span><span class="n">Start_Date</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">End_Date</span><span class="p">),</span> <span class="n">a</span><span class="p">.</span><span class="n">Start_Date</span><span class="p">)</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">Start_Date</span> <span class="k">ASC</span><span class="p">;</span></code></pre></figure>
+
+<h4 id="placements">Placements</h4>
+<blockquote>
+  <p>You are given three tables: Students, Friends and Packages. Students contains two columns: ID and Name. Friends contains two columns: ID and Friend_ID (ID of the ONLY best friend). Packages contains two columns: ID and Salary (offered salary in $ thousands per month).Write a query to output the names of those students whose best friends got offered a higher salary than them. Names must be ordered by the salary amount offered to the best friends. It is guaranteed that no two students got same salary offer.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="n">Students</span> <span class="n">s</span>
+  <span class="k">JOIN</span> <span class="n">Friends</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">id</span>
+  <span class="k">JOIN</span> <span class="n">Students</span> <span class="n">sf</span> <span class="k">ON</span> <span class="n">sf</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">Friend_ID</span>
+  <span class="k">JOIN</span> <span class="n">Packages</span> <span class="n">ps</span> <span class="k">ON</span> <span class="n">s</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">ps</span><span class="p">.</span><span class="n">id</span>
+  <span class="k">JOIN</span> <span class="n">Packages</span> <span class="n">pf</span> <span class="k">ON</span> <span class="n">sf</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">pf</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span> <span class="n">pf</span><span class="p">.</span><span class="n">Salary</span> <span class="o">&gt;</span> <span class="n">ps</span><span class="p">.</span><span class="n">Salary</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">pf</span><span class="p">.</span><span class="n">Salary</span></code></pre></figure>
+
+<h4 id="symmetric-pairs">Symmetric Pairs</h4>
+
+<blockquote>
+  <p>You are given a table, Functions, containing two columns: X and Y. Two pairs (X1, Y1) and (X2, Y2) are said to be symmetric pairs if X1 = Y2 and X2 = Y1.Write a query to output all such symmetric pairs in ascending order by the value of X.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span> <span class="k">FROM</span> <span class="n">Functions</span> <span class="n">f1</span>
+  <span class="k">JOIN</span> <span class="n">Functions</span> <span class="n">f2</span> <span class="k">ON</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="o">=</span><span class="n">f2</span><span class="p">.</span><span class="n">Y</span> <span class="k">AND</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span><span class="o">=</span><span class="n">f2</span><span class="p">.</span><span class="n">X</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="n">f1</span><span class="p">.</span><span class="n">Y</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span> <span class="k">or</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span><span class="o">&lt;</span><span class="n">f1</span><span class="p">.</span><span class="n">Y</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">f1</span><span class="p">.</span><span class="n">X</span> </code></pre></figure>
+
+<h4 id="interviews">Interviews</h4>
+
+<blockquote>
+  <p>Samantha interviews many candidates from different colleges using coding challenges and contests. Write a query to print the contest_id, hacker_id, name, and the sums of total_submissions, total_accepted_submissions, total_views, and total_unique_views for each contest sorted by contest_id. Exclude the contest from the result if all four sums are 0.</p>
+</blockquote>
+
+<p>Note: A specific contest can be used to screen candidates at more than one college, but each college only holds 1 screening contest.</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">contests</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">col</span><span class="p">.</span><span class="n">s</span><span class="p">,</span> <span class="n">col</span><span class="p">.</span><span class="n">asb</span><span class="p">,</span> <span class="n">col</span><span class="p">.</span><span class="n">v</span><span class="p">,</span> <span class="n">col</span><span class="p">.</span><span class="n">uv</span> <span class="k">FROM</span>
+<span class="n">contests</span>
+<span class="k">JOIN</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="n">colleges</span><span class="p">.</span><span class="n">contest_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">subs</span><span class="p">)</span> <span class="n">s</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">asabs</span><span class="p">)</span> <span class="n">asb</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">views</span><span class="p">)</span> <span class="n">v</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">uviews</span><span class="p">)</span> <span class="n">uv</span>
+<span class="k">FROM</span> <span class="n">colleges</span>
+<span class="k">JOIN</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="n">college_id</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n">ts</span><span class="p">)</span> <span class="n">subs</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n">tas</span><span class="p">)</span> <span class="n">asabs</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">vs</span><span class="p">.</span><span class="n">tv</span><span class="p">)</span> <span class="n">views</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">vs</span><span class="p">.</span><span class="n">tuv</span><span class="p">)</span> <span class="n">uviews</span>
+<span class="k">FROM</span> <span class="n">challenges</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> 
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">challenge_id</span> <span class="n">chid</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">total_submissions</span><span class="p">)</span> <span class="n">ts</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">total_accepted_submissions</span><span class="p">)</span> <span class="n">tas</span>
+  <span class="k">FROM</span> <span class="n">submission_stats</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">challenge_id</span><span class="p">)</span> <span class="n">ss</span>
+    <span class="k">ON</span> <span class="n">ss</span><span class="p">.</span><span class="n">chid</span> <span class="o">=</span> <span class="n">challenges</span><span class="p">.</span><span class="n">challenge_id</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> 
+  <span class="p">(</span><span class="k">SELECT</span> <span class="n">challenge_id</span> <span class="n">chid</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">total_views</span><span class="p">)</span> <span class="n">tv</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">total_unique_views</span><span class="p">)</span> <span class="n">tuv</span>
+  <span class="k">FROM</span> <span class="n">view_stats</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">challenge_id</span><span class="p">)</span> <span class="n">vs</span>
+    <span class="k">ON</span> <span class="n">vs</span><span class="p">.</span><span class="n">chid</span> <span class="o">=</span> <span class="n">challenges</span><span class="p">.</span><span class="n">challenge_id</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">college_id</span><span class="p">)</span> <span class="n">cr</span>
+<span class="k">ON</span> <span class="n">colleges</span><span class="p">.</span><span class="n">college_id</span> <span class="o">=</span> <span class="n">cr</span><span class="p">.</span><span class="n">college_id</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">colleges</span><span class="p">.</span><span class="n">contest_id</span>
+<span class="k">HAVING</span> <span class="n">s</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">AND</span> <span class="n">asb</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">uv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="n">col</span>
+  <span class="k">ON</span> <span class="n">contests</span><span class="p">.</span><span class="n">contest_id</span> <span class="o">=</span> <span class="n">col</span><span class="p">.</span><span class="n">contest_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">contests</span><span class="p">.</span><span class="n">contest_id</span></code></pre></figure>
+
+<h4 id="15-days-of-learning-sql">15 Days of Learning SQL</h4>
+
+<blockquote>
+  <p>Julia conducted a 15 days of learning SQL contest. The start date of the contest was March 01, 2016 and the end date was March 15, 2016.Write a query to print total number of unique hackers who made at least 1 submission each day (starting on the first day of the contest), and find the hacker_id and name of the hacker who made maximum number of submissions each day. If more than one such hacker has a maximum number of submissions, print the lowest hacker_id. The query should print this information for each day of the contest, sorted by the date.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="o">@</span><span class="n">day_rank</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">v</span><span class="p">.</span><span class="n">sd</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">uc</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">mhid</span><span class="p">,</span> <span class="n">h</span><span class="p">.</span><span class="n">name</span>  <span class="k">FROM</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">c</span><span class="p">.</span><span class="n">sd</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">b</span><span class="p">.</span><span class="n">hid</span><span class="p">)</span> <span class="n">uc</span> <span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">sd</span><span class="p">,</span> <span class="o">@</span><span class="n">day_rank</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">day_rank</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">rank</span>
+    <span class="k">FROM</span> <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="n">s</span><span class="p">.</span><span class="n">submission_date</span> <span class="n">sd</span>
+        <span class="k">FROM</span> <span class="n">submissions</span> <span class="n">s</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">s</span><span class="p">.</span><span class="n">submission_date</span>
+    <span class="p">)</span> <span class="n">a</span>
+<span class="p">)</span> <span class="k">c</span>
+
+<span class="k">JOIN</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">s2</span><span class="p">.</span><span class="n">submission_date</span> <span class="n">sd</span><span class="p">,</span> <span class="n">s2</span><span class="p">.</span><span class="n">hacker_id</span> <span class="n">hid</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">s3</span><span class="p">.</span><span class="n">submission_date</span><span class="p">)</span> <span class="n">cnt</span>
+    <span class="k">FROM</span> <span class="n">submissions</span> <span class="n">s2</span>
+    <span class="k">JOIN</span> <span class="n">submissions</span> <span class="n">s3</span>
+        <span class="k">ON</span> <span class="n">s2</span><span class="p">.</span><span class="n">hacker_id</span> <span class="o">=</span> <span class="n">s3</span><span class="p">.</span><span class="n">hacker_id</span> <span class="k">AND</span> <span class="n">s2</span><span class="p">.</span><span class="n">submission_date</span> <span class="o">&gt;=</span> <span class="n">s3</span><span class="p">.</span><span class="n">submission_date</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">s2</span><span class="p">.</span><span class="n">submission_date</span><span class="p">,</span> <span class="n">s2</span><span class="p">.</span><span class="n">hacker_id</span>
+<span class="p">)</span> <span class="n">b</span>
+    <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">sd</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">sd</span> <span class="k">AND</span> <span class="n">b</span><span class="p">.</span><span class="n">cnt</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">rank</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">c</span><span class="p">.</span><span class="n">sd</span><span class="p">)</span> <span class="n">v</span>
+
+<span class="k">JOIN</span> <span class="p">(</span>
+<span class="k">SELECT</span> <span class="n">submission_date</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">hacker_id</span><span class="p">)</span> <span class="n">mhid</span>
+<span class="k">FROM</span> <span class="p">(</span>
+<span class="k">SELECT</span> <span class="n">submission_date</span><span class="p">,</span> <span class="n">hacker_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">submission_id</span><span class="p">)</span> <span class="n">cnt</span>
+<span class="k">FROM</span> <span class="n">submissions</span> <span class="n">s</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">submission_date</span><span class="p">,</span> <span class="n">hacker_id</span>
+<span class="k">HAVING</span> <span class="n">cnt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">submission_date</span><span class="p">,</span> <span class="n">hacker_id</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">submission_id</span><span class="p">)</span> <span class="n">cnt</span>
+    <span class="k">FROM</span> <span class="n">submissions</span>
+    <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">submission_date</span><span class="p">,</span> <span class="n">hacker_id</span>
+<span class="p">)</span> <span class="n">d</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">submission_date</span>
+<span class="k">HAVING</span> <span class="n">submission_date</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">submission_date</span>
+<span class="p">)</span> <span class="p">)</span><span class="n">x</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">submission_date</span>
+<span class="p">)</span> <span class="n">b</span>
+
+<span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">submission_date</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">sd</span>
+<span class="k">JOIN</span> <span class="n">hackers</span> <span class="n">h</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">mhid</span> <span class="o">=</span> <span class="n">h</span><span class="p">.</span><span class="n">hacker_id</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">v</span><span class="p">.</span><span class="n">sd</span></code></pre></figure>
+
+<h2 id="aggregation">Aggregation</h2>
+
+<h4 id="revising-aggregations---the-count-function">Revising Aggregations - The Count Function</h4>
+
+<blockquote>
+  <p>Query a count of the number of cities in CITY having a Population larger than 100 000.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">WHERE</span> <span class="n">POPULATION</span> <span class="o">&gt;</span> <span class="mi">100000</span></code></pre></figure>
+
+<h4 id="revising-aggregations---the-sum-function">Revising Aggregations - The Sum Function</h4>
+
+<blockquote>
+  <p>Query the total population of all cities in CITY where District is California.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">DISTRICT</span> <span class="o">=</span> <span class="s1">'California'</span></code></pre></figure>
+
+<h4 id="revising-aggregations---averages">Revising Aggregations - Averages</h4>
+
+<blockquote>
+  <p>Query the average population of all cities in CITY where District is California.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">WHERE</span> <span class="n">DISTRICT</span> <span class="o">=</span> <span class="s1">'California'</span></code></pre></figure>
+
+<h4 id="average-population">Average Population</h4>
+
+<blockquote>
+  <p>Query the average population for all cities in CITY, rounded down to the nearest integer.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">CITY</span></code></pre></figure>
+
+<h4 id="japan-population">Japan Population</h4>
+
+<blockquote>
+  <p>Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">WHERE</span> <span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="s1">'JPN'</span></code></pre></figure>
+
+<h4 id="population-density-difference">Population Density Difference</h4>
+
+<blockquote>
+  <p>Query the difference between the maximum and minimum populations in CITY.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="o">-</span> <span class="k">MIN</span><span class="p">(</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span></code></pre></figure>
+
+<h4 id="the-blunder">The Blunder</h4>
+<blockquote>
+  <p>Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard’s  key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeroes removed), and the actual average salary.Write a query calculating the amount of error (i.e.:  average monthly salaries), and round it up to the next integer.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CEIL</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">Salary</span><span class="p">)</span> <span class="o">-</span> <span class="k">AVG</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="n">Salary</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="k">AS</span> <span class="n">UNSIGNED</span><span class="p">)))</span> <span class="k">FROM</span> <span class="n">EMPLOYEES</span></code></pre></figure>
+
+<h4 id="top-earners">Top Earners</h4>
+
+<blockquote>
+  <p>We define an employee’s total earnings to be their monthly  worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as  space-separated integers.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="p">(</span><span class="n">SALARY</span> <span class="o">*</span> <span class="n">MONTHS</span><span class="p">)</span> <span class="n">INC</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">EMPLOYEE_ID</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">Employee</span> <span class="n">E</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">INC</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">INC</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="weather-observation-station-2">Weather Observation Station 2</h4>
+
+<blockquote>
+  <p>Query the following two values from the STATION table:</p>
+</blockquote>
+
+<blockquote>
+  <p>The sum of all values in LAT_N rounded to a scale of  decimal places.
+The sum of all values in LONG_W rounded to a scale of  decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span></code></pre></figure>
+
+<h4 id="weather-observation-station-13">Weather Observation Station 13</h4>
+<blockquote>
+  <p>Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345 . Truncate your answer to 4 decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">TRUNCATE</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="k">BETWEEN</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7880</span> <span class="k">AND</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span></code></pre></figure>
+
+<h4 id="weather-observation-station-14">Weather Observation Station 14</h4>
+<blockquote>
+  <p>Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345 . Truncate your answer to 4 decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">TRUNCATE</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&lt;</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="weather-observation-station-15">Weather Observation Station 15</h4>
+
+<blockquote>
+  <p>Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to 4 decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&lt;</span> <span class="mi">137</span><span class="p">.</span><span class="mi">2345</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="weather-observation-station-16">Weather Observation Station 16</h4>
+
+<blockquote>
+  <p>Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to  decimal 4 places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7780</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">ASC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="weather-observation-station-17">Weather Observation Station 17</h4>
+<blockquote>
+  <p>Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Round your answer to 4 decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">&gt;</span> <span class="mi">38</span><span class="p">.</span><span class="mi">7780</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="k">ASC</span>
+<span class="k">LIMIT</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="weather-observation-station-18">Weather Observation Station 18</h4>
+
+<blockquote>
+  <p>Consider P1(A,B) and P2(C,D) to be two points on a 2D plane.</p>
+</blockquote>
+
+<blockquote>
+  <p>A happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+B happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+C happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+D happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+Query the Manhattan Distance between points  and  and round it to a scale of  decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">ABS</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LONG_W</span> <span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">))</span> <span class="o">+</span> <span class="k">ABS</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span> <span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span></code></pre></figure>
+
+<h4 id="weather-observation-station-19">Weather Observation Station 19</h4>
+
+<blockquote>
+  <p>Consider P1(A,C) and P2(B,D) to be two points on a 2D plane where (A,B) are the respective minimum and maximum values of Northern Latitude (LAT_N) and (C,D) are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.Query the Euclidean Distance between points  and  and format your answer to display 4 decimal digits.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">TRUNCATE</span><span class="p">(</span><span class="n">SQRT</span><span class="p">(</span><span class="n">POWER</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">POWER</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">)</span> <span class="o">-</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">),</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span></code></pre></figure>
+
+<h4 id="weather-observation-station-20">Weather Observation Station 20</h4>
+
+<blockquote>
+  <p>A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="o">@</span><span class="n">rownum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> 
+<span class="k">FROM</span>
+<span class="p">(</span> <span class="k">SELECT</span> <span class="o">@</span><span class="n">rownum</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">rownum</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">AS</span> <span class="n">rank</span><span class="p">,</span> <span class="n">LAT_N</span> <span class="k">AS</span> <span class="n">l</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">LAT_N</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">WHERE</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">CEIL</span><span class="p">((</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="alternative-queries">Alternative queries</h2>
+
+<h4 id="draw-the-triangle-1">Draw The Triangle 1</h4>
+
+<blockquote>
+  <p>P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+    <strong>***
+    **</strong>
+    ***
+    **
+    *
+    Write a query to print the pattern P(20).</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELIMITER</span> <span class="o">//</span>
+<span class="k">Begin</span> 
+<span class="k">Declare</span> <span class="n">i</span> <span class="n">INT</span> <span class="k">Default</span> <span class="mi">0</span><span class="p">;</span> 
+      <span class="n">While</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">DO</span> 
+            <span class="k">set</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span><span class="mi">1</span><span class="p">;</span> 
+      <span class="k">End</span> <span class="n">while</span><span class="p">;</span> 
+<span class="k">End</span><span class="o">//</span></code></pre></figure>
+
+<h4 id="draw-the-triangle-2">Draw The Triangle 2</h4>
+
+<blockquote>
+  <p>P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+    *
+    **
+    <strong>*
+    **</strong>
+    *****
+    Write a query to print the pattern P(20).</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span> <span class="o">@</span><span class="n">i</span> <span class="n">INT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">WHILE</span> <span class="p">(</span><span class="o">@</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="k">BEGIN</span>
+   <span class="n">PRINT</span> <span class="n">REPLICATE</span><span class="p">(</span><span class="s1">'* '</span><span class="p">,</span> <span class="o">@</span><span class="n">i</span><span class="p">)</span> 
+   <span class="k">SET</span> <span class="o">@</span><span class="n">i</span> <span class="o">=</span> <span class="o">@</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">END</span></code></pre></figure>
+
+<h4 id="print-prime-numbers">Print prime numbers</h4>
+
+<blockquote>
+  <p>Write a query to print all prime numbers less than or equal to 1000. Print your result on a single line, and use the ampersand (&amp;) character as your separator (instead of a space).
+For example, the output for all prime numbers  &lt;= 10 would be: 2&amp;3&amp;5&amp;7</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SET</span> <span class="n">group_concat_max_len</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">GROUP_CONCAT</span><span class="p">(</span><span class="n">nmb</span> <span class="n">SEPARATOR</span> <span class="s1">'&amp;'</span><span class="p">)</span> <span class="k">FROM</span>
+<span class="p">(</span>
+    <span class="k">SELECT</span> <span class="o">@</span><span class="n">count3</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">count3</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">nmb</span>
+    <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t1</span><span class="p">,</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t2</span> <span class="p">,(</span> <span class="k">SELECT</span> <span class="o">@</span><span class="n">count3</span> <span class="p">:</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="n">f</span>
+    <span class="k">WHERE</span> <span class="o">@</span><span class="n">count3</span> <span class="o">&lt;</span> <span class="mi">1000</span>
+<span class="p">)</span> <span class="k">g</span>
+<span class="k">WHERE</span> <span class="n">nmb</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="k">c</span><span class="p">.</span><span class="n">n</span> 
+    <span class="k">FROM</span>
+        <span class="p">(</span>
+            <span class="k">SELECT</span> <span class="o">@</span><span class="k">count</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="k">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">n</span>
+            <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t1</span><span class="p">,</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t2</span><span class="p">,(</span> <span class="k">SELECT</span> <span class="o">@</span><span class="k">count</span> <span class="p">:</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="n">a</span>
+            <span class="k">WHERE</span> <span class="o">@</span><span class="k">count</span> <span class="o">&lt;</span> <span class="mi">1000</span>
+        <span class="p">)</span> <span class="k">c</span><span class="p">,</span>
+        <span class="p">(</span>
+            <span class="k">SELECT</span> <span class="o">@</span><span class="n">count2</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">count2</span> <span class="o">+</span> <span class="mi">1</span> <span class="n">n</span>
+            <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t1</span><span class="p">,</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="n">t2</span><span class="p">,(</span> <span class="k">SELECT</span> <span class="o">@</span><span class="n">count2</span> <span class="p">:</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="n">b</span>
+            <span class="k">WHERE</span> <span class="o">@</span><span class="n">count2</span> <span class="o">&lt;</span> <span class="mi">1000</span>
+        <span class="p">)</span> <span class="n">d</span>
+    <span class="k">WHERE</span> <span class="k">c</span><span class="p">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">n</span> <span class="k">AND</span> <span class="k">c</span><span class="p">.</span><span class="n">n</span> <span class="o">%</span> <span class="n">d</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span></code></pre></figure>
+
+
+  </div><a class="u-url" href="/instamart-academic-plan/2018/11/11/hackerrank-solutions.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>
