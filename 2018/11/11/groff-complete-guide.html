@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Тезисы | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Тезисы" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="SQL появился как исследовательский продукт фирмы IBM. Изначально назывался SEQUEL - Structured English Query Language но был переименован из-за конфликта прав." />
+<meta property="og:description" content="SQL появился как исследовательский продукт фирмы IBM. Изначально назывался SEQUEL - Structured English Query Language но был переименован из-за конфликта прав." />
+<link rel="canonical" href="/2018/11/11/groff-complete-guide.html" />
+<meta property="og:url" content="/2018/11/11/groff-complete-guide.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-11T20:53:21+03:00" />
+<script type="application/ld+json">
+{"url":"/2018/11/11/groff-complete-guide.html","description":"SQL появился как исследовательский продукт фирмы IBM. Изначально назывался SEQUEL - Structured English Query Language но был переименован из-за конфликта прав.","headline":"Тезисы","datePublished":"2018-11-11T20:53:21+03:00","dateModified":"2018-11-11T20:53:21+03:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/2018/11/11/groff-complete-guide.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Your awesome title" /></head>
+<body>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Тезисы</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-11-11T20:53:21+03:00" itemprop="datePublished">Nov 11, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><strong>SQL</strong> появился как исследовательский продукт  фирмы IBM. Изначально назывался <strong>SEQUEL</strong> - <strong>S</strong>tructured <strong>E</strong>nglish <strong>Que</strong>ry <strong>L</strong>anguage но был переименован из-за конфликта прав.</p>
+
+<p>Возможности:</p>
+
+<ul>
+  <li><strong>Определение данных</strong> позволяет определить структуру и оргинизацию хранимых данных</li>
+  <li><strong>Выборка данных</strong> позволяет извлекать данные</li>
+  <li><strong>Обработка данных</strong> позволяет добавлять, изменять и удалять данные</li>
+  <li><strong>Управление доступом</strong> ограничивает возможности выборки и изменения</li>
+  <li><strong>Совместное использование</strong> одновременное редактирование без потери данных</li>
+  <li><strong>Контроль целостности</strong> защита от несогласованного изменения или отказа системы</li>
+</ul>
+
+<p>SQL - декларативный язык</p>
+
+<h3 id="ключевые-свойства">Ключевые свойства:</h3>
+
+<ul>
+  <li><strong>Независимость</strong> от конкретной СУБД</li>
+  <li><strong>Межплатформенная переносимость</strong></li>
+  <li><strong>Наличие стандартов</strong></li>
+  <li><strong>поддержка IBM</strong></li>
+  <li><strong>поддержка Microsoft</strong></li>
+  <li><strong>Реляционная модель</strong></li>
+  <li><strong>Похож на естественный язык</strong></li>
+  <li><strong>Интерактивные запросы</strong></li>
+  <li><strong>Програмный доступ к БД</strong></li>
+  <li><strong>Возможность различного представления данных</strong></li>
+  <li><strong>Полноценность</strong> в качестве языка работы с БД</li>
+  <li><strong>Возможность динамического определения данных</strong></li>
+  <li><strong>Поддержка архитектуры клиент/сервер</strong></li>
+  <li><strong>Поддержка приложений уровня предприятия</strong></li>
+  <li><strong>Расширяемость</strong> и поддержка объектно-ориентированных технологий</li>
+  <li><strong>Возможность доступа к данным в интернете</strong></li>
+  <li><strong>JDBC</strong> Интеграция м Java</li>
+  <li><strong>Поддержка открытого кода</strong></li>
+  <li><strong>Промышленная инфраструктура</strong></li>
+</ul>
+
+<p>SQL обеспечивает независимость от конкретных СУБД</p>
+
+<p>Microsoft поддерживает SQL через ODBC - Open Database Connectivity</p>
+
+<h3 id="проблемы-переносимости">Проблемы переносимости</h3>
+
+<ul>
+  <li><strong>Типы данных</strong></li>
+  <li><strong>Обратная совместимость</strong></li>
+  <li><strong>Системные таблицы</strong> - информация о структуре БД</li>
+  <li><strong>Програмный интерфейс</strong></li>
+  <li><strong>Семантические отличия</strong> - разные результаты выполнения одного запроса</li>
+  <li><strong>Репликация и зеркалирование</strong> - реализрваны по разному</li>
+  <li><strong>Коды ошибок</strong></li>
+  <li><strong>Структура</strong> - именование и установка подключений</li>
+</ul>
+
+<h3 id="архитектура">Архитектура</h3>
+
+<ul>
+  <li><strong>Централизованная</strong> - Приложение и БД на одном сервере. Плохо масштабируется</li>
+  <li><strong>Файловый сервер</strong> - Одна база на сервере и СУБД на каждом клиенте</li>
+  <li><strong>Клиент/Сервер</strong> - БД и СУБД на сервере, клиент передаёт запросы</li>
+</ul>
+
+<h3 id="многоуровневая-архитектура">Многоуровневая архитектура</h3>
+
+<ul>
+  <li><strong>Клиентский уровень</strong> тонкий клиент - сайт, мобильное приложение</li>
+  <li><strong>Прикладной уровень</strong> Веб-сервер, сервер приложения</li>
+  <li><strong>Серверный уровень</strong> Сервер баз данных</li>
+</ul>
+
+<h3 id="модели-данных">Модели данных</h3>
+
+<ul>
+  <li><strong>Иерархическая</strong> - записи организованы в структуру предок-потомок
+    <ul>
+      <li><strong>Доступ к записям</strong>
+        <ul>
+          <li>Найти по ID</li>
+          <li>Перейти к предку</li>
+          <li>Перейти к потомку</li>
+          <li>Перейти к соседу</li>
+        </ul>
+      </li>
+      <li><strong>Характеристики</strong>
+        <ul>
+          <li>Производительность</li>
+          <li>Простая структура</li>
+          <li>ассоциация предок-потомок через указатель</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Сетевая</strong> - одна запись может быть частью нескольких отношений предок-потомок (принадлежит множеству)
+    <ul>
+      <li><strong>Доступ к данным</strong>
+        <ul>
+          <li>Найти по ID</li>
+          <li>перейти к первому потомку множества</li>
+          <li>перейти по горизонтали внутри множества</li>
+          <li>перейти вверх в другое множество</li>
+        </ul>
+      </li>
+      <li><strong>Характеристики</strong>
+        <ul>
+          <li>Гибкость структуры</li>
+          <li>Стандартизация (стандарт CODASYL)</li>
+          <li>Производительность</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="недостатки-сетевой-и-иерархической-модели">Недостатки сетевой и иерархической модели</h3>
+
+<ul>
+  <li>Сложные статистические запросы</li>
+  <li>Реализация каждого запроса отдельной программой</li>
+  <li>Жёсткая структура</li>
+</ul>
+
+<h3 id="реляционная-модель---табличная-структура-данных"><strong>Реляционная модель</strong> - табличная структура данных</h3>
+
+<p><strong>Реляционной</strong> называется БД в которой все данные организованны в виде таблиц и все операции выполняются над этими таблицами.</p>
+
+<p>Отношение предок-потомок реализовано через значения в таблицах</p>
+
+<p><strong>Домен столбца</strong> - множество значений, которые могут в нём содержаться</p>
+
+<p><strong>Отношение</strong> (relation) - мат. термин для таблицы, все строки которой различны между собой (в бд достигается за счёт уникального внешнего ключа)</p>
+
+<h3 id="12-правил-кодда-тед-кодд---создатель-реляционной-модели">12 Правил Кодда (Тед Кодд - создатель реляционной модели)</h3>
+
+<ol>
+  <li><strong>Правило представления информации</strong> - Вся информация представлена только на логическом уровне и только в виде значений таблиц</li>
+  <li><strong>Правило гарантированного доступа</strong> - Доступ к каждому элементу данных возможен по комбинации имени таблицы, столбца и ID</li>
+  <li><strong>Систематическая трактовка значений NULL</strong> - используются для обозначения неизвестной или неприменимой информации и ничему не равны</li>
+  <li><strong>Правило динамического католога, основанного на реляционной модели</strong> - Описание БД на логическом уровне должно быть представлено в том же виде, что и данные, и могло быть изменено с помощью того жу языка</li>
+  <li>
+    <p><strong>Правило исчерпывающего подъязыка данных</strong> - система может поддерживать несколько языков, хотя бы один, инструкции которого можно представить в виде строк символов в соответствии с точно определённым синтаксисом и который поддерживает:</p>
+
+    <ul>
+      <li>Определение данных</li>
+      <li>Определение представлений</li>
+      <li>Обработку данных</li>
+      <li>Ограничение целостности данных</li>
+      <li>Авторизацию</li>
+      <li>Границы транзакций (Начало, фиксацию и откат)</li>
+    </ul>
+  </li>
+  <li><strong>Правило обновления представлений</strong> - Все представления, которые можно обновить, должны быть доступны для обновления</li>
+  <li><strong>Правило высокоуровневого обновления, добавления и удаления</strong> - операции вставки, обновления и удаления должны быть применимы к отношению в целом</li>
+  <li><strong>Правило физической независимости данных</strong> - Прикладные программы и утилиты должны оставаться независимыми при изменении способов хранения данных или методов доступа к ним</li>
+  <li><strong>Правило логической независимости данных</strong> -  Прикладные программы и утилиты должны оставаться нетронутыми при внесении в базовые таблицы любых изменений</li>
+  <li><strong>Правило независимости контроля целостности</strong> - Вся информация, необходимая для поддержания целостности, должна находиться в БД. Язык для работы с данными должен выполнять проверку входных данных и автоматически поддерживать целостность данных</li>
+  <li><strong>Независимость от расположения</strong> - БД может быть распределённой, может находиться на нескольких компьютерах, и это не должно оказывать влияния на приложения. Перенос базы данных на другой компьютер не должен оказывать влияния на приложения.</li>
+  <li><strong>Согласование языковых уровней</strong> - Если используется низкоуровневый язык доступа к данным, он не должен игнорировать правила безопасности и правила целостности, которые поддерживаются языком более высокого уровня.</li>
+</ol>
+
+<h3 id="выборка-данных">Выборка данных</h3>
+
+<p>В операторе <code class="highlighter-rouge">LIKE</code> управляющий символ может быть задан явно <code class="highlighter-rouge">WHERE ... LIKE 'A$%BC' ESCAPE '$'</code></p>
+
+<p><code class="highlighter-rouge">NATURAL JOIN</code> - соединение по всем одноимённым столбцам, <code class="highlighter-rouge">JOIN USING(A, B)</code> соединение по перечисленным одноимённым столбцам</p>
+
+<p>Декартово произведение таблиц - таблица из всех возможных пар строк обеих таблиц</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>T3</th>
+      <th>T4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>c</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>d</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+      <th>T3</th>
+      <th>T4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a</td>
+      <td>1</td>
+      <td>c</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>1</td>
+      <td>d</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>2</td>
+      <td>c</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>2</td>
+      <td>d</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Соединением таблиц является их произведение, из которого исключены некоторые строки</p>
+
+<p>Перекрёстное соединение (<code class="highlighter-rouge">CROSS JOIN</code>) - декартово произведение таблиц, равнозначно <code class="highlighter-rouge">SELECT * FROM A,B</code></p>
+
+<p>Соединение возможно по неравенству <code class="highlighter-rouge">JOIN ON A &gt; B</code></p>
+
+<p><code class="highlighter-rouge">UNION JOIN</code> (не поддерживается ни одной БД) - Полное внешнее соединение минус внутреннее</p>
+
+<h5 id="girls">GIRLS</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>surname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lisa</td>
+      <td>Smitt</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Wessonn</td>
+    </tr>
+  </tbody>
+</table>
+
+<h6 id="boys">BOYS</h6>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>surname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Joue</td>
+      <td>Doue</td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Daniels</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">GIRLS</span> <span class="k">UNION</span> <span class="k">JOIN</span> <span class="n">BOYS</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>surname</th>
+      <th>name</th>
+      <th>surname</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lisa</td>
+      <td>Smitt</td>
+      <td>NULL</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>Ann</td>
+      <td>Wessonn</td>
+      <td>NULL</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>NULL</td>
+      <td>Joue</td>
+      <td>Doue</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>NULL</td>
+      <td>John</td>
+      <td>Daniels</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>По стандарту SQL1</p>
+
+<p>Статистические функции не могут быть вложенными</p>
+
+<p>Нельзя одновременно вывести столбец и статистическую функцию<code class="highlighter-rouge">SELECT name, SUM(age)</code></p>
+
+<p>NULL Игнорируется статистическими функциями (но есть исключения)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">SELECT COUNT(*)</code> =&gt; 3
+<code class="highlighter-rouge">SELECT COUNT(A)</code> =&gt; 3 
+<code class="highlighter-rouge">SELECT COUNT(B)</code> =&gt; 2</p>
+
+<p><code class="highlighter-rouge">SUM(A) + SUM(B)</code> =&gt; 15
+<code class="highlighter-rouge">SUM(A + B)</code> =&gt; 13 (2 + NULL = NULL)</p>
+
+<p><code class="highlighter-rouge">DISTINCT</code> можно использовать внутри статистической функции чтобы применить её к неповторяющимся значениям</p>
+
+<p><code class="highlighter-rouge">DISTINCT</code> можно использовать только один раз за запрос</p>
+
+<h4 id="общая-сумма-заказов-для-каждого-клиента-по-каждому-служащему">Общая сумма заказов для каждого клиента по каждому служащему</h4>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql">  
+  <span class="k">SELECT</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">ORDERS</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>REP</th>
+      <th>CUST</th>
+      <th>SUM(AMOUNT)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>101</td>
+      <td>2102</td>
+      <td>3978</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2108</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2113</td>
+      <td>22500</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2106</td>
+      <td>4026</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2114</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2120</td>
+      <td>3750</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>2111</td>
+      <td>2700</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="общая-сумма-заказов-по-каждому-клиенту-для-каждого-служащего-с-промежуточными-итогами-для-каждого-служащего">Общая сумма заказов по каждому клиенту для каждого служащего с промежуточными итогами для каждого служащего</h4>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ORDERS</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span>
+<span class="k">WITH</span> <span class="k">ROLLUP</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>REP</th>
+      <th>CUST</th>
+      <th>SUM(AMOUNT)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>101</td>
+      <td>2102</td>
+      <td>3978</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2108</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2113</td>
+      <td>22500</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>NULL</td>
+      <td>26628</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2106</td>
+      <td>4026</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2114</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2120</td>
+      <td>3750</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>NULL</td>
+      <td>22776</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>2111</td>
+      <td>2700</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>NULL</td>
+      <td>2700</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="сумма-заказов-для-каждого-служащего-с-промежуточными-итогами-для-каждого-служащего-и-клиента">Сумма заказов для каждого служащего с промежуточными итогами для каждого служащего и клиента</h4>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ORDERS</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">REP</span><span class="p">,</span> <span class="n">CUST</span>
+<span class="k">WITH</span> <span class="k">CUBE</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>REP</th>
+      <th>CUST</th>
+      <th>SUM(AMOUNT)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>101</td>
+      <td>NULL</td>
+      <td>26628</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2102</td>
+      <td>3978</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2108</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>2113</td>
+      <td>22500</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>NULL</td>
+      <td>2276</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2106</td>
+      <td>4026</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2114</td>
+      <td>15000</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>2120</td>
+      <td>3750</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>NULL</td>
+      <td>2700</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>2111</td>
+      <td>2700</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>NULL</td>
+      <td>247691</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>2101</td>
+      <td>1458</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>2102</td>
+      <td>3978</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>2103</td>
+      <td>35582</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>2106</td>
+      <td>4026</td>
+    </tr>
+    <tr>
+      <td>NULL</td>
+      <td>2107</td>
+      <td>23132</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>GROUP BY считает что <code class="highlighter-rouge">NULL = NULL</code> при условии равенства всех остальных значений в строке</p>
+
+<p>В подзапросе внешним называется значение, которое берётся из внешнего запроса</p>
+
+<p>При одинаковом имени столбца в запросе и подзапросе выражение будет относиться к ближайшему <code class="highlighter-rouge">FROM</code></p>
+
+<p>Стандарт SQL1</p>
+
+<ul>
+  <li>Ограничивается простыми запросами (<code class="highlighter-rouge">SELECT</code>, <code class="highlighter-rouge">GROUP BY</code>, <code class="highlighter-rouge">HAVING</code>, подзапросы)</li>
+  <li>Отсутствуют средства принятия решений (<code class="highlighter-rouge">IF/ELSE</code>, <code class="highlighter-rouge">CASE WHEN</code>)</li>
+  <li>Ограничения на подзапросы - нельзя сравнивать между собой, подзапрос всегда должен быть справа от оператора сравнения</li>
+  <li>Ограничены выражения со строками таблицы, нельзя выбрать строки подходящие под одно условие из списка (только через цепочку <code class="highlighter-rouge">AND/OR</code>)</li>
+  <li>нельзя включать подзапросы в <code class="highlighter-rouge">FROM</code> (<code class="highlighter-rouge">SELECT * FROM (SELECT ... )</code> )</li>
+</ul>
+
+<p>Скалярные значения:</p>
+<ul>
+  <li>Значение отдельного столбца отдельной строки (“ячейки”)</li>
+  <li>Литерал - <code class="highlighter-rouge">'abc'</code>, <code class="highlighter-rouge">123</code></li>
+  <li>Значение ввода пользователя</li>
+</ul>
+
+<h3 id="способы-вставки">Способы вставки</h3>
+
+<ul>
+  <li>Однострочная инструкция <code class="highlighter-rouge">INSERT</code></li>
+  <li>Многострочная инструкция <code class="highlighter-rouge">INSERT</code></li>
+  <li>Пакетная загрузка</li>
+</ul>
+
+<p>Условия целостности данных</p>
+
+<ul>
+  <li>Обязательное наличие данных (<code class="highlighter-rouge">NOT NULL CONSTRAINT</code>)</li>
+  <li>Условия на допустимые значения столбца</li>
+  <li>Логическая целостность данных (Уникальность идентификатора)</li>
+  <li>Ссылочная целостность - внешний ключ должен указывать на существующую строку</li>
+  <li>Другие ограничения (специально заданные правила)</li>
+  <li>Бизнес-правила</li>
+  <li>Непротиворечивость</li>
+</ul>
+
+<p>Правила удаления и обновления для отношения предок-потомок</p>
+
+<ul>
+  <li><code class="highlighter-rouge">RESTRICT</code> (<code class="highlighter-rouge">NO ACTION</code>) - запрещает удаление строки у которой есть потомки</li>
+  <li><code class="highlighter-rouge">CASCADE</code> - удаляет потомков вместе с родителем</li>
+  <li><code class="highlighter-rouge">SET NULL</code> - при удалении родителя дочерние ключи выставляются в NULL</li>
+  <li><code class="highlighter-rouge">SET DEFAULT</code> - при удалении родителя дочерние ключи выставляются в заданное значение</li>
+</ul>
+
+<p><code class="highlighter-rouge">SET NULL</code> выставляет в <code class="highlighter-rouge">NULL</code> только те столбцы, для которых это значение допустимо, столбцы с ограничением <code class="highlighter-rouge">NOT NULL</code> останутся без изменений</p>
+
+<p>Составной ключ, одно из значений которого <code class="highlighter-rouge">NULL</code>, считается удовлетворяющим значению ссылочной целостности независимо от остальных значений. При создании таблицы можно установить режим обеспечения целостности данных: <code class="highlighter-rouge">MATCH FULL</code> - полное соответствие, в ключах не должно быть значений <code class="highlighter-rouge">NULL</code>; <code class="highlighter-rouge">MATCH PARTIAL</code> - допускаются значения <code class="highlighter-rouge">NULL</code> в ключе если остальная часть ключа присутствует в таблице предке.</p>
+
+<p>Расширенные возможности ограничений</p>
+
+<p>Ограничения столбцов - ограничивают значения, которые может содержать столбец.
+Домены - форма ограничения столбца, например тип данных с условием (любые <code class="highlighter-rouge">INTEGER &gt; 10</code>)</p>
+
+<p>Ограничения таблицы - ограничивают значения строк таблицы.</p>
+
+<p>Утверждения - определяют взаимосвязь между значениями таблиц одной БД (<code class="highlighter-rouge">CREATE ASSERTION</code>)</p>
+
+<p>Отложенная проверка ограничений - происходит после завершения транзакции.
+<code class="highlighter-rouge">DEFFERABLE</code> - проверка может быть отложена
+<code class="highlighter-rouge">NON DEFFERABLE</code> - проверка не может быть отложена</p>
+
+<p>Ограничения могут быть:</p>
+
+<p><code class="highlighter-rouge">INITIALLY IMMEDIATE</code> - выполняется после каждой SQL инструкции (по умолчанию)
+<code class="highlighter-rouge">INITIALLY DEFFERED</code> - проверка по окончанию транзакции</p>
+
+<p>инструкция <code class="highlighter-rouge">SET CONSTRAINS</code> позволяет динамически изменять способ обработки ограничения - например в рамках текущей транзакции можно проверить выполнение ограничения в конце транзакции, хотя по умолчанию оно проверяется после каждой инструкции, но только если ограничение может быть отложено</p>
+
+<p>Триггеры запускают набор инструкций при выполнении условия</p>
+
+<p>Недостатки:</p>
+
+<ul>
+  <li>Сложность базы данных</li>
+  <li>Скрытые правила</li>
+  <li>Скрытое влияние на производительность</li>
+</ul>
+
+<h3 id="acid">ACID</h3>
+
+<ul>
+  <li><strong>A</strong> - Atomic (Атомарность) транзакция применяется целиком или не применяется совсем</li>
+  <li><strong>C</strong> - Consistent (Целостность) транзакция переводит БД из одного согласованного состояния в другое согласованное состояние, все ограничения и проверки должны выполняться</li>
+  <li><strong>I</strong> - Isolated (Изоляция) каждая транзакция выполняется независимо от других транзакций</li>
+  <li><strong>D</strong> - Durable (Постоянство) По завершении транзакции данные должны быть сохранены и оставаться в согласованном состоянии даже в случае системного или аппаратного сбоя</li>
+</ul>
+
+<p>инструкции в модели <code class="highlighter-rouge">ANSI/ISO</code></p>
+
+<p><code class="highlighter-rouge">START TRANSACTION</code> - устанавливает свойства для новой транзакции и запускает её
+<code class="highlighter-rouge">SET TRANSACTION</code> - устанавливает свойства очередной выполняемой транзакции не влияя на текущую (управляет следующей транзакцией)
+<code class="highlighter-rouge">SET CONSTRAINS</code> - устанавливает режим ограничений транзакций (выполнять проверки сразу или откладывать)
+<code class="highlighter-rouge">SAVEPOIN</code> - создаёт точку сохранения в пределах транзакции, которая будет промежуточной точкой отката транзакции
+<code class="highlighter-rouge">RELEASE SAVEPOINT</code> - освобождает точку сохранения и все ресурсы
+<code class="highlighter-rouge">COMMIT</code> - завершает транзакцию и сохраняет изменения в БД.
+<code class="highlighter-rouge">ROLLBACK</code> - откатывает транзакцию к ближайшей точке сохранения или началу транзакции. При возврате к точке сохранения транзакция может быть продолжена</p>
+
+<h3 id="свойства-транзакций">Свойства транзакций</h3>
+
+<ul>
+  <li>Уровень доступа - может ли транзакция содержать модифицирующие инструкции (<code class="highlighter-rouge">READ WRITE</code>) или только запросы на выборку данных (<code class="highlighter-rouge">READ ONLY</code> - по умолчанию)</li>
+  <li>Уровень изоляции - насколько транзация изолирована от других (<code class="highlighter-rouge">READ UNCOMMITED</code>, <code class="highlighter-rouge">READ COMMITED</code>, <code class="highlighter-rouge">REPEATABLE READ</code>, <code class="highlighter-rouge">SERIALIZABLE</code>) по умолчанию <code class="highlighter-rouge">SERIALIZABLE</code></li>
+  <li>Размер диагностики - размер области для сообщений, генерируемых при выполненнии SQL (никем не реализована)</li>
+</ul>
+
+<p>Для обеспечения атомарности в рамках транзакции в журнал транзакций сохраняются состояния строк до изменения и после</p>
+
+<h3 id="проблемы-многопользовательских-транзакций">Проблемы многопользовательских транзакций</h3>
+
+<h4 id="пропавшее-обновление">Пропавшее обновление</h4>
+
+<p>Две транзакции параллельно считывают и изменяют результат</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNT = 100</td>
+      <td>COUNT = 100</td>
+    </tr>
+    <tr>
+      <td>COUNT -= 50</td>
+      <td>COUNT -= 60</td>
+    </tr>
+    <tr>
+      <td>COMMIT</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>COUNT =&gt; 50</td>
+      <td>COMMIT</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>COUNT =&gt; 40</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>От 100 в двух парралельных транзакциях вычитаем 50 и 60, получаем 40</p>
+
+<h4 id="проблема-промежуточных-данных">Проблема промежуточных данных</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNT = 100</td>
+      <td>COUNT = 100</td>
+    </tr>
+    <tr>
+      <td>COUNT -= 50</td>
+      <td>COUNT =&gt; 50</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>COUNT += 10</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>COUNT =&gt; 60</td>
+    </tr>
+    <tr>
+      <td>ROLLBACK</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>COUNT =&gt; 100</td>
+      <td>COUNT =&gt; 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Изменения применились к промежуточному значению, которое не было сохранено</p>
+
+<h4 id="проблема-несогласованности-данных">Проблема несогласованности данных</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNT = 100</td>
+      <td>COUNT = 100</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>COUNT -= 50</td>
+    </tr>
+    <tr>
+      <td>COUNT =&gt; 50</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>В рамках одной транзакции значение меняется, хотя никаких операций над ним не производилось</p>
+
+<h4 id="проблема-строк-призраков">Проблема строк-призраков</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>T1</th>
+      <th>T2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-</td>
+      <td>SELECT COUNT(ROW) =&gt; 10</td>
+    </tr>
+    <tr>
+      <td>INSERT …</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>SELECT COUNT(ROW) =&gt; 11</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>в рамках одной транзакции меняется количество существующих строк</p>
+
+<p>Когда транзакции выполняются параллельно СУБД гарантирует что результат будет таким же как если бы они применялись в определённом порядке</p>
+
+<p>Для обработки параллельных транзакций может применятся механизм блокировки чтобы предоставить транзакции монопольный доступ к данным</p>
+
+<p>Уровни блокировки:</p>
+
+<ul>
+  <li>База данных</li>
+  <li>Таблица</li>
+  <li>Страница (часть таблицы)</li>
+  <li>Строка</li>
+</ul>
+
+<p>Блокировка может быть:</p>
+
+<ul>
+  <li>С обеспечением совместного доступа (<code class="highlighter-rouge">SHARED LOCK</code>) - другая транзакция может извлечь заблокированные данные</li>
+  <li>Монопольная (<code class="highlighter-rouge">EXCLUSIVE LOCK</code>) Заблокированные данные не доступны другим транзакциям</li>
+</ul>
+
+<p>Если данные уже заблокированы <code class="highlighter-rouge">SHARED LOCK</code> нельзя заблокировать их <code class="highlighter-rouge">EXCLUSIVE LOCK</code></p>
+
+<p>Для предотвращения взаимоблокировок СУБД периодически проверяет все блокировки и при нахождении взаимоблокировки отменяет одну произвольную транзакцию</p>
+
+<p>Усовершенствованные методы блокировки</p>
+
+<ul>
+  <li>Явная блокировка</li>
+  <li>Уровни изоляции</li>
+  <li>Параметры блокировки</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>-</th>
+      <th>пропавшее обновление</th>
+      <th>промежуточные данные</th>
+      <th>несогласованные данные</th>
+      <th>строки-призраки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SERIALIZABLE</td>
+      <td>нет</td>
+      <td>нет</td>
+      <td>нет</td>
+      <td>нет</td>
+    </tr>
+    <tr>
+      <td>REPEATABLE READ</td>
+      <td>нет</td>
+      <td>нет</td>
+      <td>нет</td>
+      <td>возможно</td>
+    </tr>
+    <tr>
+      <td>READ COMMITED</td>
+      <td>нет</td>
+      <td>нет</td>
+      <td>возможно</td>
+      <td>возможно</td>
+    </tr>
+    <tr>
+      <td>READ UNCOMMITED</td>
+      <td>нет</td>
+      <td>возможно</td>
+      <td>возможно</td>
+      <td>возможно</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="управление-версиями">Управление версиями</h3>
+
+<p>Когда в рамках транзакции изменяется строка создаётся её копия. В текущей транзакции используется изменённое значение, в других значение до изменения</p>
+
+<p>Схема БД это ключевой высокоуровневый контейнер объектов в структуре БД. Он представляет собой именованную сущность в БД и включает в себя определение следующих объектов:</p>
+
+<ul>
+  <li>Таблицы вместе со связанными с ними структурами (столбцами, первичными и внешними ключами и т.п.)</li>
+  <li>Представления - виртуальные таблицы, создаваемые на основе реальных</li>
+  <li>Домены - расширенные типы данных для определения столбцов в таблицах схемы</li>
+  <li>Утверждения - проверки целостности БД, относящиеся ко всей базе</li>
+  <li>Привелегии - возможности пользователя для доступа к данным</li>
+  <li>наборы символов - представления нелатинских символов</li>
+  <li>порядки сортировки - правила сортировки текста для различных наборов символов</li>
+  <li>правила конвертирования текста - правила перевода текста между различными наборами символов и сравнения текстовых данных использующих различные наборы символов</li>
+</ul>
+
+<h3 id="представления">Представления</h3>
+
+<ul>
+  <li>Позволяют по разному показывать БД разным пользователям</li>
+  <li>Позволяют дать пользователю доступ к части таблицы</li>
+  <li>Упрощают структуру БД для уаждого пользователя</li>
+</ul>
+
+<p>Материализованные представления - результат выборки сохранённый во временную таблицу</p>
+
+<p>Преимущества представлений:</p>
+
+<ul>
+  <li>Безопасность - проще разграничить доступ пользователей</li>
+  <li>Простота запросов - к нескольким таблицам можно обращаться как к одной</li>
+  <li>Структурная простота - для каждого пользователя можно создать собственную структуру</li>
+  <li>Защита от изменений - интерфейс доступа к данным не зависит от структуры данных, имён таблиц и столбцов</li>
+  <li>Целостность данных - автоматическая проверка целостности</li>
+</ul>
+
+<p>Недостатки:</p>
+
+<ul>
+  <li>Производительность - простой запрос к представлению это запрос к нескольким таблицам</li>
+  <li>Управляемость - взаимосвязанные представления сложны в поддержке</li>
+  <li>Ограничения на обновления - сложные представления нельзя обновлять</li>
+</ul>
+
+<p>Виды представлений:</p>
+
+<ul>
+  <li>Горизонтальное - включает все столбцы таблицы но только часть строк (таблица отфильтрована по критерию)</li>
+  <li>Вертикальное - все строки но только часть столбцов</li>
+  <li>Сгруппированные - результат запроса с группировкой</li>
+  <li>Соединённые - результат объединения таблиц</li>
+  <li>Смешанное</li>
+</ul>
+
+<p>Для обновления представления СУБД должна иметь возможность однозначно сопоставить строки и столбцы представления со строками и столбцами исходных таблиц</p>
+
+<p>Можно создать дополнительные правила для проверки добавляемых в представление данных при его создании (WITH CHECK) - пользователь не сможет ввести данные, которые не подходят под условие выборки в представление</p>
+
+<p>Материализованное представление - запрос на выборку, результат которого сохраняются в таблицу и синхронизируются с исходными таблицами</p>
+
+<p>Привелегии пользователей:</p>
+<ul>
+  <li><code class="highlighter-rouge">SELECT</code></li>
+  <li><code class="highlighter-rouge">INSERT</code></li>
+  <li><code class="highlighter-rouge">DELETE</code></li>
+  <li><code class="highlighter-rouge">UPDATE</code></li>
+</ul>
+
+<p>расширенные привелегии - могут относиться к отдельным столбцам а не всей таблице, добавляются</p>
+<ul>
+  <li><code class="highlighter-rouge">REFERENCES</code> - позволяет делать столбец внешним ключом</li>
+  <li><code class="highlighter-rouge">USAGE</code> - управляет доступом к пользовательским наборам символов, правилам сортировки, доменам</li>
+</ul>
+
+<p>Передача привелегий - <code class="highlighter-rouge">GRANT ... WITH GRANT OPTION</code> - право на передачу привелегий другому пользователю</p>
+
+<p><code class="highlighter-rouge">REVOKE</code> - отменяет привелегии, но может отменить только те, которые были даны выполняющим пользователем</p>
+
+<p>Роль - именованный набор привелегий</p>
+
+<p>Системный каталог - набор таблиц, хранящий служебную информацию о БД</p>
+
+<p>Таблицы системного каталога хранят:</p>
+
+<ul>
+  <li>Таблицы - имя, владелец …</li>
+  <li>Столбцы - имя, таблица …</li>
+  <li>Пользователи</li>
+  <li>Представления</li>
+  <li>Привелегии</li>
+</ul>
+
+<p><strong>хранимые процедуры</strong> - набор инструкций, реализующий какой-либо процесс
+<strong>функция</strong> - программа, возвращающая одно значение для каждой строки. Может быть использована внутри
+SQL инструкций практически везде где может быть использовано имя столбца или константа
+<strong>триггеры</strong> - код, запускающий на выполнение процедуру при выполнении заданных условий</p>
+
+<h3 id="язык-хранимых-процедур-spl---stored-procedure-language---набор-элементов-реализующий">Язык хранимых процедур (SPL - Stored Procedure Language) - набор элементов, реализующий:</h3>
+
+<ul>
+  <li><strong>Условное выполнение</strong> - <code class="highlighter-rouge">IF ... THEN ... ELSE</code></li>
+  <li><strong>Циклы</strong> <code class="highlighter-rouge">WHILE</code> или <code class="highlighter-rouge">FOR</code> либо иная подобная структура</li>
+  <li><strong>Блочная структура</strong> Последовательность инструкций SQL может быть сгруппирована и использована в других управляющих конструкциях</li>
+  <li><strong>Именованные переменные</strong></li>
+  <li><strong>Именованные процедуры</strong></li>
+</ul>
+
+<p><strong>Выходные параметры</strong> - используются для возврата результатов процедуры, передаются в процедуру явно</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql">  <span class="k">create</span> <span class="k">procedure</span> <span class="n">get_cust_info</span> <span class="p">(</span> <span class="n">c_num</span> <span class="k">in</span> <span class="n">i</span> <span class="n">nteger</span> <span class="p">,</span><span class="err">с</span><span class="n">_name</span> <span class="k">out</span> <span class="n">varchar</span> <span class="p">,</span><span class="n">r_name</span> <span class="k">out</span> <span class="n">varchar</span><span class="p">)</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">c_num</code> - входной параметр, передаётся извне
+<code class="highlighter-rouge">с_name</code>, <code class="highlighter-rouge">r_name</code> - выходные параметры, туда должны быть переданы проинициализированные переменные,
+в которые будет записан результат выполнения</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql">  <span class="k">declare</span> <span class="n">the_name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="p">,</span><span class="n">the_rep</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+  <span class="k">execute</span> <span class="n">get_cust_info</span> <span class="p">(</span><span class="mi">2111</span> <span class="p">,</span> <span class="n">the_name</span> <span class="p">,</span> <span class="n">the_rep</span><span class="p">)</span> <span class="o">-</span> <span class="n">ok</span><span class="p">,</span> <span class="err">передано</span> <span class="err">значение</span> <span class="err">и</span> <span class="err">переменные</span> <span class="err">для</span> <span class="err">возврата</span> <span class="err">значений</span>
+
+  <span class="k">execute</span> <span class="n">get_cust_info</span> <span class="p">(</span><span class="mi">2111</span><span class="p">)</span> <span class="o">-</span> <span class="err">ошибка</span><span class="p">,</span> <span class="err">не</span> <span class="err">переданы</span> <span class="err">переменные</span> <span class="err">для</span> <span class="err">возврата</span> <span class="err">значений</span>
+
+  <span class="k">execute</span> <span class="n">get_cust_info</span> <span class="p">(</span><span class="mi">2111</span> <span class="p">,</span> <span class="mi">12222</span> <span class="p">,</span> <span class="n">the_rep</span><span class="p">)</span> <span class="o">-</span> <span class="err">ошибка</span><span class="p">,</span> <span class="err">вместо</span> <span class="err">переменной</span> <span class="err">передано</span> <span class="err">значение</span></code></pre></figure>
+
+<h3 id="преимущества-хранимых-процедур">Преимущества хранимых процедур</h3>
+
+<ul>
+  <li>Производительность - хранимые процедуры компилируются (автоматически или по запросу) и за счёт этого
+выполняются быстрее чем аналогичный набор инструкций</li>
+  <li>Повторное использование -  можно вызывать из любых приложений</li>
+  <li>Сокращение сетевого трафика - передаётся только название процедуры а не весь набор инструкций</li>
+  <li>Безопасность - можно назначить отдельные привилегии, при этом привилегии на таблицы, с которыми
+ работает процедура необязательны</li>
+  <li>Инкапсуляция - можно создать публичный интерфейс для работы с данными</li>
+  <li>Простота доступа - вызвать существующую процедуру проще чем писать аналогичные запросы</li>
+  <li>
+    <p>Обеспечение бизнес-правил - если базой пользуются несколько приложений можно обеспечить выполнение 
+бизнес-правил на уровне бд</p>
+
+    <p>Внешняя хранимая процедура - процедура, написанная на одном из традиционных языков программирования и скомпилированная вне СУБД</p>
+  </li>
+</ul>
+
+<p><strong>триггер</strong> - это особая хранимая процедура, которая вызывается в ответ на модификацию содержимого базы данных.</p>
+
+<h3 id="функции-триггеров">Функции триггеров</h3>
+
+<ul>
+  <li>
+    <p><strong>Контроль изменений</strong> Триггер может отслеживать и отменять определенные изменения, не разрешаемые в конкретной базе данных.</p>
+  </li>
+  <li>
+    <p><strong>Каскадные операции</strong> Триггер может обнаруживать определенные операции (например, удаление сведений о клиенте или служащем) и автоматически вносить соответствующие изменения в другие таблицы базы</p>
+  </li>
+  <li>
+    <p><strong>Поддержка целостности</strong> Триггер может померживать более сложные
+связи между данными, чем те, которые могут быть выражены ограничениями на значения столбцов и условиями ссылочной целостности</p>
+  </li>
+  <li>
+    <p><strong>Вызов хранимых процедур</strong></p>
+  </li>
+  <li>
+    <p><strong>Обнаружение системных событий</strong> В СУБД с помержкой триггеровдля системных событий триггер может отслеживать, например, подключение к базе данных определенного пользователя.</p>
+  </li>
+</ul>
+
+<p>Главным недостатком триггеров является их влияние на производительность операций с базой данных.</p>
+
+<p>Хранилище данных - СУБД, оптимизированная для хранения больших объёмов данных и выполнения аналитических запросов на них</p>
+
+<h3 id="загрузка-данных-в-хранилище">Загрузка данных в хранилище</h3>
+
+<ul>
+  <li><strong>Извлечение данных</strong> получение данных из разных источников</li>
+  <li><strong>Очистка данных</strong> фильтрация, проверка целостности</li>
+  <li><strong>Перекрестная проверка данных</strong> проверка согласованности данных из разных источников</li>
+  <li><strong>Переформатирование</strong> приведение данных к одному формату, разделение по таблицам</li>
+  <li><strong>Вставка/обновление данных</strong> обычно осуществляется без транзакций с помощью специальных пакетных механизмов</li>
+  <li><strong>Создание/обновление индексов</strong></li>
+</ul>
+
+<h3 id="производитеьность-запросов">Производитеьность запросов</h3>
+
+<p>Для повышения производительности запросов, связанных с деловым анализом,
+используется несколько технологий</p>
+
+<ul>
+  <li><strong>Специализированные схемы индексации</strong></li>
+  <li><strong>Технологии параллельной обработки</strong></li>
+  <li><strong>Специализированные алгоритмы оптимизации</strong></li>
+  <li><strong>Разбиение таблиц и индексов</strong></li>
+  <li><strong>Тесная интеграция программного и аппаратного обеспечения</strong></li>
+</ul>
+
+<h3 id="характеристики-объектно-ориентированной-базы-данных">Характеристики объектно-ориентированной базы данных</h3>
+
+<ul>
+  <li><strong>Объекты</strong> В ООБД любая сущность является объектом и обрабатывается как объект.</li>
+  <li><strong>Классы</strong></li>
+  <li><strong>Наследование</strong></li>
+  <li><strong>Атрибуты</strong></li>
+  <li><strong>Сообщения и методы</strong> Объекты взаимодействуют друг с другом посредством сообщений. Когда объект получает сообщение, он отвечает на него, выполняя метод - подпрограмму, хранимую внуrри объекта, которая определяет способ обработки сообщения.</li>
+  <li><strong>Инкапсуляция</strong> Внуrренняя структура и данные объектов скрыты от внешнего мира за набором строго определенных интерфейсов.</li>
+  <li><strong>Идентификаторы объектов</strong> объект указывает на другой объект с помощью дескриптора, который он хранит в одном из своих атрибутов.</li>
+</ul>
+
+<h3 id="основные-объектные-расширения-уже-имеющиеся-в-современных-бд">основные объектные расширения, уже имеющиеся в современных БД</h3>
+
+<ul>
+  <li><strong>Большие объекты данных</strong> могут хранить мультимедиа файлы</li>
+  <li>
+    <p><strong>Структурированные/абстрактные типы данных</strong> ROW - структура, например адресс, который состоит из города улицы и дома</p>
+
+    <pre><code class="language-SQL">  ADDRESS ROW (STREET VARCHAR (35), CITY VARCНAR (15), STATE СНАR ( 2 ))
+</code></pre>
+  </li>
+  <li><strong>Пользовательские типы данных</strong> именованные абстрактные типы, которые можно переиспользовать</li>
+  <li><strong>Таблицы в таблицах</strong></li>
+  <li><strong>Последовательности, множества и массивы</strong></li>
+  <li><strong>Хранимые процедуры</strong></li>
+  <li><strong>Дескрипторы и идентификаторы объектов</strong></li>
+</ul>
+
+<h3 id="характеристики-встраиваемых-баз-данных">Характеристики встраиваемых баз данных</h3>
+
+<ul>
+  <li><strong>Малое потребление памяти</strong></li>
+  <li><strong>Отсутствие администрирования</strong></li>
+  <li><strong>Поддержка нетрадиционного хранения</strong> данные могут храниться в оперативной памяти,в энергонезависимой намяти, на USВ-диске или еще где-то</li>
+  <li><strong>Ограниченная поддержка SQL</strong></li>
+  <li><strong>Статическая схема базы данных</strong></li>
+  <li><strong>Однопользовательская работа</strong></li>
+</ul>
+
+  </div><a class="u-url" href="/2018/11/11/groff-complete-guide.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>

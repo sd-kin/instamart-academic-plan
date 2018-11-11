@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-11-11T22:08:37+03:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Тезисы</title><link href="/2018/11/11/groff-complete-guide.html" rel="alternate" type="text/html" title="Тезисы" /><published>2018-11-11T20:53:21+03:00</published><updated>2018-11-11T20:53:21+03:00</updated><id>/2018/11/11/groff-complete-guide</id><content type="html" xml:base="/2018/11/11/groff-complete-guide.html">&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt; появился как исследовательский продукт  фирмы IBM. Изначально назывался &lt;strong&gt;SEQUEL&lt;/strong&gt; - &lt;strong&gt;S&lt;/strong&gt;tructured &lt;strong&gt;E&lt;/strong&gt;nglish &lt;strong&gt;Que&lt;/strong&gt;ry &lt;strong&gt;L&lt;/strong&gt;anguage но был переименован из-за конфликта прав.&lt;/p&gt;
+
+&lt;p&gt;Возможности:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Определение данных&lt;/strong&gt; позволяет определить структуру и оргинизацию хранимых данных&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Выборка данных&lt;/strong&gt; позволяет извлекать данные&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Обработка данных&lt;/strong&gt; позволяет добавлять, изменять и удалять данные&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Управление доступом&lt;/strong&gt; ограничивает возможности выборки и изменения&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Совместное использование&lt;/strong&gt; одновременное редактирование без потери данных&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Контроль целостности&lt;/strong&gt; защита от несогласованного изменения или отказа системы&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SQL - декларативный язык&lt;/p&gt;
+
+&lt;h3 id=&quot;ключевые-свойства&quot;&gt;Ключевые свойства:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Независимость&lt;/strong&gt; от конкретной СУБД&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Межплатформенная переносимость&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Наличие стандартов&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;поддержка IBM&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;поддержка Microsoft&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Реляционная модель&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Похож на естественный язык&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Интерактивные запросы&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Програмный доступ к БД&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Возможность различного представления данных&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Полноценность&lt;/strong&gt; в качестве языка работы с БД&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Возможность динамического определения данных&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Поддержка архитектуры клиент/сервер&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Поддержка приложений уровня предприятия&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Расширяемость&lt;/strong&gt; и поддержка объектно-ориентированных технологий&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Возможность доступа к данным в интернете&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;JDBC&lt;/strong&gt; Интеграция м Java&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Поддержка открытого кода&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Промышленная инфраструктура&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SQL обеспечивает независимость от конкретных СУБД&lt;/p&gt;
+
+&lt;p&gt;Microsoft поддерживает SQL через ODBC - Open Database Connectivity&lt;/p&gt;
+
+&lt;h3 id=&quot;проблемы-переносимости&quot;&gt;Проблемы переносимости&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Типы данных&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Обратная совместимость&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Системные таблицы&lt;/strong&gt; - информация о структуре БД&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Програмный интерфейс&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Семантические отличия&lt;/strong&gt; - разные результаты выполнения одного запроса&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Репликация и зеркалирование&lt;/strong&gt; - реализрваны по разному&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Коды ошибок&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Структура&lt;/strong&gt; - именование и установка подключений&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;архитектура&quot;&gt;Архитектура&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Централизованная&lt;/strong&gt; - Приложение и БД на одном сервере. Плохо масштабируется&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Файловый сервер&lt;/strong&gt; - Одна база на сервере и СУБД на каждом клиенте&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Клиент/Сервер&lt;/strong&gt; - БД и СУБД на сервере, клиент передаёт запросы&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;многоуровневая-архитектура&quot;&gt;Многоуровневая архитектура&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Клиентский уровень&lt;/strong&gt; тонкий клиент - сайт, мобильное приложение&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Прикладной уровень&lt;/strong&gt; Веб-сервер, сервер приложения&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Серверный уровень&lt;/strong&gt; Сервер баз данных&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;модели-данных&quot;&gt;Модели данных&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Иерархическая&lt;/strong&gt; - записи организованы в структуру предок-потомок
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Доступ к записям&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Найти по ID&lt;/li&gt;
+          &lt;li&gt;Перейти к предку&lt;/li&gt;
+          &lt;li&gt;Перейти к потомку&lt;/li&gt;
+          &lt;li&gt;Перейти к соседу&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Характеристики&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Производительность&lt;/li&gt;
+          &lt;li&gt;Простая структура&lt;/li&gt;
+          &lt;li&gt;ассоциация предок-потомок через указатель&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Сетевая&lt;/strong&gt; - одна запись может быть частью нескольких отношений предок-потомок (принадлежит множеству)
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Доступ к данным&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Найти по ID&lt;/li&gt;
+          &lt;li&gt;перейти к первому потомку множества&lt;/li&gt;
+          &lt;li&gt;перейти по горизонтали внутри множества&lt;/li&gt;
+          &lt;li&gt;перейти вверх в другое множество&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Характеристики&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;Гибкость структуры&lt;/li&gt;
+          &lt;li&gt;Стандартизация (стандарт CODASYL)&lt;/li&gt;
+          &lt;li&gt;Производительность&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;недостатки-сетевой-и-иерархической-модели&quot;&gt;Недостатки сетевой и иерархической модели&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Сложные статистические запросы&lt;/li&gt;
+  &lt;li&gt;Реализация каждого запроса отдельной программой&lt;/li&gt;
+  &lt;li&gt;Жёсткая структура&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;реляционная-модель---табличная-структура-данных&quot;&gt;&lt;strong&gt;Реляционная модель&lt;/strong&gt; - табличная структура данных&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Реляционной&lt;/strong&gt; называется БД в которой все данные организованны в виде таблиц и все операции выполняются над этими таблицами.&lt;/p&gt;
+
+&lt;p&gt;Отношение предок-потомок реализовано через значения в таблицах&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Домен столбца&lt;/strong&gt; - множество значений, которые могут в нём содержаться&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Отношение&lt;/strong&gt; (relation) - мат. термин для таблицы, все строки которой различны между собой (в бд достигается за счёт уникального внешнего ключа)&lt;/p&gt;
+
+&lt;h3 id=&quot;12-правил-кодда-тед-кодд---создатель-реляционной-модели&quot;&gt;12 Правил Кодда (Тед Кодд - создатель реляционной модели)&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Правило представления информации&lt;/strong&gt; - Вся информация представлена только на логическом уровне и только в виде значений таблиц&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило гарантированного доступа&lt;/strong&gt; - Доступ к каждому элементу данных возможен по комбинации имени таблицы, столбца и ID&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Систематическая трактовка значений NULL&lt;/strong&gt; - используются для обозначения неизвестной или неприменимой информации и ничему не равны&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило динамического католога, основанного на реляционной модели&lt;/strong&gt; - Описание БД на логическом уровне должно быть представлено в том же виде, что и данные, и могло быть изменено с помощью того жу языка&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Правило исчерпывающего подъязыка данных&lt;/strong&gt; - система может поддерживать несколько языков, хотя бы один, инструкции которого можно представить в виде строк символов в соответствии с точно определённым синтаксисом и который поддерживает:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Определение данных&lt;/li&gt;
+      &lt;li&gt;Определение представлений&lt;/li&gt;
+      &lt;li&gt;Обработку данных&lt;/li&gt;
+      &lt;li&gt;Ограничение целостности данных&lt;/li&gt;
+      &lt;li&gt;Авторизацию&lt;/li&gt;
+      &lt;li&gt;Границы транзакций (Начало, фиксацию и откат)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило обновления представлений&lt;/strong&gt; - Все представления, которые можно обновить, должны быть доступны для обновления&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило высокоуровневого обновления, добавления и удаления&lt;/strong&gt; - операции вставки, обновления и удаления должны быть применимы к отношению в целом&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило физической независимости данных&lt;/strong&gt; - Прикладные программы и утилиты должны оставаться независимыми при изменении способов хранения данных или методов доступа к ним&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило логической независимости данных&lt;/strong&gt; -  Прикладные программы и утилиты должны оставаться нетронутыми при внесении в базовые таблицы любых изменений&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Правило независимости контроля целостности&lt;/strong&gt; - Вся информация, необходимая для поддержания целостности, должна находиться в БД. Язык для работы с данными должен выполнять проверку входных данных и автоматически поддерживать целостность данных&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Независимость от расположения&lt;/strong&gt; - БД может быть распределённой, может находиться на нескольких компьютерах, и это не должно оказывать влияния на приложения. Перенос базы данных на другой компьютер не должен оказывать влияния на приложения.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Согласование языковых уровней&lt;/strong&gt; - Если используется низкоуровневый язык доступа к данным, он не должен игнорировать правила безопасности и правила целостности, которые поддерживаются языком более высокого уровня.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;выборка-данных&quot;&gt;Выборка данных&lt;/h3&gt;
+
+&lt;p&gt;В операторе &lt;code class=&quot;highlighter-rouge&quot;&gt;LIKE&lt;/code&gt; управляющий символ может быть задан явно &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE ... LIKE 'A$%BC' ESCAPE '$'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NATURAL JOIN&lt;/code&gt; - соединение по всем одноимённым столбцам, &lt;code class=&quot;highlighter-rouge&quot;&gt;JOIN USING(A, B)&lt;/code&gt; соединение по перечисленным одноимённым столбцам&lt;/p&gt;
+
+&lt;p&gt;Декартово произведение таблиц - таблица из всех возможных пар строк обеих таблиц&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;b&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T3&lt;/th&gt;
+      &lt;th&gt;T4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;c&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;d&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+      &lt;th&gt;T3&lt;/th&gt;
+      &lt;th&gt;T4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;c&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;d&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;b&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;c&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;b&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;d&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Соединением таблиц является их произведение, из которого исключены некоторые строки&lt;/p&gt;
+
+&lt;p&gt;Перекрёстное соединение (&lt;code class=&quot;highlighter-rouge&quot;&gt;CROSS JOIN&lt;/code&gt;) - декартово произведение таблиц, равнозначно &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT * FROM A,B&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Соединение возможно по неравенству &lt;code class=&quot;highlighter-rouge&quot;&gt;JOIN ON A &amp;gt; B&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNION JOIN&lt;/code&gt; (не поддерживается ни одной БД) - Полное внешнее соединение минус внутреннее&lt;/p&gt;
+
+&lt;h5 id=&quot;girls&quot;&gt;GIRLS&lt;/h5&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;surname&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lisa&lt;/td&gt;
+      &lt;td&gt;Smitt&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ann&lt;/td&gt;
+      &lt;td&gt;Wessonn&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h6 id=&quot;boys&quot;&gt;BOYS&lt;/h6&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;surname&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Joue&lt;/td&gt;
+      &lt;td&gt;Doue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John&lt;/td&gt;
+      &lt;td&gt;Daniels&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GIRLS&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UNION&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;JOIN&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BOYS&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;surname&lt;/th&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;surname&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lisa&lt;/td&gt;
+      &lt;td&gt;Smitt&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ann&lt;/td&gt;
+      &lt;td&gt;Wessonn&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;Joue&lt;/td&gt;
+      &lt;td&gt;Doue&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;John&lt;/td&gt;
+      &lt;td&gt;Daniels&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;По стандарту SQL1&lt;/p&gt;
+
+&lt;p&gt;Статистические функции не могут быть вложенными&lt;/p&gt;
+
+&lt;p&gt;Нельзя одновременно вывести столбец и статистическую функцию&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT name, SUM(age)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;NULL Игнорируется статистическими функциями (но есть исключения)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;A&lt;/th&gt;
+      &lt;th&gt;B&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT COUNT(*)&lt;/code&gt; =&amp;gt; 3
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT COUNT(A)&lt;/code&gt; =&amp;gt; 3 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT COUNT(B)&lt;/code&gt; =&amp;gt; 2&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SUM(A) + SUM(B)&lt;/code&gt; =&amp;gt; 15
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SUM(A + B)&lt;/code&gt; =&amp;gt; 13 (2 + NULL = NULL)&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DISTINCT&lt;/code&gt; можно использовать внутри статистической функции чтобы применить её к неповторяющимся значениям&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DISTINCT&lt;/code&gt; можно использовать только один раз за запрос&lt;/p&gt;
+
+&lt;h4 id=&quot;общая-сумма-заказов-для-каждого-клиента-по-каждому-служащему&quot;&gt;Общая сумма заказов для каждого клиента по каждому служащему&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;  
+  &lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AMOUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ORDERS&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;REP&lt;/th&gt;
+      &lt;th&gt;CUST&lt;/th&gt;
+      &lt;th&gt;SUM(AMOUNT)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2102&lt;/td&gt;
+      &lt;td&gt;3978&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2108&lt;/td&gt;
+      &lt;td&gt;150&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2113&lt;/td&gt;
+      &lt;td&gt;22500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2106&lt;/td&gt;
+      &lt;td&gt;4026&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2114&lt;/td&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2120&lt;/td&gt;
+      &lt;td&gt;3750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;2111&lt;/td&gt;
+      &lt;td&gt;2700&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;общая-сумма-заказов-по-каждому-клиенту-для-каждого-служащего-с-промежуточными-итогами-для-каждого-служащего&quot;&gt;Общая сумма заказов по каждому клиенту для каждого служащего с промежуточными итогами для каждого служащего&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AMOUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ORDERS&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ROLLUP&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;REP&lt;/th&gt;
+      &lt;th&gt;CUST&lt;/th&gt;
+      &lt;th&gt;SUM(AMOUNT)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2102&lt;/td&gt;
+      &lt;td&gt;3978&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2108&lt;/td&gt;
+      &lt;td&gt;150&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2113&lt;/td&gt;
+      &lt;td&gt;22500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;26628&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2106&lt;/td&gt;
+      &lt;td&gt;4026&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2114&lt;/td&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2120&lt;/td&gt;
+      &lt;td&gt;3750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;22776&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;2111&lt;/td&gt;
+      &lt;td&gt;2700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2700&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;сумма-заказов-для-каждого-служащего-с-промежуточными-итогами-для-каждого-служащего-и-клиента&quot;&gt;Сумма заказов для каждого служащего с промежуточными итогами для каждого служащего и клиента&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AMOUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ORDERS&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;REP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CUST&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WITH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CUBE&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;REP&lt;/th&gt;
+      &lt;th&gt;CUST&lt;/th&gt;
+      &lt;th&gt;SUM(AMOUNT)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;26628&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2102&lt;/td&gt;
+      &lt;td&gt;3978&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2108&lt;/td&gt;
+      &lt;td&gt;150&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;101&lt;/td&gt;
+      &lt;td&gt;2113&lt;/td&gt;
+      &lt;td&gt;22500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2276&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2106&lt;/td&gt;
+      &lt;td&gt;4026&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2114&lt;/td&gt;
+      &lt;td&gt;15000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;102&lt;/td&gt;
+      &lt;td&gt;2120&lt;/td&gt;
+      &lt;td&gt;3750&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;103&lt;/td&gt;
+      &lt;td&gt;2111&lt;/td&gt;
+      &lt;td&gt;2700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;247691&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2101&lt;/td&gt;
+      &lt;td&gt;1458&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2102&lt;/td&gt;
+      &lt;td&gt;3978&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2103&lt;/td&gt;
+      &lt;td&gt;35582&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2106&lt;/td&gt;
+      &lt;td&gt;4026&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NULL&lt;/td&gt;
+      &lt;td&gt;2107&lt;/td&gt;
+      &lt;td&gt;23132&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;GROUP BY считает что &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL = NULL&lt;/code&gt; при условии равенства всех остальных значений в строке&lt;/p&gt;
+
+&lt;p&gt;В подзапросе внешним называется значение, которое берётся из внешнего запроса&lt;/p&gt;
+
+&lt;p&gt;При одинаковом имени столбца в запросе и подзапросе выражение будет относиться к ближайшему &lt;code class=&quot;highlighter-rouge&quot;&gt;FROM&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Стандарт SQL1&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ограничивается простыми запросами (&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;GROUP BY&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;HAVING&lt;/code&gt;, подзапросы)&lt;/li&gt;
+  &lt;li&gt;Отсутствуют средства принятия решений (&lt;code class=&quot;highlighter-rouge&quot;&gt;IF/ELSE&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;CASE WHEN&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Ограничения на подзапросы - нельзя сравнивать между собой, подзапрос всегда должен быть справа от оператора сравнения&lt;/li&gt;
+  &lt;li&gt;Ограничены выражения со строками таблицы, нельзя выбрать строки подходящие под одно условие из списка (только через цепочку &lt;code class=&quot;highlighter-rouge&quot;&gt;AND/OR&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;нельзя включать подзапросы в &lt;code class=&quot;highlighter-rouge&quot;&gt;FROM&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT * FROM (SELECT ... )&lt;/code&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Скалярные значения:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Значение отдельного столбца отдельной строки (“ячейки”)&lt;/li&gt;
+  &lt;li&gt;Литерал - &lt;code class=&quot;highlighter-rouge&quot;&gt;'abc'&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;123&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Значение ввода пользователя&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;способы-вставки&quot;&gt;Способы вставки&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Однострочная инструкция &lt;code class=&quot;highlighter-rouge&quot;&gt;INSERT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Многострочная инструкция &lt;code class=&quot;highlighter-rouge&quot;&gt;INSERT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Пакетная загрузка&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Условия целостности данных&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Обязательное наличие данных (&lt;code class=&quot;highlighter-rouge&quot;&gt;NOT NULL CONSTRAINT&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Условия на допустимые значения столбца&lt;/li&gt;
+  &lt;li&gt;Логическая целостность данных (Уникальность идентификатора)&lt;/li&gt;
+  &lt;li&gt;Ссылочная целостность - внешний ключ должен указывать на существующую строку&lt;/li&gt;
+  &lt;li&gt;Другие ограничения (специально заданные правила)&lt;/li&gt;
+  &lt;li&gt;Бизнес-правила&lt;/li&gt;
+  &lt;li&gt;Непротиворечивость&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Правила удаления и обновления для отношения предок-потомок&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESTRICT&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;NO ACTION&lt;/code&gt;) - запрещает удаление строки у которой есть потомки&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CASCADE&lt;/code&gt; - удаляет потомков вместе с родителем&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SET NULL&lt;/code&gt; - при удалении родителя дочерние ключи выставляются в NULL&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SET DEFAULT&lt;/code&gt; - при удалении родителя дочерние ключи выставляются в заданное значение&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SET NULL&lt;/code&gt; выставляет в &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; только те столбцы, для которых это значение допустимо, столбцы с ограничением &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT NULL&lt;/code&gt; останутся без изменений&lt;/p&gt;
+
+&lt;p&gt;Составной ключ, одно из значений которого &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;, считается удовлетворяющим значению ссылочной целостности независимо от остальных значений. При создании таблицы можно установить режим обеспечения целостности данных: &lt;code class=&quot;highlighter-rouge&quot;&gt;MATCH FULL&lt;/code&gt; - полное соответствие, в ключах не должно быть значений &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;; &lt;code class=&quot;highlighter-rouge&quot;&gt;MATCH PARTIAL&lt;/code&gt; - допускаются значения &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; в ключе если остальная часть ключа присутствует в таблице предке.&lt;/p&gt;
+
+&lt;p&gt;Расширенные возможности ограничений&lt;/p&gt;
+
+&lt;p&gt;Ограничения столбцов - ограничивают значения, которые может содержать столбец.
+Домены - форма ограничения столбца, например тип данных с условием (любые &lt;code class=&quot;highlighter-rouge&quot;&gt;INTEGER &amp;gt; 10&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Ограничения таблицы - ограничивают значения строк таблицы.&lt;/p&gt;
+
+&lt;p&gt;Утверждения - определяют взаимосвязь между значениями таблиц одной БД (&lt;code class=&quot;highlighter-rouge&quot;&gt;CREATE ASSERTION&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;Отложенная проверка ограничений - происходит после завершения транзакции.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;DEFFERABLE&lt;/code&gt; - проверка может быть отложена
+&lt;code class=&quot;highlighter-rouge&quot;&gt;NON DEFFERABLE&lt;/code&gt; - проверка не может быть отложена&lt;/p&gt;
+
+&lt;p&gt;Ограничения могут быть:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INITIALLY IMMEDIATE&lt;/code&gt; - выполняется после каждой SQL инструкции (по умолчанию)
+&lt;code class=&quot;highlighter-rouge&quot;&gt;INITIALLY DEFFERED&lt;/code&gt; - проверка по окончанию транзакции&lt;/p&gt;
+
+&lt;p&gt;инструкция &lt;code class=&quot;highlighter-rouge&quot;&gt;SET CONSTRAINS&lt;/code&gt; позволяет динамически изменять способ обработки ограничения - например в рамках текущей транзакции можно проверить выполнение ограничения в конце транзакции, хотя по умолчанию оно проверяется после каждой инструкции, но только если ограничение может быть отложено&lt;/p&gt;
+
+&lt;p&gt;Триггеры запускают набор инструкций при выполнении условия&lt;/p&gt;
+
+&lt;p&gt;Недостатки:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Сложность базы данных&lt;/li&gt;
+  &lt;li&gt;Скрытые правила&lt;/li&gt;
+  &lt;li&gt;Скрытое влияние на производительность&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;acid&quot;&gt;ACID&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt; - Atomic (Атомарность) транзакция применяется целиком или не применяется совсем&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;C&lt;/strong&gt; - Consistent (Целостность) транзакция переводит БД из одного согласованного состояния в другое согласованное состояние, все ограничения и проверки должны выполняться&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; - Isolated (Изоляция) каждая транзакция выполняется независимо от других транзакций&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; - Durable (Постоянство) По завершении транзакции данные должны быть сохранены и оставаться в согласованном состоянии даже в случае системного или аппаратного сбоя&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;инструкции в модели &lt;code class=&quot;highlighter-rouge&quot;&gt;ANSI/ISO&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;START TRANSACTION&lt;/code&gt; - устанавливает свойства для новой транзакции и запускает её
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SET TRANSACTION&lt;/code&gt; - устанавливает свойства очередной выполняемой транзакции не влияя на текущую (управляет следующей транзакцией)
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SET CONSTRAINS&lt;/code&gt; - устанавливает режим ограничений транзакций (выполнять проверки сразу или откладывать)
+&lt;code class=&quot;highlighter-rouge&quot;&gt;SAVEPOIN&lt;/code&gt; - создаёт точку сохранения в пределах транзакции, которая будет промежуточной точкой отката транзакции
+&lt;code class=&quot;highlighter-rouge&quot;&gt;RELEASE SAVEPOINT&lt;/code&gt; - освобождает точку сохранения и все ресурсы
+&lt;code class=&quot;highlighter-rouge&quot;&gt;COMMIT&lt;/code&gt; - завершает транзакцию и сохраняет изменения в БД.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ROLLBACK&lt;/code&gt; - откатывает транзакцию к ближайшей точке сохранения или началу транзакции. При возврате к точке сохранения транзакция может быть продолжена&lt;/p&gt;
+
+&lt;h3 id=&quot;свойства-транзакций&quot;&gt;Свойства транзакций&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Уровень доступа - может ли транзакция содержать модифицирующие инструкции (&lt;code class=&quot;highlighter-rouge&quot;&gt;READ WRITE&lt;/code&gt;) или только запросы на выборку данных (&lt;code class=&quot;highlighter-rouge&quot;&gt;READ ONLY&lt;/code&gt; - по умолчанию)&lt;/li&gt;
+  &lt;li&gt;Уровень изоляции - насколько транзация изолирована от других (&lt;code class=&quot;highlighter-rouge&quot;&gt;READ UNCOMMITED&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;READ COMMITED&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;REPEATABLE READ&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;SERIALIZABLE&lt;/code&gt;) по умолчанию &lt;code class=&quot;highlighter-rouge&quot;&gt;SERIALIZABLE&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Размер диагностики - размер области для сообщений, генерируемых при выполненнии SQL (никем не реализована)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Для обеспечения атомарности в рамках транзакции в журнал транзакций сохраняются состояния строк до изменения и после&lt;/p&gt;
+
+&lt;h3 id=&quot;проблемы-многопользовательских-транзакций&quot;&gt;Проблемы многопользовательских транзакций&lt;/h3&gt;
+
+&lt;h4 id=&quot;пропавшее-обновление&quot;&gt;Пропавшее обновление&lt;/h4&gt;
+
+&lt;p&gt;Две транзакции параллельно считывают и изменяют результат&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT -= 50&lt;/td&gt;
+      &lt;td&gt;COUNT -= 60&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COMMIT&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT =&amp;gt; 50&lt;/td&gt;
+      &lt;td&gt;COMMIT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;COUNT =&amp;gt; 40&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;От 100 в двух парралельных транзакциях вычитаем 50 и 60, получаем 40&lt;/p&gt;
+
+&lt;h4 id=&quot;проблема-промежуточных-данных&quot;&gt;Проблема промежуточных данных&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT -= 50&lt;/td&gt;
+      &lt;td&gt;COUNT =&amp;gt; 50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;COUNT += 10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;COUNT =&amp;gt; 60&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ROLLBACK&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT =&amp;gt; 100&lt;/td&gt;
+      &lt;td&gt;COUNT =&amp;gt; 100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Изменения применились к промежуточному значению, которое не было сохранено&lt;/p&gt;
+
+&lt;h4 id=&quot;проблема-несогласованности-данных&quot;&gt;Проблема несогласованности данных&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+      &lt;td&gt;COUNT = 100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;COUNT -= 50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;COUNT =&amp;gt; 50&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;В рамках одной транзакции значение меняется, хотя никаких операций над ним не производилось&lt;/p&gt;
+
+&lt;h4 id=&quot;проблема-строк-призраков&quot;&gt;Проблема строк-призраков&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;T1&lt;/th&gt;
+      &lt;th&gt;T2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;SELECT COUNT(ROW) =&amp;gt; 10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;INSERT …&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;SELECT COUNT(ROW) =&amp;gt; 11&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;в рамках одной транзакции меняется количество существующих строк&lt;/p&gt;
+
+&lt;p&gt;Когда транзакции выполняются параллельно СУБД гарантирует что результат будет таким же как если бы они применялись в определённом порядке&lt;/p&gt;
+
+&lt;p&gt;Для обработки параллельных транзакций может применятся механизм блокировки чтобы предоставить транзакции монопольный доступ к данным&lt;/p&gt;
+
+&lt;p&gt;Уровни блокировки:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;База данных&lt;/li&gt;
+  &lt;li&gt;Таблица&lt;/li&gt;
+  &lt;li&gt;Страница (часть таблицы)&lt;/li&gt;
+  &lt;li&gt;Строка&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Блокировка может быть:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;С обеспечением совместного доступа (&lt;code class=&quot;highlighter-rouge&quot;&gt;SHARED LOCK&lt;/code&gt;) - другая транзакция может извлечь заблокированные данные&lt;/li&gt;
+  &lt;li&gt;Монопольная (&lt;code class=&quot;highlighter-rouge&quot;&gt;EXCLUSIVE LOCK&lt;/code&gt;) Заблокированные данные не доступны другим транзакциям&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Если данные уже заблокированы &lt;code class=&quot;highlighter-rouge&quot;&gt;SHARED LOCK&lt;/code&gt; нельзя заблокировать их &lt;code class=&quot;highlighter-rouge&quot;&gt;EXCLUSIVE LOCK&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Для предотвращения взаимоблокировок СУБД периодически проверяет все блокировки и при нахождении взаимоблокировки отменяет одну произвольную транзакцию&lt;/p&gt;
+
+&lt;p&gt;Усовершенствованные методы блокировки&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Явная блокировка&lt;/li&gt;
+  &lt;li&gt;Уровни изоляции&lt;/li&gt;
+  &lt;li&gt;Параметры блокировки&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;-&lt;/th&gt;
+      &lt;th&gt;пропавшее обновление&lt;/th&gt;
+      &lt;th&gt;промежуточные данные&lt;/th&gt;
+      &lt;th&gt;несогласованные данные&lt;/th&gt;
+      &lt;th&gt;строки-призраки&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SERIALIZABLE&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;REPEATABLE READ&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;READ COMMITED&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;READ UNCOMMITED&lt;/td&gt;
+      &lt;td&gt;нет&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+      &lt;td&gt;возможно&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;управление-версиями&quot;&gt;Управление версиями&lt;/h3&gt;
+
+&lt;p&gt;Когда в рамках транзакции изменяется строка создаётся её копия. В текущей транзакции используется изменённое значение, в других значение до изменения&lt;/p&gt;
+
+&lt;p&gt;Схема БД это ключевой высокоуровневый контейнер объектов в структуре БД. Он представляет собой именованную сущность в БД и включает в себя определение следующих объектов:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Таблицы вместе со связанными с ними структурами (столбцами, первичными и внешними ключами и т.п.)&lt;/li&gt;
+  &lt;li&gt;Представления - виртуальные таблицы, создаваемые на основе реальных&lt;/li&gt;
+  &lt;li&gt;Домены - расширенные типы данных для определения столбцов в таблицах схемы&lt;/li&gt;
+  &lt;li&gt;Утверждения - проверки целостности БД, относящиеся ко всей базе&lt;/li&gt;
+  &lt;li&gt;Привелегии - возможности пользователя для доступа к данным&lt;/li&gt;
+  &lt;li&gt;наборы символов - представления нелатинских символов&lt;/li&gt;
+  &lt;li&gt;порядки сортировки - правила сортировки текста для различных наборов символов&lt;/li&gt;
+  &lt;li&gt;правила конвертирования текста - правила перевода текста между различными наборами символов и сравнения текстовых данных использующих различные наборы символов&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;представления&quot;&gt;Представления&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Позволяют по разному показывать БД разным пользователям&lt;/li&gt;
+  &lt;li&gt;Позволяют дать пользователю доступ к части таблицы&lt;/li&gt;
+  &lt;li&gt;Упрощают структуру БД для уаждого пользователя&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Материализованные представления - результат выборки сохранённый во временную таблицу&lt;/p&gt;
+
+&lt;p&gt;Преимущества представлений:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Безопасность - проще разграничить доступ пользователей&lt;/li&gt;
+  &lt;li&gt;Простота запросов - к нескольким таблицам можно обращаться как к одной&lt;/li&gt;
+  &lt;li&gt;Структурная простота - для каждого пользователя можно создать собственную структуру&lt;/li&gt;
+  &lt;li&gt;Защита от изменений - интерфейс доступа к данным не зависит от структуры данных, имён таблиц и столбцов&lt;/li&gt;
+  &lt;li&gt;Целостность данных - автоматическая проверка целостности&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Недостатки:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Производительность - простой запрос к представлению это запрос к нескольким таблицам&lt;/li&gt;
+  &lt;li&gt;Управляемость - взаимосвязанные представления сложны в поддержке&lt;/li&gt;
+  &lt;li&gt;Ограничения на обновления - сложные представления нельзя обновлять&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Виды представлений:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Горизонтальное - включает все столбцы таблицы но только часть строк (таблица отфильтрована по критерию)&lt;/li&gt;
+  &lt;li&gt;Вертикальное - все строки но только часть столбцов&lt;/li&gt;
+  &lt;li&gt;Сгруппированные - результат запроса с группировкой&lt;/li&gt;
+  &lt;li&gt;Соединённые - результат объединения таблиц&lt;/li&gt;
+  &lt;li&gt;Смешанное&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Для обновления представления СУБД должна иметь возможность однозначно сопоставить строки и столбцы представления со строками и столбцами исходных таблиц&lt;/p&gt;
+
+&lt;p&gt;Можно создать дополнительные правила для проверки добавляемых в представление данных при его создании (WITH CHECK) - пользователь не сможет ввести данные, которые не подходят под условие выборки в представление&lt;/p&gt;
+
+&lt;p&gt;Материализованное представление - запрос на выборку, результат которого сохраняются в таблицу и синхронизируются с исходными таблицами&lt;/p&gt;
+
+&lt;p&gt;Привелегии пользователей:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INSERT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DELETE&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UPDATE&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;расширенные привелегии - могут относиться к отдельным столбцам а не всей таблице, добавляются&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REFERENCES&lt;/code&gt; - позволяет делать столбец внешним ключом&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;USAGE&lt;/code&gt; - управляет доступом к пользовательским наборам символов, правилам сортировки, доменам&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Передача привелегий - &lt;code class=&quot;highlighter-rouge&quot;&gt;GRANT ... WITH GRANT OPTION&lt;/code&gt; - право на передачу привелегий другому пользователю&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REVOKE&lt;/code&gt; - отменяет привелегии, но может отменить только те, которые были даны выполняющим пользователем&lt;/p&gt;
+
+&lt;p&gt;Роль - именованный набор привелегий&lt;/p&gt;
+
+&lt;p&gt;Системный каталог - набор таблиц, хранящий служебную информацию о БД&lt;/p&gt;
+
+&lt;p&gt;Таблицы системного каталога хранят:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Таблицы - имя, владелец …&lt;/li&gt;
+  &lt;li&gt;Столбцы - имя, таблица …&lt;/li&gt;
+  &lt;li&gt;Пользователи&lt;/li&gt;
+  &lt;li&gt;Представления&lt;/li&gt;
+  &lt;li&gt;Привелегии&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;хранимые процедуры&lt;/strong&gt; - набор инструкций, реализующий какой-либо процесс
+&lt;strong&gt;функция&lt;/strong&gt; - программа, возвращающая одно значение для каждой строки. Может быть использована внутри
+SQL инструкций практически везде где может быть использовано имя столбца или константа
+&lt;strong&gt;триггеры&lt;/strong&gt; - код, запускающий на выполнение процедуру при выполнении заданных условий&lt;/p&gt;
+
+&lt;h3 id=&quot;язык-хранимых-процедур-spl---stored-procedure-language---набор-элементов-реализующий&quot;&gt;Язык хранимых процедур (SPL - Stored Procedure Language) - набор элементов, реализующий:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Условное выполнение&lt;/strong&gt; - &lt;code class=&quot;highlighter-rouge&quot;&gt;IF ... THEN ... ELSE&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Циклы&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;WHILE&lt;/code&gt; или &lt;code class=&quot;highlighter-rouge&quot;&gt;FOR&lt;/code&gt; либо иная подобная структура&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Блочная структура&lt;/strong&gt; Последовательность инструкций SQL может быть сгруппирована и использована в других управляющих конструкциях&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Именованные переменные&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Именованные процедуры&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Выходные параметры&lt;/strong&gt; - используются для возврата результатов процедуры, передаются в процедуру явно&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;  &lt;span class=&quot;k&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;procedure&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_cust_info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c_num&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nteger&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;с&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;varchar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;varchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;c_num&lt;/code&gt; - входной параметр, передаётся извне
+&lt;code class=&quot;highlighter-rouge&quot;&gt;с_name&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;r_name&lt;/code&gt; - выходные параметры, туда должны быть переданы проинициализированные переменные,
+в которые будет записан результат выполнения&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;  &lt;span class=&quot;k&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;varchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the_rep&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;varchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_cust_info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2111&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the_name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the_rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ok&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;передано&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;значение&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;и&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;переменные&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;для&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;возврата&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;значений&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_cust_info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ошибка&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;не&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;переданы&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;переменные&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;для&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;возврата&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;значений&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_cust_info&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2111&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12222&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the_rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ошибка&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;вместо&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;переменной&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;передано&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;значение&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;преимущества-хранимых-процедур&quot;&gt;Преимущества хранимых процедур&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Производительность - хранимые процедуры компилируются (автоматически или по запросу) и за счёт этого
+выполняются быстрее чем аналогичный набор инструкций&lt;/li&gt;
+  &lt;li&gt;Повторное использование -  можно вызывать из любых приложений&lt;/li&gt;
+  &lt;li&gt;Сокращение сетевого трафика - передаётся только название процедуры а не весь набор инструкций&lt;/li&gt;
+  &lt;li&gt;Безопасность - можно назначить отдельные привилегии, при этом привилегии на таблицы, с которыми
+ работает процедура необязательны&lt;/li&gt;
+  &lt;li&gt;Инкапсуляция - можно создать публичный интерфейс для работы с данными&lt;/li&gt;
+  &lt;li&gt;Простота доступа - вызвать существующую процедуру проще чем писать аналогичные запросы&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Обеспечение бизнес-правил - если базой пользуются несколько приложений можно обеспечить выполнение 
+бизнес-правил на уровне бд&lt;/p&gt;
+
+    &lt;p&gt;Внешняя хранимая процедура - процедура, написанная на одном из традиционных языков программирования и скомпилированная вне СУБД&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;триггер&lt;/strong&gt; - это особая хранимая процедура, которая вызывается в ответ на модификацию содержимого базы данных.&lt;/p&gt;
+
+&lt;h3 id=&quot;функции-триггеров&quot;&gt;Функции триггеров&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Контроль изменений&lt;/strong&gt; Триггер может отслеживать и отменять определенные изменения, не разрешаемые в конкретной базе данных.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Каскадные операции&lt;/strong&gt; Триггер может обнаруживать определенные операции (например, удаление сведений о клиенте или служащем) и автоматически вносить соответствующие изменения в другие таблицы базы&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Поддержка целостности&lt;/strong&gt; Триггер может померживать более сложные
+связи между данными, чем те, которые могут быть выражены ограничениями на значения столбцов и условиями ссылочной целостности&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Вызов хранимых процедур&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Обнаружение системных событий&lt;/strong&gt; В СУБД с помержкой триггеровдля системных событий триггер может отслеживать, например, подключение к базе данных определенного пользователя.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Главным недостатком триггеров является их влияние на производительность операций с базой данных.&lt;/p&gt;
+
+&lt;p&gt;Хранилище данных - СУБД, оптимизированная для хранения больших объёмов данных и выполнения аналитических запросов на них&lt;/p&gt;
+
+&lt;h3 id=&quot;загрузка-данных-в-хранилище&quot;&gt;Загрузка данных в хранилище&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Извлечение данных&lt;/strong&gt; получение данных из разных источников&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Очистка данных&lt;/strong&gt; фильтрация, проверка целостности&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Перекрестная проверка данных&lt;/strong&gt; проверка согласованности данных из разных источников&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Переформатирование&lt;/strong&gt; приведение данных к одному формату, разделение по таблицам&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Вставка/обновление данных&lt;/strong&gt; обычно осуществляется без транзакций с помощью специальных пакетных механизмов&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Создание/обновление индексов&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;производитеьность-запросов&quot;&gt;Производитеьность запросов&lt;/h3&gt;
+
+&lt;p&gt;Для повышения производительности запросов, связанных с деловым анализом,
+используется несколько технологий&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Специализированные схемы индексации&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Технологии параллельной обработки&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Специализированные алгоритмы оптимизации&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Разбиение таблиц и индексов&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Тесная интеграция программного и аппаратного обеспечения&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;характеристики-объектно-ориентированной-базы-данных&quot;&gt;Характеристики объектно-ориентированной базы данных&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Объекты&lt;/strong&gt; В ООБД любая сущность является объектом и обрабатывается как объект.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Классы&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Наследование&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Атрибуты&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Сообщения и методы&lt;/strong&gt; Объекты взаимодействуют друг с другом посредством сообщений. Когда объект получает сообщение, он отвечает на него, выполняя метод - подпрограмму, хранимую внуrри объекта, которая определяет способ обработки сообщения.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Инкапсуляция&lt;/strong&gt; Внуrренняя структура и данные объектов скрыты от внешнего мира за набором строго определенных интерфейсов.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Идентификаторы объектов&lt;/strong&gt; объект указывает на другой объект с помощью дескриптора, который он хранит в одном из своих атрибутов.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;основные-объектные-расширения-уже-имеющиеся-в-современных-бд&quot;&gt;основные объектные расширения, уже имеющиеся в современных БД&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Большие объекты данных&lt;/strong&gt; могут хранить мультимедиа файлы&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Структурированные/абстрактные типы данных&lt;/strong&gt; ROW - структура, например адресс, который состоит из города улицы и дома&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  ADDRESS ROW (STREET VARCHAR (35), CITY VARCНAR (15), STATE СНАR ( 2 ))
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Пользовательские типы данных&lt;/strong&gt; именованные абстрактные типы, которые можно переиспользовать&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Таблицы в таблицах&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Последовательности, множества и массивы&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Хранимые процедуры&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Дескрипторы и идентификаторы объектов&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;характеристики-встраиваемых-баз-данных&quot;&gt;Характеристики встраиваемых баз данных&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Малое потребление памяти&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Отсутствие администрирования&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Поддержка нетрадиционного хранения&lt;/strong&gt; данные могут храниться в оперативной памяти,в энергонезависимой намяти, на USВ-диске или еще где-то&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ограниченная поддержка SQL&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Статическая схема базы данных&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Однопользовательская работа&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">SQL появился как исследовательский продукт фирмы IBM. Изначально назывался SEQUEL - Structured English Query Language но был переименован из-за конфликта прав.</summary></entry></feed>
