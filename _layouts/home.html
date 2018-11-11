@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <table>
+    <tr>
+      <th>Задача</th>
+      <th>Отчёт</th>
+    </tr>
+    {%- if site.posts.size > 0 -%}
+        {%- for post in site.posts -%}
+          <tr>
+            <td>
+              {{ post.subject | escape }}
+              <div class="post-meta">{{ post.date | date: date_format }}</div>
+            </td>
+            <td>
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </td>
+          </tr>
+        {%- endfor -%}
+    {%- endif -%}
+  </table>
+
+</div>
