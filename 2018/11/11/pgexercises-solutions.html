@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Решения | instamart acadenic plan</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Решения" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple SQL Queries" />
+<meta property="og:description" content="Simple SQL Queries" />
+<link rel="canonical" href="https://sd-kin.github.io/instamart-academic-plan/2018/11/11/pgexercises-solutions.html" />
+<meta property="og:url" content="https://sd-kin.github.io/instamart-academic-plan/2018/11/11/pgexercises-solutions.html" />
+<meta property="og:site_name" content="instamart acadenic plan" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-11T20:55:21+03:00" />
+<script type="application/ld+json">
+{"url":"https://sd-kin.github.io/instamart-academic-plan/2018/11/11/pgexercises-solutions.html","description":"Simple SQL Queries","headline":"Решения","dateModified":"2018-11-11T20:55:21+03:00","datePublished":"2018-11-11T20:55:21+03:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sd-kin.github.io/instamart-academic-plan/2018/11/11/pgexercises-solutions.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/instamart-academic-plan/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://sd-kin.github.io/instamart-academic-plan/feed.xml" title="instamart acadenic plan" /></head>
+<body>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Решения</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-11-11T20:55:21+03:00" itemprop="datePublished">Nov 11, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="simple-sql-queries">Simple SQL Queries</h2>
+
+<h4 id="retrieve-everything-from-a-table">Retrieve everything from a table</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you retrieve all the information from the cd.facilities table?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="retrieve-specific-columns-from-a-table">Retrieve specific columns from a table</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">membercost</span> <span class="k">from</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="control-which-rows-are-retrieved">Control which rows are retrieved</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of facilities that charge a fee to members?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">WHERE</span> <span class="n">membercost</span> <span class="o">&gt;</span> <span class="mi">0</span></code></pre></figure>
+
+<h4 id="basic-string-searches">Basic string searches</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of all facilities with the word ‘Tennis’ in their name?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%Tennis%'</span></code></pre></figure>
+
+<h4 id="matching-against-multiple-possible-values">Matching against multiple possible values</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="n">facid</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="classify-results-into-buckets">Classify results into buckets</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of facilities, with each labelled as ‘cheap’ or ‘expensive’ depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+<span class="k">CASE</span>
+  <span class="k">WHEN</span> <span class="n">monthlymaintenance</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="k">THEN</span> <span class="s1">'expensive'</span>
+  <span class="k">ELSE</span> <span class="s1">'cheap'</span>
+<span class="k">END</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="working-with-dates">Working with dates</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, <strong>firstname, and joindate of the members in question.:</strong></p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">memid</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">joindate</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">WHERE</span> <span class="n">joindate</span> <span class="o">&gt;</span> <span class="s1">'2012-09-01'</span></code></pre></figure>
+
+<h4 id="removing-duplicates-and-ordering-results">Removing duplicates, and ordering results</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce an ordered list of the first 10 surnames in the members table? The list must not contain duplicates.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">surname</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">surname</span>
+<span class="k">LIMIT</span> <span class="mi">10</span></code></pre></figure>
+
+<h4 id="combining-results-from-multiple-queries">Combining results from multiple queries</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">surname</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="simple-aggregation">Simple aggregation</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You’d like to get the signup date of your last member. How can you retrieve this information?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">joindate</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span></code></pre></figure>
+
+<h4 id="more-aggregation">More aggregation</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You’d like to get the first and last name of the last member(s) who signed up - not just the date. How can you do that?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">joindate</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">WHERE</span> <span class="n">joindate</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">joindate</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="joins-and-subqueries">Joins and Subqueries</h2>
+
+<h4 id="retrieve-the-start-times-of-members-bookings">Retrieve the start times of members’ bookings</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of the start times for bookings by members named ‘David Farrell’?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">starttime</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span>
+<span class="k">WHERE</span> <span class="n">firstname</span> <span class="o">=</span> <span class="s1">'David'</span> <span class="k">AND</span> <span class="n">surname</span> <span class="o">=</span>  <span class="s1">'Farrell'</span></code></pre></figure>
+
+<h4 id="work-out-the-start-times-of-bookings-for-tennis-courts">Work out the start times of bookings for tennis courts</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of the start times for bookings for tennis courts, for the date ‘2012-09-21’? Return a list of start time and facility name pairings, ordered by the time.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">starttime</span><span class="p">,</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span>
+<span class="k">WHERE</span> <span class="n">starttime</span><span class="p">::</span><span class="n">date</span> <span class="o">=</span> <span class="s1">'2012-09-21'</span> <span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'Tennis Court%'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">starttime</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-all-members-who-have-recommended-another-member">Produce a list of all members who have recommended another member</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you output a list of all members who have recommended another member? Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">recommender</span><span class="p">.</span><span class="n">firstname</span><span class="p">,</span> <span class="n">recommender</span><span class="p">.</span><span class="n">surname</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">member</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">recommender</span> <span class="k">ON</span> <span class="n">member</span><span class="p">.</span><span class="n">recommendedby</span> <span class="o">=</span> <span class="n">recommender</span><span class="p">.</span><span class="n">memid</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">recommender</span><span class="p">.</span><span class="n">surname</span><span class="p">,</span> <span class="n">recommender</span><span class="p">.</span><span class="n">firstname</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-all-members-along-with-their-recommender">Produce a list of all members, along with their recommender</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">member</span><span class="p">.</span><span class="n">firstname</span><span class="p">,</span> 
+  <span class="n">member</span><span class="p">.</span><span class="n">surname</span><span class="p">,</span>
+  <span class="n">recommender</span><span class="p">.</span><span class="n">firstname</span><span class="p">,</span>
+  <span class="n">recommender</span><span class="p">.</span><span class="n">surname</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">member</span>
+  <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">recommender</span>
+    <span class="k">ON</span> <span class="n">member</span><span class="p">.</span><span class="n">recommendedby</span> <span class="o">=</span> <span class="n">recommender</span><span class="p">.</span><span class="n">memid</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">member</span><span class="p">.</span><span class="n">surname</span><span class="p">,</span> <span class="n">member</span><span class="p">.</span><span class="n">firstname</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-all-members-who-have-used-a-tennis-court">Produce a list of all members who have used a tennis court</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of all members who have used a tennis court? Include in your output the name of the court, and the name of the member formatted as a single column. Ensure no duplicate data, and order by the member name.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">firstname</span> <span class="o">||</span> <span class="s1">' '</span> <span class="o">||</span> <span class="n">surname</span> <span class="n">mname</span><span class="p">,</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'Tennis Court%'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">mname</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-costly-bookings">Produce a list of costly bookings</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you produce a list of bookings on the day of 2012-09-14 which will cost the member (or guest) more than $30? Remember that guests have different costs to members (the listed costs are per half-hour ‘slot’), and the guest user is always ID 0. Include in your output the name of the facility, the name of the member formatted as a single column, and the cost. Order by descending cost, and do not use any subqueries.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">firstname</span> <span class="o">||</span> <span class="s1">' '</span> <span class="o">||</span> <span class="n">surname</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">guestcost</span> <span class="o">*</span> <span class="n">slots</span>
+  <span class="k">ELSE</span> <span class="n">membercost</span> <span class="o">*</span> <span class="n">slots</span>
+  <span class="k">END</span> <span class="k">AS</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span>
+<span class="k">WHERE</span> <span class="n">starttime</span><span class="p">::</span><span class="n">date</span> <span class="o">=</span> <span class="s1">'2012-09-14'</span><span class="p">)</span> <span class="n">a</span>
+  <span class="k">WHERE</span> <span class="n">cost</span> <span class="o">&gt;</span> <span class="mi">30</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">cost</span> <span class="k">DESC</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-all-members-along-with-their-recommender-using-no-joins">Produce a list of all members, along with their recommender, using no joins.</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span>
+  <span class="n">firstname</span> <span class="o">||</span> <span class="s1">' '</span> <span class="o">||</span> <span class="n">surname</span> <span class="n">member</span><span class="p">,</span>
+  <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">firstname</span> <span class="o">||</span> <span class="s1">' '</span> <span class="o">||</span> <span class="n">surname</span>
+    <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">mm</span>
+    <span class="k">WHERE</span> <span class="n">m</span><span class="p">.</span><span class="n">recommendedby</span> <span class="o">=</span> <span class="n">mm</span><span class="p">.</span><span class="n">memid</span>
+  <span class="p">)</span> <span class="n">recommender</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span><span class="p">)</span> <span class="n">a</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">member</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-costly-bookings-using-a-subquery">Produce a list of costly bookings, using a subquery</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>The Produce a list of costly bookings exercise contained some messy logic: we had to calculate the booking cost in both the WHERE clause and the CASE statement. Try to simplify this calculation using subqueries. For reference, thequestion was:
+How can you produce a list of bookings on the day of 2012-09-14 which will cost the member (or guest) more than $30? Remember that guests have different costs to members (the listed costs are per half-hour ‘slot’), and the guest user is always ID 0. Include in your output the name of the facility, the name of the member formatted as a single column, and the cost. Order by descending cost.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">firstname</span> <span class="o">||</span> <span class="s1">' '</span> <span class="o">||</span> <span class="n">surname</span><span class="p">,</span>
+  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">guestcost</span> <span class="o">*</span> <span class="n">slots</span>
+  <span class="k">ELSE</span> <span class="n">membercost</span> <span class="o">*</span> <span class="n">slots</span>
+  <span class="k">END</span> <span class="k">AS</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span>
+<span class="k">WHERE</span> <span class="n">starttime</span><span class="p">::</span><span class="n">date</span> <span class="o">=</span> <span class="s1">'2012-09-14'</span><span class="p">)</span> <span class="n">a</span>
+  <span class="k">WHERE</span> <span class="n">cost</span> <span class="o">&gt;</span> <span class="mi">30</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">cost</span> <span class="k">DESC</span></code></pre></figure>
+
+<h2 id="modifying-data">Modifying data</h2>
+
+<h4 id="insert-some-data-into-a-table">Insert some data into a table</h4>
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>The club is adding a new facility - a spa. We need to add it into the facilities table. Use the following values: facid: 9, Name: ‘Spa’, membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s1">'Spa'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="insert-multiple-rows-of-data-into-a-table">Insert multiple rows of data into a table</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>In the previous exercise, you learned how to add a facility. Now you’re going to add multiple facilities in one command. Use the following values: facid: 9, Name: ‘Spa’, membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.
+facid: 10, Name: ‘Squash Court 2’, membercost: 3.5, guestcost: 17.5, initialoutlay: 5000, monthlymaintenance: 80.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">VALUES</span> <span class="p">(</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">'Spa'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">800</span><span class="p">),</span>
+  <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="s1">'Squash Court 2'</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="insert-calculated-data-into-a-table">Insert calculated data into a table</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Let’s try adding the spa to the facilities table again. This time, though, we want to automatically generate the value for the next facid, rather than specifying it as a constant. Use the following values for everything else: Name: ‘Spa’, membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">facid</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'Spa'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100000</span><span class="p">,</span> <span class="mi">800</span>
+  <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="update-some-existing-data">Update some existing data</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>We made a mistake when entering the data for the second tennis court. The initial outlay was 10000 rather than 8000: you need to alter the data to fix the error.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+<span class="k">SET</span> <span class="n">initialoutlay</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="k">WHERE</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Tennis Court 2'</span></code></pre></figure>
+
+<h4 id="update-multiple-rows-and-columns-at-the-same-time">Update multiple rows and columns at the same time</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>We want to increase the price of the tennis courts for both members and guests. Update the costs to be 6 for members, and 30 for guests.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">SET</span> <span class="n">membercost</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">guestcost</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'Tennis Court%'</span></code></pre></figure>
+
+<h4 id="update-a-row-based-on-the-contents-of-another-row">Update a row based on the contents of another row</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>We want to alter the price of the second tennis court so that it costs 10% more than the first one. Try to do this without using constant values for the prices, so that we can reuse the statement if we want to.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">SET</span> <span class="n">membercost</span> <span class="o">=</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="n">membercost</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="n">facid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">guestcost</span> <span class="o">=</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="n">guestcost</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="n">facid</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+<span class="k">WHERE</span> <span class="n">facid</span> <span class="o">=</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="delete-all-bookings">Delete all bookings</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>As part of a clearout of our database, we want to delete all bookings from the cd.bookings table. How can we accomplish this?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span></code></pre></figure>
+
+<h4 id="delete-a-member-from-the-cdmembers-table">Delete a member from the cd.members table</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>We want to remove member 37, who has never made a booking, from our database. How can we achieve that?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">WHERE</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">37</span></code></pre></figure>
+
+<h4 id="delete-based-on-a-subquery">Delete based on a subquery</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>In our previous exercises, we deleted a specific member who had never made a booking. How can we make that more general, to delete all members who have never made a booking?</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+<span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="k">WHERE</span> <span class="n">memid</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="aggregation">Aggregation</h2>
+
+<h4 id="count-the-number-of-facilities">Count the number of facilities</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>For our first foray into aggregates, we’re going to stick to something simple. We want to know how many facilities exist - simply produce a total count.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span></code></pre></figure>
+
+<h4 id="count-the-number-of-expensive-facilities">Count the number of expensive facilities</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a count of the number of facilities that have a cost to guests of 10 or more.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span>
+<span class="k">WHERE</span> <span class="n">guestcost</span> <span class="o">&gt;=</span> <span class="mi">10</span></code></pre></figure>
+
+<h4 id="count-the-number-of-recommendations-each-member-makes">Count the number of recommendations each member makes.</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a count of the number of recommendations each member has made. Order by member ID.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">recommendedby</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">recommendedby</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">recommendedby</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">recommendedby</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">recommendedby</span></code></pre></figure>
+
+<h4 id="list-the-total-slots-booked-per-facility">List the total slots booked per facility</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">facid</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">facid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">facid</span></code></pre></figure>
+
+<h4 id="list-the-total-slots-booked-per-facility-in-a-given-month">List the total slots booked per facility in a given month</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">facid</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">WHERE</span> <span class="n">starttime</span> <span class="o">&gt;=</span> <span class="s1">'2012-9-01'</span> <span class="k">AND</span> <span class="n">starttime</span> <span class="o">&lt;</span> <span class="s1">'2012-10-01'</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">facid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="list-the-total-slots-booked-per-facility-per-month">List the total slots booked per facility per month</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">facid</span><span class="p">,</span> <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">),</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">WHERE</span>  <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span> <span class="o">=</span> <span class="s1">'2012'</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">facid</span><span class="p">,</span> <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">facid</span><span class="p">,</span> <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="find-the-count-of-members-who-have-made-at-least-one-booking">Find the count of members who have made at least one booking</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Find the total number of members who have made at least one booking.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">memid</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span></code></pre></figure>
+
+<h4 id="list-facilities-with-more-than-1000-slots-booked">List facilities with more than 1000 slots booked</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of facilities with more than 1000 slots booked. Produce an output table consisting of facility id and hours, sorted by facility id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">facid</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">facid</span>
+<span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">facid</span></code></pre></figure>
+
+<h4 id="find-the-total-revenue-of-each-facility">Find the total revenue of each facility</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of facilities along with their total revenue. The output table should consist of facility name and revenue, sorted by revenue. Remember that there’s a different cost for guests and members!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span>  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span>
+<span class="k">ORDER</span> <span class="k">BY</span>  <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="find-facilities-with-a-total-revenue-less-than-1000">Find facilities with a total revenue less than 1000</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of facilities with a total revenue less than 1000. Produce an output table consisting of facility name and revenue, sorted by revenue. Remember that there’s a different cost for guests and members!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span>  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span>
+<span class="k">ORDER</span> <span class="k">BY</span>  <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="output-the-facility-id-that-has-the-highest-number-of-slots-booked">Output the facility id that has the highest number of slots booked</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Output the facility id that has the highest number of slots booked. For bonus points, try a version without a LIMIT clause. This version will probably look messy!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">sslots</span> <span class="k">AS</span> <span class="p">(</span> 
+  <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">facid</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">facid</span><span class="p">)</span> <span class="n">sm</span>
+  <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sslots</span>
+<span class="k">WHERE</span> <span class="n">sm</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">sslots</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="list-the-total-slots-booked-per-facility-per-month-part-2">List the total slots booked per facility per month, part 2</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the total number of slots booked per facility per month in the year of 2012. In this version, include output rows containing totals for all months per facility, and a total for all months for all facilities. The output table should consist of facility id, month and slots, sorted by the id and month. When calculating the aggregated values for all months and all facids, return null values in the month and facid columns.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">facid</span><span class="p">,</span> <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span> <span class="k">as</span> <span class="k">month</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">WHERE</span> <span class="n">DATE_PART</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span> <span class="o">=</span> <span class="s1">'2012'</span> <span class="k">AND</span> <span class="n">slots</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">ROLLUP</span> <span class="p">(</span><span class="n">facid</span><span class="p">,</span> <span class="k">month</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">facid</span></code></pre></figure>
+
+<h4 id="list-the-total-hours-booked-per-named-facility">List the total hours booked per named facility</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the total number of hours booked per facility, remembering that a slot lasts half an hour. The output table should consist of the facility id, name, and hours booked, sorted by facility id. Try formatting the hours to two decimal places.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span><span class="p">,</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">trunc</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span><span class="p">,</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span></code></pre></figure>
+
+<h4 id="list-each-members-first-booking-after-september-1st-2012">List each member’s first booking after September 1st 2012</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">surname</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">starttime</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span>
+<span class="k">WHERE</span> <span class="n">starttime</span> <span class="o">&gt;</span> <span class="s1">'2012-09-01'</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">surname</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">memid</span></code></pre></figure>
+
+<h4 id="produce-a-list-of-member-names-with-each-row-containing-the-total-member-count">Produce a list of member names, with each row containing the total member count</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of member names, with each row containing the total member count. Order by join date.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(),</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">surname</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">joindate</span></code></pre></figure>
+
+<h4 id="produce-a-numbered-list-of-members">Produce a numbered list of members</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a monotonically increasing numbered list of members, ordered by their date of joining. Remember that member IDs are not guaranteed to be sequential.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">ROW_NUMBER</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="k">order</span> <span class="k">by</span> <span class="n">joindate</span><span class="p">),</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">surname</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span></code></pre></figure>
+
+<h4 id="output-the-facility-id-that-has-the-highest-number-of-slots-booked-again">Output the facility id that has the highest number of slots booked, again</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">f</span><span class="p">,</span> <span class="n">s</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">facid</span> <span class="n">f</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="n">s</span><span class="p">,</span> <span class="n">rank</span><span class="p">()</span> <span class="n">over</span><span class="p">(</span><span class="k">order</span> <span class="k">by</span> <span class="k">sum</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="k">desc</span><span class="p">)</span> <span class="n">rank</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">facid</span><span class="p">)</span> <span class="n">a</span>
+<span class="k">where</span> <span class="n">rank</span> <span class="o">=</span> <span class="mi">1</span></code></pre></figure>
+
+<h4 id="rank-members-by-rounded-hours-used">Rank members by (rounded) hours used</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of members, along with the number of hours they’ve booked in facilities, rounded to the nearest ten hours. Rank them by this rounded figure, producing output of first name, surname, rounded hours, rank. Sort by rank, surname, and first name.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">hours</span><span class="p">,</span>
+  <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">DESC</span><span class="p">)</span> <span class="n">rank</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">memid</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">rank</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">firstname</span></code></pre></figure>
+
+<h4 id="find-the-top-three-revenue-generating-facilities">Find the top three revenue generating facilities</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of the top three revenue generating facilities (including ties). Output facility name and rank, sorted by rank and facility name.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="k">DESC</span><span class="p">)</span> <span class="n">rank</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span>  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span><span class="p">)</span> <span class="n">b</span>
+<span class="k">WHERE</span> <span class="n">rank</span> <span class="o">&lt;=</span> <span class="mi">3</span></code></pre></figure>
+
+<h4 id="classify-facilities-by-value">Classify facilities by value</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Classify facilities into equally sized groups of high, average, and low based on their revenue. Order by classification and facility name.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">revenues</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="n">rev</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span>  <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span><span class="p">),</span>
+
+<span class="n">ranked_facilities</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">DENSE_RANK</span><span class="p">()</span> <span class="n">OVER</span><span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">REV</span> <span class="k">DESC</span><span class="p">)</span> <span class="n">rank</span> <span class="k">FROM</span> <span class="n">revenues</span><span class="p">),</span>
+<span class="n">classified_facilities</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="k">MAX</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="n">OVER</span><span class="p">()</span> <span class="o">-</span> <span class="n">rank</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span> <span class="k">as</span> <span class="k">class</span> <span class="k">FROM</span> <span class="n">ranked_facilities</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> 
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="k">class</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">THEN</span> <span class="s1">'high'</span>
+  <span class="k">WHEN</span> <span class="k">class</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="s1">'low'</span>
+  <span class="k">ELSE</span> <span class="s1">'average'</span>
+  <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">classified_facilities</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">class</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">name</span> </code></pre></figure>
+
+<h4 id="calculate-the-payback-time-for-each-facility">Calculate the payback time for each facility</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Based on the 3 complete months of data so far, calculate the amount of time each facility will take to repay its cost of ownership. Remember to take into account ongoing monthly maintenance. Output facility name and payback time in months, order by facility name. Don’t worry about differences in month lengths, we’re only looking for a rough value here!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">revenues</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="n">rev</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">initialoutlay</span> <span class="o">/</span> <span class="p">((</span><span class="k">AVG</span><span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">r</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">monthlymaintenance</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">revenues</span> <span class="n">r</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">name</span> </code></pre></figure>
+
+<h4 id="calculate-a-rolling-average-of-total-revenue">Calculate a rolling average of total revenue</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>For each day in August 2012, calculate a rolling average of total revenue over the previous 15 days. Output should contain date and revenue columns, sorted by the date. Remember to account for the possibility of a day having zero revenue. This one’s a bit tough, so don’t be afraid to check out the hint!</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">revenues</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">starttime</span><span class="p">::</span><span class="n">DATE</span> <span class="n">dt</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span> <span class="n">rev</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">starttime</span><span class="p">,</span>
+  <span class="k">CASE</span>
+    <span class="k">WHEN</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">THEN</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">guestcost</span>
+  <span class="k">ELSE</span> <span class="n">slots</span> <span class="o">*</span> <span class="n">membercost</span>
+  <span class="k">END</span> <span class="k">as</span> <span class="n">cost</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="p">)</span> <span class="n">a</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">starttime</span><span class="p">::</span><span class="n">DATE</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">dt</span><span class="p">,</span> <span class="k">avg</span><span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="n">over</span><span class="p">(</span><span class="k">order</span> <span class="k">by</span> <span class="n">dt</span> <span class="k">rows</span> <span class="k">between</span> <span class="mi">14</span> <span class="n">PRECEDING</span> <span class="k">AND</span> <span class="k">CURRENT</span> <span class="k">ROW</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">revenues</span>
+
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">dt</span><span class="p">)</span> <span class="n">z</span>
+<span class="k">WHERE</span> <span class="n">dt</span> <span class="o">&gt;=</span> <span class="s1">'2012-08-01'</span> <span class="k">AND</span> <span class="n">dt</span> <span class="o">&lt;</span> <span class="s1">'2012-09-01'</span></code></pre></figure>
+
+<h2 id="working-with-timestamps">Working with Timestamps</h2>
+
+<h4 id="produce-a-timestamp-for-1-am-on-the-31st-of-august-2012">Produce a timestamp for 1 a.m. on the 31st of August 2012</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a timestamp for 1 a.m. on the 31st of August 2012.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">'2012-08-31 01:00:00'</span> <span class="k">as</span> <span class="k">timestamp</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="subtract-timestamps-from-each-other">Subtract timestamps from each other</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Find the result of subtracting the timestamp ‘2012-07-30 01:00:00’ from the timestamp ‘2012-08-31 01:00:00’</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="s1">'2012-08-31 01:00:00'</span><span class="p">::</span><span class="k">timestamp</span> <span class="o">-</span> <span class="s1">'2012-07-30 01:00:00'</span><span class="p">::</span><span class="k">timestamp</span></code></pre></figure>
+
+<h4 id="generate-a-list-of-all-the-dates-in-october-2012">Generate a list of all the dates in October 2012</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">GENERATE_SERIES</span><span class="p">(</span><span class="s1">'2012-10-01'</span><span class="p">,</span> <span class="s1">'2012-10-31'</span><span class="p">,</span> <span class="n">interval</span> <span class="s1">'1 day'</span><span class="p">)</span> <span class="k">as</span> <span class="k">timestamp</span></code></pre></figure>
+
+<h4 id="get-the-day-of-the-month-from-a-timestamp">Get the day of the month from a timestamp</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Get the day of the month from the timestamp ‘2012-08-31’ as an integer.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="k">EXTRACT</span><span class="p">(</span><span class="s1">'day'</span> <span class="k">from</span>  <span class="s1">'2012-08-31'</span><span class="p">::</span><span class="k">timestamp</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="work-out-the-number-of-seconds-between-timestamps">Work out the number of seconds between timestamps</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Work out the number of seconds between the timestamps ‘2012-08-31 01:00:00’ and ‘2012-09-02 00:00:00’</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span>  <span class="k">extract</span><span class="p">(</span> <span class="s1">'epoch'</span> <span class="k">FROM</span> <span class="p">(</span><span class="s1">'2012-09-02 00:00:00'</span><span class="p">::</span><span class="k">timestamp</span> <span class="o">-</span> <span class="s1">'2012-08-31 01:00:00'</span><span class="p">::</span><span class="k">timestamp</span><span class="p">))</span></code></pre></figure>
+
+<h4 id="work-out-the-number-of-days-in-each-month-of-2012">Work out the number of days in each month of 2012</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>For each month of the year in 2012, output the number of days in that month. Format the output as an integer column containing the month of the year, and a second column containing an interval data type.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">months</span> <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span>  <span class="n">GENERATE_SERIES</span><span class="p">(</span><span class="s1">'2012-01-01'</span><span class="p">,</span> <span class="s1">'2013-01-01'</span><span class="p">,</span> <span class="n">INTERVAL</span> <span class="s1">'1 month'</span><span class="p">)</span> <span class="k">month</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="k">extract</span><span class="p">(</span><span class="s1">'month'</span> <span class="k">from</span> <span class="k">month</span><span class="p">),</span> <span class="n">lead</span><span class="p">(</span><span class="k">month</span><span class="p">::</span><span class="n">date</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">order</span> <span class="k">by</span> <span class="k">month</span><span class="p">)</span> <span class="o">-</span> <span class="k">month</span><span class="p">::</span><span class="n">date</span> <span class="o">||</span> <span class="s1">' days'</span>  <span class="k">FROM</span> <span class="n">months</span>
+<span class="k">limit</span> <span class="mi">12</span></code></pre></figure>
+
+<h4 id="work-out-the-number-of-days-remaining-in-the-month">Work out the number of days remaining in the month</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>For any given timestamp, work out the number of days remaining in the month. The current day should count as a whole day, regardless of the time. Use ‘2012-02-11 01:00:00’ as an example timestamp for the purposes of making the answer. Format the output as a single interval value.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span>  <span class="s1">'2012-02-11 01:00:00'</span><span class="p">::</span><span class="n">date</span>  <span class="o">+</span> <span class="n">interval</span> <span class="s1">'1 month'</span><span class="p">)</span>
+   <span class="o">-</span> <span class="n">date_trunc</span><span class="p">(</span><span class="s1">'day'</span><span class="p">,</span>  <span class="s1">'2012-02-11 01:00:00'</span><span class="p">::</span><span class="n">date</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="work-out-the-end-time-of-bookings">Work out the end time of bookings</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Return a list of the start and end time of the last 10 bookings (ordered by the time at which they end, followed by the time at which they start) in the system.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">starttime</span><span class="p">,</span> <span class="n">starttime</span> <span class="o">+</span> <span class="p">(</span><span class="n">slots</span><span class="o">*</span><span class="p">(</span><span class="n">interval</span> <span class="s1">'0.5 hour'</span><span class="p">))</span> <span class="n">endtime</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">endtime</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">starttime</span> <span class="k">desc</span>
+<span class="k">limit</span> <span class="mi">10</span></code></pre></figure>
+
+<h4 id="return-a-count-of-bookings-for-each-month">Return a count of bookings for each month</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Return a count of bookings for each month, sorted by month</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">starttime</span><span class="p">)</span> <span class="k">as</span> <span class="k">month</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="k">month</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">month</span></code></pre></figure>
+
+<h4 id="work-out-the-utilisation-percentage-for-each-facility-by-month">Work out the utilisation percentage for each facility by month</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Work out the utilisation percentage for each facility by month, sorted by name and month, rounded to 1 decimal place. Opening time is 8am, closing time is 8.30pm. You can treat every month as a full month, regardless of if there were some dates the club was not open.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="n">calendar</span> <span class="k">AS</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="k">month</span><span class="p">,</span>
+    <span class="k">extract</span><span class="p">(</span> <span class="s1">'epoch'</span> <span class="k">from</span> <span class="p">((</span><span class="k">month</span> <span class="o">+</span> <span class="n">interval</span> <span class="s1">'1 month'</span><span class="p">)</span> <span class="o">-</span> <span class="k">month</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span> <span class="o">*</span> <span class="mi">25</span> <span class="k">AS</span> <span class="n">slots</span> 
+  <span class="k">FROM</span>  <span class="n">GENERATE_SERIES</span><span class="p">(</span><span class="s1">'2012-01-01'</span><span class="p">,</span> <span class="s1">'2013-01-01'</span><span class="p">,</span> <span class="n">INTERVAL</span> <span class="s1">'1 month'</span><span class="p">)</span> <span class="k">month</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">bmonth</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">((</span><span class="n">sslots</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">slots</span><span class="p">)::</span><span class="n">numeric</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">FROM</span><span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">date_trunc</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">starttime</span><span class="p">)</span> <span class="k">AS</span> <span class="n">bmonth</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">slots</span><span class="p">)</span> <span class="n">sslots</span>
+  <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="n">f</span>
+    <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">bookings</span> <span class="n">b</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">facid</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">facid</span>
+  <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">f</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">bmonth</span>
+  <span class="p">)</span> <span class="n">a</span>
+  <span class="k">JOIN</span> <span class="n">calendar</span> <span class="k">c</span> <span class="k">ON</span> <span class="k">c</span><span class="p">.</span><span class="k">month</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">bmonth</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span><span class="p">,</span> <span class="n">bmonth</span></code></pre></figure>
+
+<h2 id="string-operations">String Operations</h2>
+
+<h4 id="format-the-names-of-members">Format the names of members</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Output the names of all members, formatted as ‘Surname, Firstname’</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">surname</span><span class="p">,</span> <span class="s1">', '</span><span class="p">,</span> <span class="n">firstname</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span></code></pre></figure>
+
+<h4 id="find-facilities-by-a-name-prefix">Find facilities by a name prefix</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Find all facilities whose name begins with ‘Tennis’. Retrieve all columns.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'Tennis%'</span></code></pre></figure>
+
+<h4 id="perform-a-case-insensitive-search">Perform a case-insensitive search</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Perform a case-insensitive search to find all facilities whose name begins with ‘tennis’. Retrieve all columns.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">facilities</span> <span class="k">WHERE</span> <span class="k">LOWER</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">LIKE</span> <span class="s1">'tennis%'</span></code></pre></figure>
+
+<h4 id="find-telephone-numbers-with-parentheses">Find telephone numbers with parentheses</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You’ve noticed that the club’s member table has telephone numbers with very inconsistent formatting. You’d like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">memid</span><span class="p">,</span> <span class="n">telephone</span>
+<span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">WHERE</span> <span class="n">telephone</span> <span class="o">~</span> <span class="s1">'^</span><span class="se">\(</span><span class="s1">'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">memid</span></code></pre></figure>
+
+<h4 id="pad-zip-codes-with-leading-zeroes">Pad zip codes with leading zeroes</h4>
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>The zip codes in our example dataset have had leading zeroes removed from them by virtue of being stored as a numeric type. Retrieve all zip codes from the members table, padding any zip codes less than 5 characters long with leading zeroes. Order by the new zip code.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">LPAD</span><span class="p">(</span><span class="n">zipcode</span><span class="p">::</span><span class="n">text</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span></code></pre></figure>
+
+<h4 id="count-the-number-of-members-whose-surname-starts-with-each-letter-of-the-alphabet">Count the number of members whose surname starts with each letter of the alphabet</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>You’d like to produce a count of how many members you have whose surname starts with each letter of the alphabet. Sort by the letter, and don’t worry about printing out a letter if the count is 0.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">substr</span><span class="p">(</span><span class="n">surname</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">l</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">l</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">l</span></code></pre></figure>
+
+<h4 id="clean-up-telephone-numbers">Clean up telephone numbers</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>The telephone numbers in the database are very inconsistently formatted. You’d like to print a list of member ids and numbers that have had ‘-‘,’(‘,’)’, and ‘ ‘ characters removed. Order by member id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">memid</span><span class="p">,</span> <span class="n">REGEXP_REPLACE</span><span class="p">(</span><span class="n">telephone</span><span class="p">::</span><span class="n">text</span><span class="p">,</span> <span class="s1">'[-, </span><span class="se">\(</span><span class="s1">, </span><span class="se">\)</span><span class="s1">]'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">memid</span></code></pre></figure>
+
+<h2 id="recursive-queries">Recursive Queries</h2>
+
+<h4 id="find-the-upward-recommendation-chain-for-member-id-27">Find the upward recommendation chain for member ID 27</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Find the upward recommendation chain for member ID 27: that is, the member who recommended them, and the member who recommended that member, and so on. Return member ID, first name, and surname. Order by descending member id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="k">RECURSIVE</span> <span class="n">recommender</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">recommendedby</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="k">where</span> <span class="n">memid</span> <span class="o">=</span> <span class="mi">27</span>
+  <span class="k">UNION</span> <span class="k">ALL</span>
+  <span class="k">SELECT</span> <span class="n">recommendedby</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span><span class="p">,</span> <span class="n">recommender</span> <span class="n">r</span> <span class="k">where</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">id</span>
+  <span class="p">)</span>
+  
+<span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">firstname</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">surname</span> <span class="k">FROM</span> <span class="n">recommender</span> <span class="n">r</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">id</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">memid</span> <span class="k">desc</span> </code></pre></figure>
+
+<h4 id="find-the-downward-recommendation-chain-for-member-id-1">Find the downward recommendation chain for member ID 1</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Find the downward recommendation chain for member ID 1: that is, the members they recommended, the members those members recommended, and so on. Return member ID and name, and order by ascending member id.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="k">RECURSIVE</span> <span class="n">recommendations</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">ARRAY</span><span class="p">[</span><span class="n">memid</span><span class="p">]</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="k">where</span> <span class="n">recommendedby</span> <span class="k">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="n">ARRAY</span><span class="p">[</span><span class="n">memid</span><span class="p">]</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span><span class="p">,</span> <span class="n">recommendations</span> <span class="n">r</span> <span class="k">WHERE</span>  <span class="n">m</span><span class="p">.</span><span class="n">recommendedby</span> <span class="o">=</span> <span class="k">ANY</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="p">)</span>
+  
+<span class="k">SELECT</span> <span class="n">ids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">id</span><span class="p">,</span> <span class="n">firstname</span><span class="p">,</span> <span class="n">surname</span> <span class="k">FROM</span> <span class="n">recommendations</span> <span class="n">r</span>
+  <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="k">ON</span> <span class="n">ids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">memid</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span></code></pre></figure>
+
+<h4 id="produce-a-cte-that-can-return-the-upward-recommendation-chain-for-any-member">Produce a CTE that can return the upward recommendation chain for any member</h4>
+
+<p><strong>Question:</strong></p>
+<blockquote>
+  <p>Produce a CTE that can return the upward recommendation chain for any member. You should be able to select recommender from recommenders where member=x. Demonstrate it by getting the chains for members 12 and 22. Results table should have member and recommender, ordered by member ascending, recommender descending.</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">WITH</span> <span class="k">RECURSIVE</span> <span class="n">recommenders</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">rid</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span>
+  <span class="k">SELECT</span> <span class="n">memid</span><span class="p">,</span> <span class="n">recommendedby</span> <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span>
+  <span class="k">UNION</span> <span class="k">ALL</span>
+  <span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">recommendedby</span>
+  <span class="k">FROM</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span>
+    <span class="k">JOIN</span> <span class="n">recommenders</span> <span class="n">r</span> <span class="k">ON</span> <span class="n">r</span><span class="p">.</span><span class="n">rid</span> <span class="o">=</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span>
+  <span class="p">)</span>
+  
+<span class="k">SELECT</span> <span class="n">r</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">r</span><span class="p">.</span><span class="n">rid</span><span class="p">,</span><span class="n">m</span><span class="p">.</span><span class="n">firstname</span><span class="p">,</span> <span class="n">m</span><span class="p">.</span><span class="n">surname</span> <span class="k">FROM</span> <span class="n">recommenders</span> <span class="n">r</span>
+   <span class="k">JOIN</span> <span class="n">cd</span><span class="p">.</span><span class="n">members</span> <span class="n">m</span> <span class="k">ON</span> <span class="n">m</span><span class="p">.</span><span class="n">memid</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">rid</span>
+<span class="k">WHERE</span> <span class="n">rid</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">AND</span> <span class="n">id</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">id</span><span class="p">,</span> <span class="n">rid</span> <span class="k">DESC</span></code></pre></figure>
+
+
+  </div><a class="u-url" href="/instamart-academic-plan/2018/11/11/pgexercises-solutions.html" hidden></a>
+</article>
+
+      </div>
+    </main>
+
+  </body>
+
+</html>
