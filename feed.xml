@@ -1,4 +1,2806 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-11-11T22:08:37+03:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Тезисы</title><link href="/2018/11/11/groff-complete-guide.html" rel="alternate" type="text/html" title="Тезисы" /><published>2018-11-11T20:53:21+03:00</published><updated>2018-11-11T20:53:21+03:00</updated><id>/2018/11/11/groff-complete-guide</id><content type="html" xml:base="/2018/11/11/groff-complete-guide.html">&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt; появился как исследовательский продукт  фирмы IBM. Изначально назывался &lt;strong&gt;SEQUEL&lt;/strong&gt; - &lt;strong&gt;S&lt;/strong&gt;tructured &lt;strong&gt;E&lt;/strong&gt;nglish &lt;strong&gt;Que&lt;/strong&gt;ry &lt;strong&gt;L&lt;/strong&gt;anguage но был переименован из-за конфликта прав.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-11-11T22:30:53+03:00</updated><id>/</id><title type="html">instamart acadenic plan</title><subtitle>academic plan 2018</subtitle><entry><title type="html">Тезисы</title><link href="/2018/11/11/mollinaro-coockbook.html" rel="alternate" type="text/html" title="Тезисы" /><published>2018-11-11T20:55:21+03:00</published><updated>2018-11-11T20:55:21+03:00</updated><id>/2018/11/11/mollinaro-coockbook</id><content type="html" xml:base="/2018/11/11/mollinaro-coockbook.html">&lt;h2 id=&quot;mollinaro---sql-cookbook-notes&quot;&gt;Mollinaro - SQL Cookbook notes&lt;/h2&gt;
+
+&lt;h3 id=&quot;группировка&quot;&gt;Группировка&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Способ организации подобных строк. Каждая строка результирующего множества представляет одну или более строк с одинаковыми значениями в одном или более заданных полях.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;В математике основным определением группы является тройка (G, •, e), где G – множество, • – бинарная операция над G, и e – член G. (бинарная операция — математическая операция, принимающая два аргумента и возвращающая один результат)&lt;/p&gt;
+
+&lt;p&gt;SQL группа определяется как пара (G, e), где G – результирующее множество самостоятельного или самодостаточного запроса, в котором используется оператор GROUP BY, e – член G, и выполняются
+  следующие аксиомы:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Для каждого e в G e является уникальным и представляет один или более экземпляров e.&lt;/li&gt;
+  &lt;li&gt;Для каждого e в G агрегатная функция COUNT возвращает значение &amp;gt; 0.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(е можно считать строкой результирующего множества, поскольку фактически эти строки представляют собой группы)&lt;/p&gt;
+
+&lt;p&gt;Следствия:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* Группы не могут быть пустыми
+* Группы уникальны
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;оконные-функции&quot;&gt;Оконные функции&lt;/h3&gt;
+
+&lt;p&gt;выполняют агрегацию заданного набора (группы) строк, но вместо того чтобы возвращать по одному значению на группу могут возвращать несколько значений для каждой группы. Группа строк, подвергающаяся агрегации называется “окно”&lt;/p&gt;
+
+&lt;p&gt;оконные функции выполняются как последний шаг в обработке SQL перед оператором &lt;code class=&quot;highlighter-rouge&quot;&gt;ORDER BY&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Для определения сегмента или группы строк, подвергающихся агрегации, используется оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;PARTITION BY&lt;/code&gt;. Оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;PARTITION BY&lt;/code&gt; можно рассматривать как «скользящий&lt;code class=&quot;highlighter-rouge&quot;&gt; GROUP BY&lt;/code&gt;», потому что в отличие от обычного &lt;code class=&quot;highlighter-rouge&quot;&gt;GROUP BY&lt;/code&gt; группы, создаваемые &lt;code class=&quot;highlighter-rouge&quot;&gt;PARTITION BY&lt;/code&gt;, в результирующем множестве не являются уникальными. &lt;code class=&quot;highlighter-rouge&quot;&gt;PARTITION BY&lt;/code&gt; может использоваться для вычисления агрегата заданной группы строк (отсчет начинается заново для каждой новой группы), и тогда будут представлены все экземпляры этого значения в таблице (все члены каждой группы), а не одна группа.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select ename, deptno, count(*) over(partition by deptno) as cnt
+    from emp
+    order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+      &lt;th&gt;CNT&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CLARK&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;KING&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SMITH&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FORD&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SCOTT&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ALLEN&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BLAKE&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JAMES&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TURNER&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;аналогичный результат можноа получить без оконных функций с помощью&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select e.ename,
+           e.deptno,
+           (select count(*) from emp d where e.deptno=d.deptno) as cnt
+    from emp e
+    order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;PARTITION BY&lt;/code&gt; выполняет вычисления независимо от других оконных функций, осуществляя сегментирование по другим столбцам в том же выражении &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select ename,
+           deptno,
+           count(*) over(partition by deptno) as dept_cnt,
+           job,
+           count(*) over(partition by job) as job_cnt
+    from emp
+    order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+      &lt;th&gt;DEPT_CNT&lt;/th&gt;
+      &lt;th&gt;JOB&lt;/th&gt;
+      &lt;th&gt;JOB_CNT&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MILLER&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CLARK&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;MANAGER&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;KING&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;PRESIDENT&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SCOTT&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;ANALYST&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FORD&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;ANALYST&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SMITH&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JONES&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;MANAGER&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ADAMS&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JAMES&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MARTIN&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TURNER&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;WARD&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ALLEN&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BLAKE&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;MANAGER&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;ORDER BY&lt;/code&gt;, используемый в операторе &lt;code class=&quot;highlighter-rouge&quot;&gt;OVER&lt;/code&gt; оконной функции, определяет две вещи:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Как упорядочены строки в сегменте.
+2. Какие строки участвуют в вычислениях.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select deptno,
+           ename,
+           hiredate,
+           sal,
+           sum(sal)over(order by hiredate) as running_total
+    from emp
+    where deptno=10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;HIREDATE&lt;/th&gt;
+      &lt;th&gt;SAL&lt;/th&gt;
+      &lt;th&gt;RUNNING_TOTAL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;CLARK&lt;/td&gt;
+      &lt;td&gt;09JUN1981&lt;/td&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;KING&lt;/td&gt;
+      &lt;td&gt;17NOV1981&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;7450&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;MILLER&lt;/td&gt;
+      &lt;td&gt;23JAN1982&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+      &lt;td&gt;8750&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;считается сумма от начала окна до текущей строки&lt;/p&gt;
+
+&lt;p&gt;Следующий запрос аналогичен предыдущему, но в нем поведение по умолчанию, являющееся результатом применения &lt;code class=&quot;highlighter-rouge&quot;&gt;ORDER BY HIRE DATE&lt;/code&gt;, явно задается оператором &lt;code class=&quot;highlighter-rouge&quot;&gt;RANGE BETWEEN&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select deptno,
+           ename,
+           hiredate,
+           sal,
+           sum(sal)over(order by hiredate range between unbounded preceding and current row) as running_total
+    from emp
+    where deptno=10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;RANGE BETWEEN&lt;/code&gt; ANSI называет оператором кадрирования&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ORDER BY&lt;/code&gt; определяет порядок вычисления и также подразумевает кадрирование по умолчанию&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    select deptno,
+           ename,
+           sal,
+           sum(sal)over(order by hiredate range between unbounded preceding and current row) as run_total1,
+           sum(sal)over(order by hiredate rows between 1 preceding and current row) as run_total2,
+           sum(sal)over(order by hiredate range between current row and unbounded following) as run_total3,
+           sum(sal)over(order by hiredate rows between current row and 1 following) as run_total4
+    from emp
+    where deptno=10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;SAL&lt;/th&gt;
+      &lt;th&gt;RUN_TOTAL1&lt;/th&gt;
+      &lt;th&gt;RUN_TOTAL2&lt;/th&gt;
+      &lt;th&gt;RUN_TOTAL3&lt;/th&gt;
+      &lt;th&gt;RUN_TOTAL4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;CLARK&lt;/td&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+      &lt;td&gt;8750&lt;/td&gt;
+      &lt;td&gt;7450&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;KING&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt;7450&lt;/td&gt;
+      &lt;td&gt;7450&lt;/td&gt;
+      &lt;td&gt;6300&lt;/td&gt;
+      &lt;td&gt;6300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;MILLER&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+      &lt;td&gt;8750&lt;/td&gt;
+      &lt;td&gt;6300&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;RUN_TOTAL2&lt;/strong&gt; - Вместо ключевого слова &lt;code class=&quot;highlighter-rouge&quot;&gt;RANGE&lt;/code&gt; в данном операторе кадрирования используется &lt;code class=&quot;highlighter-rouge&quot;&gt;ROWS&lt;/code&gt;; это означает, что кадр, или окно, будет создано из некоторого количества строк. &lt;code class=&quot;highlighter-rouge&quot;&gt;1 PRECEDING&lt;/code&gt; говорит о том, что кадр будет начинаться со строки, стоящей непосредственно перед текущей строкой. Диапазон распространяется до &lt;code class=&quot;highlighter-rouge&quot;&gt;CURRENT ROW&lt;/code&gt;. Таким образом, &lt;strong&gt;RUN_TOTAL2&lt;/strong&gt; – это сумма заработных плат текущего и предыдущего, на основании &lt;code class=&quot;highlighter-rouge&quot;&gt;HIREDATE&lt;/code&gt;, сотрудников.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RUN_TOTAL3&lt;/strong&gt; - Оконная функция для вычисления &lt;strong&gt;RUN_TOTAL3&lt;/strong&gt; выполняет обратное тому, что делалось для &lt;strong&gt;RUN_TOTAL1&lt;/strong&gt;. Суммирование начинается с текущей строки и включает не все предыдущие строки, а все последующие строки.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RUN_TOTAL4&lt;/strong&gt; - Инверсия &lt;strong&gt;RUN_TOTAL2&lt;/strong&gt;. Суммирование начинается с текущей строки и включает не одну предыдущую, а одну следующую строку.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-извлечение-записей-стр-33&quot;&gt;1 Извлечение записей (стр. 33)&lt;/h3&gt;
+
+&lt;h4 id=&quot;извлечение-всех-строк-и-столбцов-из-таблицы&quot;&gt;Извлечение всех строк и столбцов из таблицы&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-подмножества-строк-из-таблицы-стр-34&quot;&gt;Извлечение подмножества строк из таблицы (стр. 34)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from emp where deptno = 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выбор-строк-по-нескольким-условиям-стр-34&quot;&gt;Выбор строк по нескольким условиям (стр. 34)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from emp where deptno = 10 or comm is not null or sal &amp;lt;= 2000 and deptno = 20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-подмножества-столбцов-из-таблицы-стр-35&quot;&gt;Извлечение подмножества столбцов из таблицы (стр. 35)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename, deptno, sal from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-задать-столбцам-значимые-имена-стр-36&quot;&gt;Как задать столбцам значимые имена (стр. 36)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sal as salary, comm as commission from emp 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SALARY&lt;/th&gt;
+      &lt;th&gt;COMMISSION&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;800&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1600&lt;/td&gt;
+      &lt;td&gt;300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1250&lt;/td&gt;
+      &lt;td&gt;500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2975&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1250&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2850&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2450&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3000&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1500&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1100&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;950&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3000&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;обращение-к-столбцу-в-предикате-where-по-псевдониму-стр-37&quot;&gt;Обращение к столбцу в предикате WHERE по псевдониму (стр. 37)&lt;/h4&gt;
+
+&lt;p&gt;Чтобы обратиться к столбцу по псевдониму, необходимо использовать вложенный запрос:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select *
+  from (
+    select sal as salary, comm as commission
+    from emp
+  ) x
+  where salary &amp;lt; 5000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Предикат &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; обрабатывается раньше оператора &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt;, оператор &lt;code class=&quot;highlighter-rouge&quot;&gt;FROM&lt;/code&gt; выполняется до предиката &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt;. Размещение исходного запроса в операторе &lt;code class=&quot;highlighter-rouge&quot;&gt;FROM&lt;/code&gt; обеспечивает формирование его результатов до обработки самого внешнего &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;конкатенация-значений-столбцов-стр-38&quot;&gt;Конкатенация значений столбцов (стр. 38)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select concat(ename, ' WORKS AS A ',job) as msg
+  from
+  where deptno=10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;использование-условной-логики-в-выражении-select-стр-39&quot;&gt;Использование условной логики в выражении SELECT (стр. 39)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,
+         sal,
+         case 
+           when sal &amp;lt;= 2000 then 'UNDERPAID'
+           when sal &amp;gt;= 4000 then 'OVERPAID'
+           else 'OK'
+         end as status
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;ограничение-числа-возвращаемых-строк-стр-40&quot;&gt;Ограничение числа возвращаемых строк (стр. 40)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from emp limit 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;возвращение-n-случайных-записей-таблицы-стр-42&quot;&gt;Возвращение n случайных записей таблицы (стр. 42)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,job
+  from emp
+  order by rand()
+  limit 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;поиск-значений-null-стр-44&quot;&gt;Поиск значений NULL (стр. 44)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from emp where comm is null
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;преобразование-значений-null-в-неnull-значения-стр-44&quot;&gt;Преобразование значений NULL в неNULL значения (стр. 44)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select coalesce(comm,0) from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Функция COALESCE принимает в качестве аргументов одно или более значений. Функция возвращает первое не NULL значение из списка.&lt;/p&gt;
+
+&lt;h4 id=&quot;поиск-по-шаблону-стр-45&quot;&gt;Поиск по шаблону (стр. 45)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename, job
+  from emp
+  where deptno in (10,20)
+  and (ename like '%I%' or job like '%ER')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2-сортировка-результатов-запроса-стр-47&quot;&gt;2 Сортировка результатов запроса (стр. 47)&lt;/h3&gt;
+
+&lt;h4 id=&quot;возвращение-результатов-запроса-в-заданном-порядке&quot;&gt;Возвращение результатов запроса в заданном порядке&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,job,sal
+  from emp
+  where deptno = 10
+  order by sal asc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сортировка-по-нескольким-полям-стр-48&quot;&gt;Сортировка по нескольким полям (стр. 48)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select empno,deptno,sal,ename,job
+  from emp
+  order by deptno, sal desc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сортировка-по-подстрокам-стр-49&quot;&gt;Сортировка по подстрокам (стр. 49)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,job
+  from emp
+   order by substr(job,length(job)-2,2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сортировка-смешанных-буквенноцифровых-данных-стр-50&quot;&gt;Сортировка смешанных буквенноцифровых данных (стр. 50)&lt;/h4&gt;
+
+&lt;p&gt;Требуется сортировать смешанные буквенно-цифровые данные по числовой или символьной части.&lt;/p&gt;
+
+&lt;h2 id=&quot;dataename-----deptno&quot;&gt;DATA(ENAME || ‘ ‘ || DEPTNO)&lt;/h2&gt;
+&lt;p&gt;SMITH 20
+ALLEN 30
+WARD 30
+JONES 20
+MARTIN 30
+BLAKE 30
+CLARK 10
+SCOTT 20
+KING 10
+TURNER 30
+ADAMS 20
+JAMES 30
+FORD 20
+MILLER 10&lt;/p&gt;
+
+&lt;p&gt;Oracle и PostgreSQL&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  /* СОРТИРУЕМ ПО DEPTNO */
+  select data
+  from V
+  order by replace(data, /* убираем строковую часть, остаётся только номер */
+    replace( /* убираем все #, остаётся строковая часть */
+      translate( /* замена цифр на # */
+        data,'0123456789','##########'),
+        '#',
+        ''
+      ),
+    '')
+  
+  /* СОРТИРУЕМ ПО ENAME */
+  select data
+  from emp
+  order by replace(translate(data,'0123456789','##########'),'#','')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MySQL и SQL Server&lt;/p&gt;
+
+&lt;p&gt;В настоящее время данные платформы не поддерживают функцию
+TRANSLATE, таким образом, решения для этой задачи нет.&lt;/p&gt;
+
+&lt;h4 id=&quot;обработка-значений-null-при-сортировке-стр-53&quot;&gt;Обработка значений NULL при сортировке (стр. 53)&lt;/h4&gt;
+
+&lt;p&gt;В зависимости от того, как должны быть представлены данные (и как конкретная СУБД сортирует значения &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;), столбцы, допускающие неопределенные значения, можно сортировать по возврастанию или по убыванию:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,sal,comm
+  from emp
+  order by 3
+
+  select ename,sal,comm
+  from emp
+  order by 3 desc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Если необходимо сортировать неопределенные значения иначе, чем определенные, например расположить определенные значения по убыванию или возрастанию, а все значения &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; вывести поcле&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,sal,comm
+  from (
+    select ename,sal,comm,
+    case when comm is null then 0 else 1 end as is null
+    from emp
+  ) x
+  order by is_null desc, comm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сортировка-по-зависящему-от-данных-ключу-стр-60&quot;&gt;Сортировка по зависящему от данных ключу (стр. 60)&lt;/h4&gt;
+
+&lt;p&gt;если значение JOB – «SALESMAN», сортировка должна осуществляться по столбцу COMM; в противном случае сортируем по SAL.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,sal,job,comm
+  from emp
+  order by case when job = 'SALESMAN' then comm else sal end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;3-работа-с-несколькими-таблицами-стр-62&quot;&gt;3 Работа с несколькими таблицами (стр. 62)&lt;/h3&gt;
+
+&lt;h4 id=&quot;размещение-одного-набора-строк-под-другим-стр-62&quot;&gt;Размещение одного набора строк под другим (стр. 62)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename as ename_and_dname, deptno
+  from emp
+  where deptno = 10
+  
+  union all
+  
+  select '-----------', null from t1
+  
+  union all
+  select dname, deptno
+  from dept
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME_AND_DNAME&lt;/th&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CLARK&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;KING&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MILLER&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ACCOUNTING&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RESEARCH&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SALES&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OPERATIONS&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;объединение-взаимосвязанных-строк-стр-64&quot;&gt;Объединение взаимосвязанных строк (стр. 64)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, d.loc
+  from emp e, dept d
+  where e.deptno = d.deptno
+  and e.deptno = 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, d.loc
+  from emp e
+    inner join dept d on (e.deptno = d.deptno)
+  where e.deptno = 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Объединение – это операция, в результате которой строки двух таблиц соединяются в одну.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Эквиобъединение – это объединение, в котором условием объединения является равенство&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;поиск-одинаковых-строк-в-двух-таблицах-стр-66&quot;&gt;Поиск одинаковых строк в двух таблицах (стр. 66)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from V
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;JOB&lt;/th&gt;
+      &lt;th&gt;SAL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SMITH&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;800&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ADAMS&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;1100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JAMES&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;950&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MILLER&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;1300&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.empno,e.ename,e.job,e.sal,e.deptno
+  from emp e, V
+  where e.ename = v.ename
+    and e.job = v.job
+    and e.sal = v.sal
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.empno,e.ename,e.job,e.sal,e.deptno
+  from emp e join V
+    on ( e.ename = v.ename
+      and e.job = v.job
+      and e.sal = v.sal )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;db2-oracle-и-postgresql&quot;&gt;DB2, Oracle и PostgreSQL&lt;/h5&gt;
+
+&lt;p&gt;Если нет необходимости возвращать столбцы представления V, можно использовать операцию над множествами INTERSECT в сочетании с предикатом IN:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select empno,ename,job,sal,deptno
+  from emp
+  where (ename,job,sal) in (
+    select ename,job,sal from emp
+    intersect
+    select ename,job,sal from V
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-из-одной-таблицы-значений-которых-нет-в-другой-таблице-стр-68&quot;&gt;Извлечение из одной таблицы значений, которых нет в другой таблице (стр. 68)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-and-postgresql&quot;&gt;DB2 and PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno from dept
+  except
+  select deptno from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;oracle&quot;&gt;Oracle&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno from dept
+  minus
+  select deptno from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-и-sql-server&quot;&gt;MySQL и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno
+  from dept
+  where deptno not in (select deptno from emp)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;При использовании оператора &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT IN&lt;/code&gt; не забывайте о значениях &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;. По сути, &lt;code class=&quot;highlighter-rouge&quot;&gt;IN&lt;/code&gt; и &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT IN&lt;/code&gt; – операции логического ИЛИ. Формируемый ими результат зависит от того, как интерпретируются значения &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; при вычислении логического ИЛИ. В SQL выражению «&lt;code class=&quot;highlighter-rouge&quot;&gt;TRUE or NULL&lt;/code&gt;» соответствует &lt;code class=&quot;highlighter-rouge&quot;&gt;TRUE&lt;/code&gt;, а «&lt;code class=&quot;highlighter-rouge&quot;&gt;FALSE or NULL&lt;/code&gt;» – &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt;! Полученный результат &lt;code class=&quot;highlighter-rouge&quot;&gt;NUL&lt;/code&gt;L обеспечит &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; при последующих вычислениях. Во избежание проблем с &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT IN&lt;/code&gt; и значениями &lt;code class=&quot;highlighter-rouge&quot;&gt;NULL&lt;/code&gt; применяются связанные подзапросы в сочетании с предикатом &lt;code class=&quot;highlighter-rouge&quot;&gt;NOT EXISTS&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select d.deptno
+  from dept d
+  where not exists ( 
+    select null
+    from emp e
+    where d.deptno = e.deptno )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-из-таблицы-строк-для-которых-нет-соответствия-в-другой-таблице-стр-72&quot;&gt;Извлечение из таблицы строк, для которых нет соответствия в другой таблице (стр. 72)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;select d.*
+from dept d
+  left outer join emp e on (d.deptno = e.deptno)
+where e.deptno is null
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;независимое-добавление-объединений-в-запрос-стр-74&quot;&gt;Независимое добавление объединений в запрос (стр. 74)&lt;/h4&gt;
+
+&lt;p&gt;Для получения дополнительной информации без утраты данных, возвращенных в результате исходного запроса, можно использовать внешнее объединение.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, d.loc, eb.received
+  from emp e 
+    join dept d on (e.deptno=d.deptno)
+    left join emp_bonus eb on (e.empno=eb.empno)
+  order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выявление-одинаковых-данных-в-двух-таблицах-стр-76&quot;&gt;Выявление одинаковых данных в двух таблицах (стр. 76)&lt;/h4&gt;
+
+&lt;p&gt;Функции, осуществляющие вычитание множеств (&lt;code class=&quot;highlighter-rouge&quot;&gt;MINUS&lt;/code&gt; или &lt;code class=&quot;highlighter-rouge&quot;&gt;EXCEPT&lt;/code&gt;, в зависимости от СУБД), существенно упрощают задачу по сравнению таблиц. Если ваша СУБД не поддерживает таких функций, можно использовать связанный подзапрос.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select * from V
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;EMPNO&lt;/th&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;JOB&lt;/th&gt;
+      &lt;th&gt;MGR&lt;/th&gt;
+      &lt;th&gt;HIREDATE&lt;/th&gt;
+      &lt;th&gt;SAL&lt;/th&gt;
+      &lt;th&gt;COMM&lt;/th&gt;
+      &lt;th&gt;DEPTNO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7369&lt;/td&gt;
+      &lt;td&gt;SMITH&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;7902&lt;/td&gt;
+      &lt;td&gt;17DEC1980&lt;/td&gt;
+      &lt;td&gt;800&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7499&lt;/td&gt;
+      &lt;td&gt;ALLEN&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;20FEB1981&lt;/td&gt;
+      &lt;td&gt;1600&lt;/td&gt;
+      &lt;td&gt;300&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7521&lt;/td&gt;
+      &lt;td&gt;WARD&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;22FEB1981&lt;/td&gt;
+      &lt;td&gt;1250&lt;/td&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7566&lt;/td&gt;
+      &lt;td&gt;JONES&lt;/td&gt;
+      &lt;td&gt;MANAGER&lt;/td&gt;
+      &lt;td&gt;7839&lt;/td&gt;
+      &lt;td&gt;02APR1981&lt;/td&gt;
+      &lt;td&gt;2975&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7654&lt;/td&gt;
+      &lt;td&gt;MARTIN&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;28SEP1981&lt;/td&gt;
+      &lt;td&gt;1250&lt;/td&gt;
+      &lt;td&gt;1400&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;BLAKE&lt;/td&gt;
+      &lt;td&gt;MANAGER&lt;/td&gt;
+      &lt;td&gt;7839&lt;/td&gt;
+      &lt;td&gt;01MAY1981&lt;/td&gt;
+      &lt;td&gt;2850&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7788&lt;/td&gt;
+      &lt;td&gt;SCOTT&lt;/td&gt;
+      &lt;td&gt;ANALYST&lt;/td&gt;
+      &lt;td&gt;7566&lt;/td&gt;
+      &lt;td&gt;09DEC1982&lt;/td&gt;
+      &lt;td&gt;3000&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7844&lt;/td&gt;
+      &lt;td&gt;TURNER&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;08SEP1981&lt;/td&gt;
+      &lt;td&gt;1500&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7876&lt;/td&gt;
+      &lt;td&gt;ADAMS&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;7788&lt;/td&gt;
+      &lt;td&gt;12JAN1983&lt;/td&gt;
+      &lt;td&gt;1100&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7900&lt;/td&gt;
+      &lt;td&gt;JAMES&lt;/td&gt;
+      &lt;td&gt;CLERK&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;03DEC1981&lt;/td&gt;
+      &lt;td&gt;950&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7902&lt;/td&gt;
+      &lt;td&gt;FORD&lt;/td&gt;
+      &lt;td&gt;ANALYST&lt;/td&gt;
+      &lt;td&gt;7566&lt;/td&gt;
+      &lt;td&gt;03DEC1981&lt;/td&gt;
+      &lt;td&gt;3000&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7521&lt;/td&gt;
+      &lt;td&gt;WARD&lt;/td&gt;
+      &lt;td&gt;SALESMAN&lt;/td&gt;
+      &lt;td&gt;7698&lt;/td&gt;
+      &lt;td&gt;22FEB1981&lt;/td&gt;
+      &lt;td&gt;1250&lt;/td&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Требуется выяснить, имеются ли в этом представлении такие же данные, как и в таблице EMP.&lt;/p&gt;
+
+&lt;h5 id=&quot;db2-и-postgresql&quot;&gt;DB2 и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  (
+    select empno, ename , job, mgr, hiredate, sal, comm, deptno, count(*) as cnt
+    from V
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+    
+    except
+    
+    select empno, ename, job, mgr, hiredate, sal, comm, deptno, count(*) as cnt
+    from emp
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+  )
+     
+  union all
+     
+  (
+    select empno, ename, job, mgr, hiredate, sal, comm, deptno, count(*) as cnt
+    from emp
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+    
+    except
+    
+    select empno, ename, job, mgr, hiredate, sal, comm, deptno, count(*) as cnt
+    from v
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-и-sql-server-1&quot;&gt;MySQL и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select *
+  from (
+    select e.empno, e.ename, e.job, e.mgr, e.hiredate, e.sal, e.comm, e.deptno, count(*) as cnt
+    from emp e
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+  ) e
+  where not exists (
+    select null
+    from (
+      select v.empno, v.ename, v.job, v.mgr, v.hiredate, v.sal, v.comm, v.deptno, count(*) as cnt
+      from v
+      group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+    ) v
+    where v.empno = e.empno
+      and v.ename = e.ename
+      and v.job = e.job
+      and v.mgr = e.mgr
+      and v.hiredate = e.hiredate
+      and v.sal = e.sal
+      and v.deptno = e.deptno
+      and v.cnt = e.cnt
+      and coalesce(v.comm,0) = coalesce(e.comm,0)
+  )
+
+  union all
+
+  select *
+  from (
+    select v.empno, v.ename, v.job, v.mgr, v.hiredate, v.sal, v.comm, v.deptno, count(*) as cnt
+    from v
+    group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+  ) v
+  where not exists (
+    select null
+    from (
+      select e.empno, e.ename, e.job, e.mgr, e.hiredate, e.sal, e.comm, e.deptno, count(*) as cnt
+      from emp e
+      group by empno, ename, job, mgr, hiredate, sal, comm, deptno
+    ) e
+    where v.empno = e.empno
+      and v.ename = e.ename
+      and v.job = e.job
+      and v.mgr = e.mgr
+      and v.hiredate = e.hiredate
+      and v.sal = e.sal
+      and v.deptno = e.deptno
+      and v.cnt = e.cnt
+      and coalesce(v.comm,0) = coalesce(e.comm,0)
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;идентификация-и-устранение-некорректного-использования-декартова-произведения-стр-83&quot;&gt;Идентификация и устранение некорректного использования декартова произведения (стр. 83)&lt;/h4&gt;
+
+&lt;p&gt;Требуется возвратить имя каждого служащего 10!го отдела и местонахождение отдела.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, d.loc
+  from emp e, dept d
+  where e.deptno = 10
+    and d.deptno = e.deptno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Обычно, чтобы не происходило прямого (декартова) произведения, применяется правило n–1, где n представляет количество таблиц в FROM, а n–1 – минимальное число объединений, необходимое во избежание прямого произведения.&lt;/p&gt;
+
+&lt;h4 id=&quot;осуществление-объединений-при-использовании-агрегатных-функций-стр-85&quot;&gt;Осуществление объединений при использовании агрегатных функций (стр. 85)&lt;/h4&gt;
+
+&lt;p&gt;Необходимо быть очень аккуратным при совместном использовании агрегатных функций и объединений. Обычно избежать ошибок, обусловленных дублированием строк, возникающим при объединении, можно двумя способами: или просто использовать в вызове агрегатной функции ключевое слово &lt;code class=&quot;highlighter-rouge&quot;&gt;DISTINCT&lt;/code&gt;, чтобы в вычислении участвовали только уникальные экземпляры значений, или сначала провести агрегацию (во вложенном запросе), а потом объединение.&lt;/p&gt;
+
+&lt;h5 id=&quot;mysql-и-postgresql&quot;&gt;MySQL и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,
+         sum(distinct sal) as total_sal,
+         sum(bonus) as total_bonus
+  from (
+    select e.empno,
+           e.ename,
+           e.sal,
+           e.deptno,
+           e.sal*case when eb.type = 1 then .1
+            when eb.type = 2 then .2
+            else .3
+          end as bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno
+      and e.deptno = 10
+  ) x
+  group by deptno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;db2-oracle-и-sql-server&quot;&gt;DB2, Oracle и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select distinct deptno, total_sal, total_bonus
+  from (
+    select e.empno,
+           e.ename,
+           sum(distinct e.sal) over (partition by e.deptno) as total_sal,
+           e.deptno,
+           sum(e.sal*case when eb.type = 1 then .1
+            when eb.type = 2 then .2
+            else .3 end) over(partition by deptno) as total_bonus
+    from emp e, emp_bonus eb
+    where e.empno = eb.empno
+    and e.deptno = 10
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;внешнее-объединение-при-использовании-агрегатных-функций-стр-90&quot;&gt;Внешнее объединение при использовании агрегатных функций (стр. 90)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,
+         sum(distinct sal) as total_sal,
+         sum(bonus) as total_bonus
+  from (
+    select e.empno,
+     e.ename,
+     e.sal,
+     e.deptno,
+     e.sal*case when eb.type is null then 0
+      when eb.type = 1 then .1
+      when eb.type = 2 then .2
+      else .3
+    end as bonus
+    from emp e left outer join emp_bonus eb
+      on (e.empno = eb.empno)
+    where e.deptno = 10
+  )
+  group by deptno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Можно также использовать оконную функцию &lt;code class=&quot;highlighter-rouge&quot;&gt;SUM OVER&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select distinct deptno, total_sal, total_bonus
+  from (
+    select e.empno,
+      e.ename,
+      sum(distinct e.sal) over(partition by e.deptno) as total_sal,
+      e.deptno,
+      sum(e.sal*case when eb.type is null then 0
+        when eb.type = 1 then .1
+        when eb.type = 2 then .2
+        else .3
+      end) over (partition by deptno) as total_bonus
+  from emp e left outer join emp_bonus eb
+    on (e.empno = eb.empno)
+  where e.deptno = 10
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;возвращение-отсутствующих-данных-из-нескольких-таблиц-стр-93&quot;&gt;Возвращение отсутствующих данных из нескольких таблиц (стр. 93)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select d.deptno,d.dname,e.ename
+  from dept d full outer join emp e
+    on (d.deptno=e.deptno)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select d.deptno, d.dname, e.ename
+    from dept d right outer join emp e
+      on (d.deptno=e.deptno)
+
+  union
+
+  select d.deptno,d.dname,e.ename
+  from dept d left outer join emp e
+    on (d.deptno=e.deptno)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;значения-null-в-операциях-и-сравнениях-стр-97&quot;&gt;Значения NULL в операциях и сравнениях (стр. 97)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,comm
+  from emp
+  where coalesce(comm,0) &amp;lt; ( select comm
+    from emp
+    where ename = 'WARD' )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;вставка-обновление-удаление-стр-99&quot;&gt;Вставка, обновление, удаление (стр. 99)&lt;/h3&gt;
+
+&lt;h4 id=&quot;вставка-новой-записи-стр-100&quot;&gt;Вставка новой записи (стр. 100)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  insert into dept (deptno, dname, loc) values (50, 'PROGRAMMING', 'BALTIMORE')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вставка-значений-по-умолчанию-стр-100&quot;&gt;Вставка значений по умолчанию (стр. 100)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  insert into D values (default)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;переопределение-значения-по-умолчанию-значением-null-стр-102&quot;&gt;Переопределение значения по умолчанию значением NULL (стр. 102)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  insert into d (id, foo) values (null, 'Brighten')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;копирование-строк-из-одной-таблицы-в-другую-стр-103&quot;&gt;Копирование строк из одной таблицы в другую (стр. 103)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  insert into dept_east (deptno, dname, loc)
+    select deptno, dname, loc
+    from dept
+    where loc in ( 'NEW YORK', 'BOSTON' )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;копирование-описания-таблицы-стр-103&quot;&gt;Копирование описания таблицы (стр. 103)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2&quot;&gt;DB2&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  create table dept_2 like dept
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;oracle-mysql-и-postgresql&quot;&gt;Oracle, MySQL и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  create table dept_2 as select * from dept where 1 = 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вставка-в-несколько-таблиц-одновременно-стр-104&quot;&gt;Вставка в несколько таблиц одновременно (стр. 104)&lt;/h4&gt;
+
+&lt;h5 id=&quot;oracle-1&quot;&gt;Oracle&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  insert all
+    when loc in ('NEW YORK','BOSTON') then
+      into dept_east (deptno,dname,loc) values (deptno,dname,loc)
+    when loc = 'CHICAGO' then
+      into dept_mid (deptno,dname,loc) values (deptno,dname,loc)
+    else
+      into dept_west (deptno,dname,loc) values (deptno,dname,loc)
+  select deptno,dname,loc
+  from dept
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-postgresql-и-sql-server&quot;&gt;MySQL, PostgreSQL и SQL Server&lt;/h5&gt;
+
+&lt;p&gt;На момент написания данной книги эти производители не поддерживали вставки в несколько таблиц.&lt;/p&gt;
+
+&lt;h4 id=&quot;блокировка-вставки-в-определенные-столбцы-стр-106&quot;&gt;Блокировка вставки в определенные столбцы (стр. 106)&lt;/h4&gt;
+
+&lt;p&gt;Создайте представление, базированное на данной таблице, содержащее столбцы, доступные для вставки. Затем обеспечьте, чтобы вся вставка осуществлялась только посредством этого представления.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  create view new_emps as
+    select empno, ename, job
+    from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;изменение-записей-в-таблице-стр-107&quot;&gt;Изменение записей в таблице (стр. 107)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  update emp
+    set sal = sal*1.10
+  where deptno = 20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;обновление-в-случае-существования-соответствующих-строк-в-другой-таблице-стр-109&quot;&gt;Обновление в случае существования соответствующих строк в другой таблице (стр. 109)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  update emp
+  set sal=sal*1.20
+  where empno in ( select empno from emp_bonus )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;обновление-значениями-из-другой-таблицы-стр-109&quot;&gt;Обновление значениями из другой таблицы (стр. 109)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-и-mysql&quot;&gt;DB2 и MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  update emp e set (e.sal,e.comm) = (select ns.sal, ns.sal/2
+    from new_sal ns
+    where ns.deptno=e.deptno)
+  where exists ( select null
+    from new_sal ns
+    where ns.deptno = e.deptno )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;postgresql&quot;&gt;PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  update emp
+  set sal = ns.sal, comm = ns.sal/2
+  from new_sal ns
+  where ns.deptno = emp.deptno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;слияние-записей-стр-113&quot;&gt;Слияние записей (стр. 113)&lt;/h4&gt;
+
+&lt;p&gt;В настоящее время Oracle является единственной СУБД1, имеющей выражение для решения этой задачи. Это выражение – &lt;code class=&quot;highlighter-rouge&quot;&gt;MERGE&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  merge into emp_commission ec
+  using (select * from emp) emp on (ec.empno=emp.empno)
+    when matched then
+      update set ec.comm = 1000
+      delete where (sal &amp;lt; 2000)
+    when not matched then
+      insert (ec.empno,ec.ename,ec.deptno,ec.comm)
+      values (emp.empno,emp.ename,emp.deptno,emp.comm)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-всех-записей-из-таблицы-стр-115&quot;&gt;Удаление всех записей из таблицы (стр. 115)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-определенных-записей-стр-116&quot;&gt;Удаление определенных записей (стр. 116)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp where deptno = 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-одной-записи-стр-116&quot;&gt;Удаление одной записи (стр. 116)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp where empno = 7782
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-записей-которые-нарушают-ссылочную-целостность-стр-117&quot;&gt;Удаление записей, которые нарушают ссылочную целостность (стр. 117)&lt;/h4&gt;
+
+&lt;p&gt;Требуется удалить записи из таблицы, если они ссылаются на несуществующие записи другой таблицы.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp
+  where not exists (
+    select * from dept
+    where dept.deptno = emp.deptno
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp
+  where deptno not in (select deptno from dept)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;уничтожение-дублирующихся-записей-стр-118&quot;&gt;Уничтожение дублирующихся записей (стр. 118)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from dupes
+  where id not in ( select min(id)
+    from dupes
+    group by name )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-записей-на-которые-есть-ссылки-в-другой-таблице-стр-119&quot;&gt;Удаление записей, на которые есть ссылки в другой таблице (стр. 119)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  delete from emp
+  where deptno in ( select deptno
+    from dept_accidents
+    group by deptno
+    having count(*) &amp;gt;= 3 )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;5-запросы-на-получение-метаданных-стр-121&quot;&gt;5 Запросы на получение метаданных (стр. 121)&lt;/h3&gt;
+
+&lt;h4 id=&quot;как-получить-список-таблиц-схемы-стр-121&quot;&gt;Как получить список таблиц схемы (стр. 121)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select table_name
+  from information_schema.tables
+  where table_schema = 'SMEAGOL'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-получить-список-столбцов-таблицы-стр-122&quot;&gt;Как получить список столбцов таблицы (стр. 122)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select column_name, data_type, ordinal_position
+  from information_schema.columns
+  where table_schema = 'SMEAGOL'
+  and table_name = 'EMP'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-получить-список-индексированных-столбцов-таблицы-стр-123&quot;&gt;Как получить список индексированных столбцов таблицы (стр. 123)&lt;/h4&gt;
+
+&lt;h4 id=&quot;mysql&quot;&gt;MySQL&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select a.tablename,a.indexname,b.column_name
+  from pg_catalog.pg_indexes a, information_schema.columns b
+  where a.schemaname = 'SMEAGOL'
+  and a.tablename = b.table_name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;postgresql-1&quot;&gt;PostgreSQL&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  show index from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-получить-список-ограничений-наложенных-на-таблицу-стр-125&quot;&gt;Как получить список ограничений, наложенных на таблицу (стр. 125)&lt;/h4&gt;
+
+&lt;h5 id=&quot;postgresql-mysql-и-sql-server&quot;&gt;PostgreSQL, MySQL и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select a.table_name,
+    a.constraint_name,
+    b.column_name,
+    a.constraint_type
+  from information_schema.table_constraints a,
+    information_schema.key_column_usage b
+  where a.table_name = 'EMP'
+    and a.table_schema = 'SMEAGOL'
+    and a.table_name = b.table_name
+    and a.table_schema = b.table_schema
+    and a.constraint_name = b.constraint_name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;6-работа-со-строками-стр-134&quot;&gt;6 Работа со строками (стр. 134)&lt;/h3&gt;
+
+&lt;h4 id=&quot;проход-строки-стр-135&quot;&gt;Проход строки (стр. 135)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select substr(e.ename,iter.pos,1) as C
+    from (select ename from emp where ename = 'KING') e,
+      (select id as pos from t10) iter where iter.pos &amp;lt;= length(e.ename)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-вставить-кавычки-в-строковые-литералы-стр-135&quot;&gt;Как вставить кавычки в строковые литералы (стр. 135)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select 'g''day mate' qmarks from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select 'beavers'' teeth' from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select '''' from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-подсчитать-сколько-раз-символ-встречается-в-строке-стр-138&quot;&gt;Как подсчитать, сколько раз символ встречается в строке (стр. 138)&lt;/h4&gt;
+
+&lt;p&gt;Чтобы определить количество запятых в строке, &lt;code class=&quot;highlighter-rouge&quot;&gt;10,CLARK,MANAGER&lt;/code&gt; вычтем ее длину без
+запятых из исходной длины.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select (length('10,CLARK,MANAGER') - length(replace('10,CLARK,MANAGER',',','')))/length(',')
+  as cnt
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;удаление-из-строки-ненужных-символов-стр-139&quot;&gt;Удаление из строки ненужных символов (стр. 139)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-и-sql-server-2&quot;&gt;MySQL и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,
+    replace(
+      replace(
+        replace(
+          replace(
+            replace(ename,'A',''),'E',''),'I',''),'O',''),'U','')
+    as stripped1,
+    sal,
+    replace(sal,0,'') stripped2
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;oracle-и-postgresql&quot;&gt;Oracle и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename, replace(translate(ename,'AEIOU','aaaaa'),'a')
+    as stripped1,
+    sal,
+    replace(sal,0,'') as stripped2
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;разделение-числовых-и-символьных-данных-стр-141&quot;&gt;Разделение числовых и символьных данных (стр. 141)&lt;/h4&gt;
+
+&lt;h5 id=&quot;postgresql-2&quot;&gt;PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select replace(
+    translate(data,'0123456789','0000000000'),'0','') as ename,
+    cast(
+      replace(
+        translate(lower(data),
+          'abcdefghijklmnopqrstuvwxyz',
+          rpad('z',26,'z')),'z','') as integer) as sal
+  from (
+    select ename||sal as data
+    from emp
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-инициалов-из-имени-стр-150&quot;&gt;Извлечение инициалов из имени (стр. 150)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-1&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select case
+    when cnt = 2 then
+      trim(trailing '.' from
+        concat_ws('.', substr(substring_index(name,' ',1),1,1), substr(name,
+          length(substring_index(name,' ',1))+2,1),
+          substr(substring_index(name,' ',1),1,1),
+          '.'))
+    else
+      trim(trailing '.' from
+        concat_ws('.',
+          substr(substring_index(name,' ',1),1,1),
+          substr(substring_index(name,' ',1),1,1)
+        )
+      )
+    end as initials
+  from (
+    select name,length(name)length(replace(name,' ','')) as cnt
+    from (
+      select replace('Stewie Griffin','.','') as name from t1
+    )y
+  )x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;oracle-и-postgresql-1&quot;&gt;Oracle и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select replace(
+    replace(
+      translate(replace('Stewie Griffin', '.', ''),
+      'abcdefghijklmnopqrstuvwxyz',
+    rpad('#',26,'#') ), '#','' ),' ','.' ) ||'.'
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;упорядочивание-по-частям-строки-стр-154&quot;&gt;Упорядочивание по частям строки (стр. 154)&lt;/h4&gt;
+
+&lt;p&gt;Требуется упорядочить строки по последним двум символам имени&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename
+  from emp
+  order by substr(ename,length(ename)1,2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;упорядочивание-по-числу-в-строке-стр-155&quot;&gt;Упорядочивание по числу в строке (стр. 155)&lt;/h4&gt;
+
+&lt;h5 id=&quot;postgresql-3&quot;&gt;PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select data
+  from V
+  order by
+  cast(
+    replace(
+    translate(data,
+      replace(
+        translate(data,'0123456789','##########'),
+          '#',''),rpad('#',20,'#')),'#','') as integer)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;mysql-и-sql-server-3&quot;&gt;MySQL и SQL Server&lt;/h5&gt;
+
+&lt;p&gt;На момент написания данной книги ни один из данных производителей не поддерживает функцию TRANSLATE.&lt;/p&gt;
+
+&lt;h4 id=&quot;создание-списка-с-разделителями-из-строк-таблицы-стр-161&quot;&gt;Создание списка с разделителями из строк таблицы (стр. 161)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-2&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,
+    group_concat(ename order by empno separator ',') as emps
+  from emp
+  group by deptno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;преобразование-данных-с-разделителями-в-список-оператора-in-со-множеством-значений-стр-168&quot;&gt;Преобразование данных с разделителями в список оператора IN со множеством значений (стр. 168)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-3&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select empno, ename, sal, deptno
+  from emp
+  where empno in (
+    select substring_index(
+      substring_index(list.vals,',',iter.pos),',',1) empno
+    from (select id pos from t10) as iter,
+      (select '7654,7698,7782,7788' as vals
+      from t1) list
+      where iter.pos &amp;lt;= (length(list.vals)length(replace(list.vals,',','')))+1
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;упорядочение-строки-в-алфавитном-порядке-стр-174&quot;&gt;Упорядочение строки в алфавитном порядке (стр. 174)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-4&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename, group_concat(c order by c separator '')
+  from (
+    select ename, substr(a.ename,iter.pos,1) c
+    from emp a,
+    ( select id pos from t10 ) iter
+    where iter.pos &amp;lt;= length(a.ename)
+  ) x
+  group by ename
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выявление-строк-которые-могут-быть-интерпретированы-как-числа-стр-180&quot;&gt;Выявление строк, которые могут быть интерпретированы как числа (стр. 180)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-5&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select cast(group_concat(c order by pos separator '') as unsigned) as MIXED1
+  from (
+    select v.mixed, iter.pos, substr(v.mixed,iter.pos,1) as c
+    from V,
+    ( select id pos from t10 ) iter
+      where iter.pos &amp;lt;= length(v.mixed) and ascii(substr(v.mixed,iter.pos,1)) between 48 and 57
+    ) y
+  group by mixed
+  order by 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-nной-подстроки-с-разделителями-стр-187&quot;&gt;Извлечение nной подстроки с разделителями (стр. 187)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-6&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select name
+  from (
+    select iter.pos,
+      substring_index(
+        substring_index(src.name,',',iter.pos),',',1) name
+    from V src,
+      (select id pos from t10) iter,
+      where iter.pos &amp;lt;= length(src.name)length(replace(src.name,',',''))
+    ) x
+  where pos = 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;7-работа-с-числами&quot;&gt;7 Работа с числами&lt;/h3&gt;
+
+&lt;h4 id=&quot;вычисление-среднего&quot;&gt;Вычисление среднего&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select avg(sal) as avg_sal from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;поиск-минимальногомаксимального-значения-столбца&quot;&gt;Поиск минимального/максимального значения столбца&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select min(sal) as min_sal, max(sal) as max_sal from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-суммы-значений-столбца&quot;&gt;Вычисление суммы значений столбца&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sum(sal) from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-моды-стр-213&quot;&gt;Вычисление моды (стр. 213)&lt;/h4&gt;
+
+&lt;p&gt;мода (mode) в математике – это наиболее часто встречающийся элемент рассматриваемого множества данных&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sal
+  from emp
+  where deptno = 20
+  group by sal
+  having count(*) &amp;gt;= all ( select count(*)
+    from emp
+    where deptno = 20
+    group by sal )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-медианы-стр-216&quot;&gt;Вычисление медианы (стр. 216)&lt;/h4&gt;
+
+&lt;p&gt;медиана (median) – это значение среднего члена множества упорядоченных элементов&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select avg(sal)
+  from (
+    select e.sal
+    from emp e, emp d
+    where e.deptno = d.deptno and e.deptno = 20
+    group by e.sal
+    having sum(case when e.sal = d.sal then 1 else 0 end) &amp;gt;= abs(sum(sign(e.sal  d.sal)))
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-доли-от-целого-в-процентном-выражении-стр-220&quot;&gt;Вычисление доли от целого в процентном выражении (стр. 220)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select (sum(case when deptno = 10 then sal end)/sum(sal))*100 as pct
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;агрегация-столбцов-которые-могут-содержать-null-значения-стр-223&quot;&gt;Агрегация столбцов, которые могут содержать NULL значения (стр. 223)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select avg(coalesce(comm,0)) as avg_comm
+  from emp
+  where deptno=30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-среднего-без-учета-наибольшего-и-наименьшего-значений-стр-224&quot;&gt;Вычисление среднего без учета наибольшего и наименьшего значений (стр. 224)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;select avg(sal)
+from emp
+where sal not in (
+  (select min(sal) from emp),
+  (select max(sal) from emp)
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;преобразование-буквенноцифровых-строк-в-числа-стр-226&quot;&gt;Преобразование буквенноцифровых строк в числа (стр. 226)&lt;/h4&gt;
+
+&lt;h5 id=&quot;oracle-и-postgresql-2&quot;&gt;Oracle и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select cast(
+    replace(
+      translate( 'paul123f321', 'abcdefghijklmnopqrstuvwxyz', rpad('#',26,'#')),'#','') as integer ) as num
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-and-sql-server&quot;&gt;MySQL and SQL Server&lt;/h5&gt;
+&lt;p&gt;Решение не предоставляется, поскольку на момент написания данной книги ни один из этих производителей не поддерживает функцию &lt;code class=&quot;highlighter-rouge&quot;&gt;TRANSLATE&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;изменение-значений-в-текущей-сумме-стр-228&quot;&gt;Изменение значений в текущей сумме (стр. 228)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select
+    case when v1.trx = 'PY'
+      then 'PAYMENT'
+      else 'PURCHASE'
+    end as trx_type,
+    v1.amt,
+    (select sum(
+      case when v2.trx = 'PY'
+      then v2.amt else v2.amt
+    end
+    )
+  from V v2
+  where v2.id &amp;lt;= v1.id) as balance
+  from V v1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;8-арифметика-дат&quot;&gt;8 Арифметика дат&lt;/h3&gt;
+
+&lt;h4 id=&quot;добавление-и-вычитание-дней-месяцев-и-лет-стр-231&quot;&gt;Добавление и вычитание дней, месяцев и лет (стр. 231)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-7&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;
+  select hiredate - interval 5 day as hd_minus_5D,
+    hiredate + interval 5 day as hd_plus_5D,
+    hiredate - interval 5 month as hd_minus_5M,
+    hiredate + interval 5 month as hd_plus_5M,
+    hiredate - interval 5 year as hd_minus_5Y,
+    hiredate + interval 5 year as hd_plus_5Y
+  from emp
+  where deptno=10
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-количества-дней-между-двумя-датами-стр-234&quot;&gt;Определение количества дней между двумя датами (стр. 234)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-8&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select datediff(day,allen_hd,ward_hd)
+  from (
+    select hiredate as ward_hd
+    from emp
+    where ename = 'WARD'
+  ) x,
+  (
+    select hiredate as allen_hd
+    from emp
+    where ename = 'ALLEN'
+  ) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-количества-рабочих-дней-между-двумя-датами-стр-236&quot;&gt;Определение количества рабочих дней между двумя датами (стр. 236)&lt;/h4&gt;
+
+&lt;p&gt;Для формирования необходимого числа строк (дней) между двумя датами используйте сводную таблицу T500. Затем подсчитайте количество дней, не являющихся выходными. Добавление дней к каждой дате реализуйте с помощью функции &lt;code class=&quot;highlighter-rouge&quot;&gt;DATE_ADD&lt;/code&gt;. Воспользуйтесь функцией &lt;code class=&quot;highlighter-rouge&quot;&gt;DATE_FORMAT&lt;/code&gt; (формат даты) для получения названия дня недели для каждой даты:&lt;/p&gt;
+
+&lt;h5 id=&quot;mysql-9&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sum(
+    case when date_format(date_add(jones_hd, interval t500.id1 DAY),'%a') in ( 'Sat','Sun' )
+    then 0 else 1
+  end) as days
+  from (
+    select 
+      max(case when ename = 'BLAKE'
+        then hiredate
+      end) as blake_hd,
+      max(case when ename = 'JONES'
+        then hiredate
+      end) as jones_hd
+    from emp
+  where ename in ( 'BLAKE','JONES' )
+  ) x,
+  t500
+  where t500.id &amp;lt;= datediff(blake_hd,jones_hd)+1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-количества-месяцев-или-лет-между-двумя-датами-стр-241&quot;&gt;Определение количества месяцев или лет между двумя датами (стр. 241)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-10&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select mnth, mnth/12
+  from (
+    select (year(max_hd)  year(min_hd))*12 + (month(max_hd)  month(min_hd)) as mnth
+    from (
+      select min(hiredate) as min_hd, max(hiredate) as max_hd
+      from emp
+    ) x
+  ) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-подсчитать-сколько-раз-в-году-повторяется-каждый-день-недели-стр-246&quot;&gt;Как подсчитать, сколько раз в году повторяется каждый день недели (стр. 246)&lt;/h4&gt;
+
+&lt;p&gt;Чтобы найти, сколько раз повторяется каждый день недели за год, необходимо:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Сгенерировать все возможные даты года.&lt;/li&gt;
+  &lt;li&gt;Отформатировать даты таким образом, чтобы в них был указан со!
+ответствующий день недели.&lt;/li&gt;
+  &lt;li&gt;Подсчитать, сколько раз за год встречается название каждого дня
+недели.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;определение-интервала-времени-в-днях-между-текущей-и-следующей-записями-стр-258&quot;&gt;Определение интервала времени в днях между текущей и следующей записями (стр. 258)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select x.*, datediff(day,x.hiredate,x.next_hd) diff
+  from (
+    select e.deptno, e.ename, e.hiredate,
+      (select min(d.hiredate) from emp d
+        where d.hiredate &amp;gt; e.hiredate) next_hd
+        from emp e
+    where e.deptno = 10
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;9-работа-с-датами-стр-264&quot;&gt;9 Работа с датами (стр. 264)&lt;/h3&gt;
+
+&lt;h4 id=&quot;как-определить-является-ли-год-високосным-стр-265&quot;&gt;Как определить, является ли год високосным (стр. 265)&lt;/h4&gt;
+
+&lt;p&gt;проверяется последний день февраля; если он является 29м днем, то текущий год – високосный.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select day(
+    last_day(
+      date_add(
+        date_add(
+          date_add(current_date,
+            interval dayofyear(current_date) day),
+              interval 1 day),
+                interval 1 month))) dy
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-определить-количество-дней-в-году-стр-272&quot;&gt;Как определить количество дней в году (стр. 272)&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Определение первого дня текущего года.&lt;/li&gt;
+  &lt;li&gt;Добавление одного года к этой дате (для получения первого дня следующего года).&lt;/li&gt;
+  &lt;li&gt;Вычитание текущего года из результата шага 2.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select datediff((curr_year + interval 1 year),curr_year)
+  from (
+    select adddate(current_date,dayofyear(current_date)+1) curr_year
+    from t1
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;извлечение-единиц-времени-из-даты-стр-275&quot;&gt;Извлечение единиц времени из даты (стр. 275)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-11&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select date_format(current_timestamp,'%k') hr,
+    date_format(current_timestamp,'%i') min,
+    date_format(current_timestamp,'%s') sec,
+    date_format(current_timestamp,'%d') dy,
+    date_format(current_timestamp,'%m') mon,
+    date_format(current_timestamp,'%Y') yr
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-первого-и-последнего-дней-месяца-стр-277&quot;&gt;Определение первого и последнего дней месяца (стр. 277)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-12&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select date_add(current_date,
+    interval -day(current_date)+1 day) firstday,
+    last_day(current_date) lastday
+  from t1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выбор-всех-дат-года-выпадающих-на-определенный-день-недели-стр-280&quot;&gt;Выбор всех дат года, выпадающих на определенный день недели (стр. 280)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-13&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select dy
+  from (
+    select adddate(x.dy,interval t500.id1 day) dy
+    from (
+      select dy, year(dy) yr
+        from (
+          select adddate(
+            adddate(current_date,
+             interval dayofyear(current_date) day),
+               interval 1 day ) dy
+          from t1
+        ) tmp1
+      ) x,
+      t500
+    where year(adddate(x.dy,interval t500.id1 day)) = x.yr
+    ) tmp2
+  where dayname(dy) = 'Friday'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-дат-первого-и-последнего-появления-заданного-дня-недели-стр-287&quot;&gt;Определение дат первого и последнего появления заданного дня недели (стр. 287)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-14&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;p&gt;Используйте функцию &lt;code class=&quot;highlighter-rouge&quot;&gt;ADDDATE&lt;/code&gt;, чтобы получить первый день месяца. После этого путем простых вычислений над числовыми значениями дней недели (Вс.–Сб. соответствуют 1–7) находите первый и последний понедельники текущего месяца:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select first_monday,
+    case month(adddate(first_monday,28))
+    when mth then adddate(first_monday,28)
+    else adddate(first_monday,21)
+  end last_monday
+  from (
+    select case sign(dayofweek(dy)2)
+      when 0 then dy
+      when 1 then adddate(dy,abs(dayofweek(dy)2))
+      when 1 then adddate(dy,(7(dayofweek(dy)2)))
+    end first_monday, mth
+    from (
+      select adddate(adddate(current_date,day(current_date)),1) dy, month(current_date) mth
+      from t1
+    ) x
+  ) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-календаря-стр-295&quot;&gt;Создание календаря (стр. 295)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-15&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select max(case dw when 2 then dm end) as Mo,
+    max(case dw when 3 then dm end) as Tu,
+    max(case dw when 4 then dm end) as We,
+    max(case dw when 5 then dm end) as Th,
+    max(case dw when 6 then dm end) as Fr,
+    max(case dw when 7 then dm end) as Sa,
+    max(case dw when 1 then dm end) as Su
+  from (
+    select date_format(dy,'%u') wk,
+      date_format(dy,'%d') dm,
+      date_format(dy,'%w')+1 dw
+    from (
+      select adddate(x.dy,t500.id1) dy,
+        x.mth
+      from (
+        select adddate(current_date,dayofmonth(current_date)+1) dy,
+          date_format(
+          adddate(current_date,
+          dayofmonth(current_date)+1),
+          '%m') mth
+        from t1
+      ) x, t500
+    where t500.id &amp;lt;= 31 and date_format(adddate(x.dy,t500.id1),'%m') = x.mth ) y ) z
+  group by wk
+  order by wk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;получение-дат-начала-и-конца-кварталов-года-стр-314&quot;&gt;Получение дат начала и конца кварталов года (стр. 314)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-16&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select quarter(adddate(dy,1)) QTR, date_add(dy,interval 3 month) Q_start, adddate(dy,1) Q_end
+  from (
+    select date_add(dy,interval (3*id) month) dy
+    from (
+      select id, adddate(current_date,dayofyear(current_date)+1) dy
+      from t500
+      where id &amp;lt;= 4
+    ) x
+  ) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-дат-начала-и-окончания-заданного-квартала-стр-320&quot;&gt;Определение дат начала и окончания заданного квартала (стр. 320)&lt;/h4&gt;
+
+&lt;p&gt;Год и квартал заданы в формате YYYYQ (четыре разряда – год, один разряд – квартал)&lt;/p&gt;
+
+&lt;h5 id=&quot;mysql-17&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select date_add(adddate(q_end,day(q_end)+1),
+    interval 2 month) q_start,
+    q_end
+  from (
+    select last_day(str_to_date(concat(substr(yrq,1,4),mod(yrq,10)*3),'%Y%m')) q_end
+    from (
+      select 20051 as yrq from t1 union all
+      select 20052 as yrq from t1 union all
+      select 20053 as yrq from t1 union all
+      select 20054 as yrq from t1
+    ) x
+  ) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;дополнение-отсутствующих-дат-стр-327&quot;&gt;Дополнение отсутствующих дат (стр. 327)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-18&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select z.mth, count(e.hiredate) num_hired
+  from (
+    select date_add(min_hd,interval t500.id1 month) mth
+    from (
+      select min_hd, date_add(max_hd,interval 11 month) max_hd
+      from (
+        select adddate(min(hiredate),dayofyear(min(hiredate))+1) min_hd,
+          adddate(max(hiredate),dayofyear(max(hiredate))+1) max_hd
+        from emp
+      ) x
+    ) y, t500
+  where date_add(min_hd,interval t500.id1 month) &amp;lt;= max_hd) z 
+  left join emp e on (z.mth = adddate(date_add(last_day(e.hiredate),interval 1 month),1))
+  group by z.mth
+  order by 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;поиск-по-заданным-единицам-времени-стр-337&quot;&gt;Поиск по заданным единицам времени (стр. 337)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-и-mysql-1&quot;&gt;DB2 и MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename
+  from emp
+  where monthname(hiredate) in ('February','December') or dayname(hiredate) = 'Tuesday'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сравнение-строк-по-определенной-части-даты-стр-339&quot;&gt;Сравнение строк по определенной части даты (стр. 339)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-19&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select concat(a.ename, ' was hired on the same month and weekday as ', b.ename) msg
+  from emp a, emp b
+  where date_format(a.hiredate,'%w%M') = date_format(b.hiredate,'%w%M')
+    and a.empno &amp;lt; b.empno
+  order by a.ename
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выявление-наложений-диапазонов-дат-стр-342&quot;&gt;Выявление наложений диапазонов дат (стр. 342)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-20&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select a.empno,a.ename,concat('project ',b.proj_id,' overlaps project ',a.proj_id) as msg
+  from emp_project a,emp_project b
+  where a.empno = b.empno
+    and b.proj_start &amp;gt;= a.proj_start
+    and b.proj_start &amp;lt;= a.proj_end
+    and a.proj_id != b.proj_id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;10-работа-с-диапазонами-данных-стр-348&quot;&gt;10 Работа с диапазонами данных (стр. 348)&lt;/h3&gt;
+
+&lt;h4 id=&quot;поиск-диапазона-последовательных-значений-стр-348&quot;&gt;Поиск диапазона последовательных значений (стр. 348)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select v1.proj_id,
+  v1.proj_start,
+  v1.proj_end
+  from V v1, V v2
+  where v1.proj_end = v2.proj_start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-разности-между-значениями-строк-одной-группы-или-сегмента-стр-354&quot;&gt;Вычисление разности между значениями строк одной группы или сегмента (стр. 354)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-mysql-postgresql-и-sql-server&quot;&gt;DB2, MySQL, PostgreSQL и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,ename,hiredate,sal,coalesce(cast(salnext_sal as char(10)),'N/A') as diff
+  from (
+    select e.deptno,e.ename,e.hiredate,e.sal,
+      (select min(sal) from emp d
+      where d.deptno=e.deptno
+        and d.hiredate =
+          (select min(hiredate) from emp d
+            where e.deptno=d.deptno and d.hiredate &amp;gt; e.hiredate)) as next_sal
+    from emp e
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;oracle-2&quot;&gt;Oracle&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,ename,sal,hiredate,lpad(nvl(to_char(salnext_sal),'N/A'),10) diff
+  from (
+    select deptno,ename,sal,hiredate,lead(sal)over(partition by deptno order by hiredate) next_sal
+  from emp
+  )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-начала-и-конца-диапазона-последовательных-значений-стр-363&quot;&gt;Определение начала и конца диапазона последовательных значений (стр. 363)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  create view v2
+  as
+  select a.*,
+    case
+      when (
+        select b.proj_id
+        from V b
+        where a.proj_start = b.proj_end
+      )
+      is not null then 0 else 1
+    end as flag
+  from V a
+
+
+  select proj_grp,min(proj_start) as proj_start,max(proj_end) as proj_end
+  from (
+  select a.proj_id,a.proj_start,a.proj_end,
+    (select sum(b.flag)
+      from V2 b
+      where b.proj_id &amp;lt;= a.proj_id) as proj_grp
+      from V2 a
+    ) x
+  group by proj_grp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вставка-пропущенных-значений-диапазона-стр-368&quot;&gt;Вставка пропущенных значений диапазона (стр. 368)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select y.yr, coalesce(x.cnt,0) as cnt
+  from (
+    select min_yearmod(cast(min_year as int),10)+rn as yr
+    from (
+      select (select min(extract(year from hiredate))
+      from emp) as min_year,id1 as rn
+  from t10) a) y
+  left join
+    (
+      select extract(year from hiredate) as yr, count(*) as cnt
+      from emp
+      group by extract(year from hiredate)
+    ) x
+  on ( y.yr = x.yr )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;формирование-последовательности-числовых-значений-стр-373&quot;&gt;Формирование последовательности числовых значений (стр. 373)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  with x (id) as (
+    select 1
+    from t1
+
+    union all
+
+    select id+1
+    from x
+    where id+1 &amp;lt;= 10
+  )
+
+  select * from x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;расширенный-поиск-стр-378&quot;&gt;Расширенный поиск (стр. 378)&lt;/h3&gt;
+
+&lt;h4 id=&quot;разбиение-результирующего-множества-на-страницы-стр-378&quot;&gt;Разбиение результирующего множества на страницы (стр. 378)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sal
+  from emp
+  order by sal limit 5 offset 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-пропустить-n-строк-таблицы-стр-381&quot;&gt;Как пропустить n строк таблицы (стр. 381)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select x.ename
+  from (
+    select a.ename,
+      (select count(*)
+      from emp b
+      where b.ename &amp;lt;= a.ename) as rn
+    from emp a
+  ) x
+  where mod(x.rn,2) = 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;использование-логики-or-во-внешних-объединениях-стр-384&quot;&gt;Использование логики OR во внешних объединениях (стр. 384)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, d.deptno, d.dname, d.loc
+  from dept d left join emp e
+    on (d.deptno = e.deptno
+    and (e.deptno=10 or e.deptno=20))
+  order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выявление-строк-со-взаимообратными-значениями-стр-387&quot;&gt;Выявление строк со взаимообратными значениями (стр. 387)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select distinct v1.*
+  from V v1, V v2
+  where v1.test1 = v2.test2
+    and v1.test2 = v2.test1
+    and v1.test1 &amp;lt;= v1.test2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-выбрать-записи-с-nым-количеством-наивысших-значений-стр-389&quot;&gt;Как выбрать записи с nым количеством наивысших значений (стр. 389)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;select ename,sal
+from (
+  select (select count(distinct b.sal)
+    from emp b
+    where a.sal &amp;lt;= b.sal) as rnk,
+  a.sal,a.ename
+  from emp a
+)
+where rnk &amp;lt;= 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-найти-записи-с-наибольшим-и-наименьшим-значениями-стр-391&quot;&gt;Как найти записи с наибольшим и наименьшим значениями (стр. 391)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename
+  from emp
+  where sal in ( (select min(sal) from emp), (select max(sal) from emp) )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;сбор-информации-из-последующих-строк-стр-393&quot;&gt;Сбор информации из последующих строк (стр. 393)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;select ename, sal, hiredate
+from (
+  select a.ename, a.sal, a.hiredate,
+    (select min(hiredate) from emp b
+    where b.hiredate &amp;gt; a.hiredate
+      and b.sal &amp;gt; a.sal ) as next_sal_grtr,
+    (select min(hiredate) from emp b
+    where b.hiredate &amp;gt; a.hiredate) as next_hire
+from emp a ) x
+where next_sal_grtr = next_hire
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;смещение-значений-строк-стр-396&quot;&gt;Смещение значений строк (стр. 396)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename, e.sal,
+    coalesce(
+      (select min(sal) from emp d where d.sal &amp;gt; e.sal),
+      (select min(sal) from emp)
+    ) as forward,
+    coalesce(
+      (select max(sal) from emp d where d.sal &amp;lt; e.sal),
+      (select max(sal) from emp)
+    ) as rewind
+  from emp e
+  order by 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;ранжирование-результатов-стр-400&quot;&gt;Ранжирование результатов (стр. 400)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-oracle-и-sql-server-1&quot;&gt;DB2, Oracle и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt; select dense_rank() over(order by sal) rnk, sal from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-и-postgresql-1&quot;&gt;MySQL и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select (select count(distinct b.sal)
+    from emp b
+    where b.sal &amp;lt;= a.sal) as rnk,
+    a.sal
+  from emp a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;исключение-дубликатов-стр-401&quot;&gt;Исключение дубликатов (стр. 401)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select distinct job from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select job from emp group by job
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;ход-конем-стр-403&quot;&gt;Ход конем (стр. 403)&lt;/h4&gt;
+
+&lt;p&gt;Требуется получить множество, содержащее имя каждого служащего, отдел, в котором он работает, его заработную плату, дату его приема на работу и заработную плату сотрудника, принятого на работу последним в отделе.
+  Значения столбца &lt;strong&gt;LATEST_SAL&lt;/strong&gt; определяются в результате «хода конем», поскольку схема поиска их в таблице 
+аналогична схеме перемещения шахматного коня.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.deptno,
+    e.ename,
+    e.sal,
+    e.hiredate,
+    (select max(d.sal)
+    from emp d
+    where d.deptno = e.deptno
+      and d.hiredate =
+      (select max(f.hiredate)
+      from emp f
+      where f.deptno = e.deptno)) as latest_sal
+  from emp e
+  order by 1, 4 desc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;формирование-простых-прогнозов-стр-411&quot;&gt;Формирование простых прогнозов (стр. 411)&lt;/h4&gt;
+
+&lt;p&gt;Исходя из текущих данных требуется получить дополнительные строки и столбцы, представляющие будущие действия.
+Для каждой строки результирующего множества требуется возвратить три строки (строка плюс две дополнительные строки для каждого заказа). Кроме дополнительных строк, должны быть добавлены столбцы с предполагаемыми датами обработки заказов.&lt;/p&gt;
+
+&lt;h5 id=&quot;postgresql-4&quot;&gt;PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select id, order_date, process_date,
+    case when gs.n &amp;gt;= 2
+      then process_date+1
+      else null
+    end as verified,
+    case when gs.n = 3
+      then process_date+2
+      else null
+    end as shipped
+  from (
+    select gs.id,
+      current_date+gs.id as order_date,
+      current_date+gs.id+2 as process_date
+    from generate_series(1,3) gs (id)
+  ) orders,
+  generate_series(1,3)gs(n)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-21&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;p&gt;MySQL не поддерживает функцию для автоматического формирования строк.&lt;/p&gt;
+
+&lt;h3 id=&quot;12-составление-отчетов-и-управление-хранилищами-данных-стр-420&quot;&gt;12 Составление отчетов и управление хранилищами данных (стр. 420)&lt;/h3&gt;
+
+&lt;h4 id=&quot;разворачивание-результирующего-множества-в-одну-строку-стр-420&quot;&gt;Разворачивание результирующего множества в одну строку (стр. 420)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select sum(case when deptno=10 then 1 else 0 end) as deptno_10,
+    sum(case when deptno=20 then 1 else 0 end) as deptno_20,
+    sum(case when deptno=30 then 1 else 0 end) as deptno_30
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select max(case when deptno=10 then empcount else null end) as deptno_10
+    max(case when deptno=20 then empcount else null end) as deptno_20,
+    max(case when deptno=30 then empcount else null end) as deptno_30
+  from (
+    select deptno, count(*) as empcount
+    from emp
+    group by deptno
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;разворачивание-результирующего-множества-в-несколько-строк-стр-423&quot;&gt;Разворачивание результирующего множества в несколько строк (стр. 423)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select 
+    max(case when job='CLERK'
+      then ename else null end) as clerks,
+    max(case when job='ANALYST'
+      then ename else null end) as analysts,
+    max(case when job='MANAGER'
+      then ename else null end) as mgrs,
+    max(case when job='PRESIDENT'
+      then ename else null end) as prez,
+    max(case when job='SALESMAN'
+      then ename else null end) as sales
+  from (
+    select e.job,
+      e.ename,
+      (select count(*) from emp d
+      where e.job=d.job and e.empno &amp;lt; d.empno) as rnk
+      from emp e
+    ) x
+  group by rnk
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;обратное-разворачивание-результирующего-множества-стр-431&quot;&gt;Обратное разворачивание результирующего множества (стр. 431)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select dept.deptno,
+    case dept.deptno
+      when 10 then emp_cnts.deptno_10
+      when 20 then emp_cnts.deptno_20
+      when 30 then emp_cnts.deptno_30
+    end as counts_by_dept
+  from (
+    select sum(case when deptno=10 then 1 else 0 end) as deptno_10,
+      sum(case when deptno=20 then 1 else 0 end) as deptno_20,
+      sum(case when deptno=30 then 1 else 0 end) as deptno_30
+    from emp
+  ) emp_cnts,
+  (select deptno from dept where deptno &amp;lt;= 30) dept
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;обратное-разворачивание-результирующего-множества-в-один-столбец-стр-433&quot;&gt;Обратное разворачивание результирующего множества в один столбец (стр. 433)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-oracle-и-sql-server-2&quot;&gt;DB2, Oracle и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select case rn
+    when 1 then ename
+    when 2 then job
+    when 3 then cast(sal as char(4))
+  end emps
+  from (
+    select e.ename,e.job,e.sal,
+      row_number()over(partition by e.empno
+    order by e.empno) rn
+    from emp e,
+    (select *
+    from emp where job='CLERK') four_rows
+    where e.deptno=10
+  ) x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;postgresql-и-mysql&quot;&gt;PostgreSQL и MySQL&lt;/h5&gt;
+
+&lt;p&gt;Данный рецепт призван обратить внимание на применение ранжирующих функций для ранжирования строк,
+которое затем используется при разворачивании таблицы. На момент написания данной книги ни PostgreSQL, ни MySQL не поддерживают ранжирующие функции.&lt;/p&gt;
+
+&lt;h4 id=&quot;разворачивание-результирующего-множества-для-упрощения-вычислений-стр-440&quot;&gt;Разворачивание результирующего множества для упрощения вычислений (стр. 440)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select d20_sal - d10_sal as d20_10_diff,
+    d20_sal - d30_sal as d20_30_diff
+  from (
+    select sum(case when deptno=10 then sal end) as d10_sal,
+      sum(case when deptno=20 then sal end) as d20_sal,
+      sum(case when deptno=30 then sal end) as d30_sal
+    from emp
+  ) totals_by_dept
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-блоков-данных-фиксированного-размера-стр-441&quot;&gt;Создание блоков данных фиксированного размера (стр. 441)&lt;/h4&gt;
+
+&lt;h5 id=&quot;db2-oracle-и-sql-server-3&quot;&gt;DB2, Oracle и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ceil(row_number()over(order by empno)/5.0) grp, empno, ename from emp
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&quot;postgresql-и-mysql-1&quot;&gt;PostgreSQL и MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ceil(rnk/5.0) as grp, empno, ename
+  from (
+    select e.empno, e.ename,
+    (select count(*) from emp d
+    where e.empno &amp;lt; d.empno)+1 as rnk
+    from emp e
+  ) x
+  order by grp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-заданного-количества-блоков-стр-445&quot;&gt;Создание заданного количества блоков (стр. 445)&lt;/h4&gt;
+
+&lt;h5 id=&quot;oracle-и-sql-server&quot;&gt;Oracle и SQL Server&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ntile(4)over(order by empno) grp, empno, ename from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&quot;mysql-и-postgresql-2&quot;&gt;MySQL и PostgreSQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select mod(count(*),4)+1 as grp,e.empno,e.ename
+  from emp e, emp d
+  where e.empno &amp;gt;= d.empno
+  group by e.empno,e.ename
+  order by 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-горизонтальных-гистограмм-стр-451&quot;&gt;Создание горизонтальных гистограмм (стр. 451)&lt;/h4&gt;
+
+&lt;h5 id=&quot;oracle-postgresql-и-mysql&quot;&gt;Oracle, PostgreSQL и MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno, lpad('*',count(*),'*') as cnt
+  from emp
+  group by deptno 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-вертикальных-гистограмм-стр-453&quot;&gt;Создание вертикальных гистограмм (стр. 453)&lt;/h4&gt;
+
+&lt;h5 id=&quot;postgresql-и-mysql-2&quot;&gt;PostgreSQL и MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select max(deptno_10) as d10,
+    max(deptno_20) as d20,
+    max(deptno_30) as d30
+  from (
+    select case when e.deptno=10 then '*' else null end deptno_10,
+      case when e.deptno=20 then '*' else null end deptno_20,
+      case when e.deptno=30 then '*' else null end deptno_30,
+      (select count(*) from emp d
+      where e.deptno=d.deptno and e.empno &amp;lt; d.empno ) as rnk
+    from emp e
+  ) x
+  group by rnk
+  order by 1 desc, 2 desc, 3 desc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;как-возвратить-столбцы-не-перечисленные-в-операторе-group-by-стр-456&quot;&gt;Как возвратить столбцы, не перечисленные в операторе GROUP BY (стр. 456)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno,ename,job,sal,
+    case when sal = max_by_dept
+      then 'TOP SAL IN DEPT'
+    when sal = min_by_dept
+      then 'LOW SAL IN DEPT'
+    end as dept_status,
+    case when sal = max_by_job
+      then 'TOP SAL IN JOB'
+    when sal = min_by_job
+      then 'LOW SAL IN JOB'
+    end as job_status
+  from (
+    select e.deptno,e.ename,e.job,e.sal,
+      (select max(sal) from emp d
+      where d.deptno = e.deptno) as max_by_dept,
+      (select max(sal) from emp d
+      where d.job = e.job) as max_by_job,
+      (select min(sal) from emp d
+      where d.deptno = e.deptno) as min_by_dept,
+      (select min(sal) from emp d
+      where d.job = e.job) as min_by_job
+    from emp e
+  ) x
+  where sal in (max_by_dept,max_by_job,
+  min_by_dept,min_by_job)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-простых-подсумм-стр-462&quot;&gt;Вычисление простых подсумм (стр. 462)&lt;/h4&gt;
+
+&lt;p&gt;В данном рецепте под «простой подсуммой» подразумевается результирующее множество, содержащее значения, полученные в результате агрегации одного столбца, и общую сумму таблицы.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select coalesce(job,'TOTAL') job,
+  sum(sal) sal
+  from emp
+  group by job with rollup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;вычисление-подсумм-для-всех-возможных-сочетаний-стр-466&quot;&gt;Вычисление подсумм для всех возможных сочетаний (стр. 466)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select deptno, job, 'TOTAL BY DEPT AND JOB' as category, sum(sal) as sal
+  from emp
+  group by deptno, job
+
+  union all
+
+  select null, job, 'TOTAL BY JOB', sum(sal)
+  from emp
+  group by job
+
+  union all
+
+  select deptno, null, 'TOTAL BY DEPT', sum(sal)
+  from emp
+  group by deptno
+
+  union all
+
+  select null,null,'GRAND TOTAL FOR TABLE', sum(sal)
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;использование-выражений-case-для-маркировки-строк-стр-478&quot;&gt;Использование выражений &lt;code class=&quot;highlighter-rouge&quot;&gt;CASE&lt;/code&gt; для маркировки строк (стр. 478)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ename,
+    case when job = 'CLERK'
+      then 1 else 0
+    end as is_clerk,
+    case when job = 'SALESMAN'
+      then 1 else 0
+    end as is_sales,
+    case when job = 'MANAGER'
+      then 1 else 0
+    end as is_mgr,
+    case when job = 'ANALYST'
+      then 1 else 0
+    end as is_analyst,
+    case when job = 'PRESIDENT'
+      then 1 else 0
+    end as is_prez
+  from emp
+  order by 2,3,4,5,6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-разреженной-матрицы-стр-480&quot;&gt;Создание разреженной матрицы (стр. 480)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select case deptno when 10 then ename end as d10,
+    case deptno when 20 then ename end as d20,
+    case deptno when 30 then ename end as d30,
+    case job when 'CLERK' then ename end as clerks,
+    case job when 'MANAGER' then ename end as mgrs,
+    case job when 'PRESIDENT' then ename end as prez,
+    case job when 'ANALYST' then ename end as anals,
+    case job when 'SALESMAN' then ename end as sales
+  from emp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;группировка-строк-по-интервалам-времени-стр-481&quot;&gt;Группировка строк по интервалам времени (стр. 481)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select ceil(trx_id/5.0) as grp,
+    min(trx_date) as trx_start,
+    max(trx_date) as trx_end,
+    sum(trx_cnt) as total
+  from trx_log
+  group by ceil(trx_id/5.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;агрегация-разных-группсегментов-одновременно-стр-485&quot;&gt;Агрегация разных групп/сегментов одновременно (стр. 485)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.ename,
+    e.deptno,
+    (select count(*) from emp d
+    where d.deptno = e.deptno) as deptno_cnt,
+    job,
+    (select count(*) from emp d
+    where d.job = e.job) as job_cnt,
+    (select count(*) from emp) as total
+  from emp e
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;агрегация-скользящего-множества-значений-стр-487&quot;&gt;Агрегация скользящего множества значений (стр. 487)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select e.hiredate,e.sal,
+    (select sum(sal) from emp d
+  where d.hiredate between e.hiredate90
+    and e.hiredate) as spending_pattern
+  from emp e
+  order by 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;иерархические-запросы-стр-500&quot;&gt;Иерархические запросы (стр. 500)&lt;/h3&gt;
+
+&lt;h4 id=&quot;представление-отношений-родительпотомок-стр-501&quot;&gt;Представление отношений родительпотомок (стр. 501)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select concat(a.ename, ' works for ',b.ename) as emps_and_mgrs
+  from emp a, emp b
+  where a.mgr = b.empno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;представление-отношений-потомокродительпрародитель-стр-505&quot;&gt;Представление отношений потомокродительпрародитель (стр. 505)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select a.ename||'&amp;gt;'||b.ename||'&amp;gt;'||c.ename as leaf___branch___root
+  from emp a, emp b, emp c
+  where a.ename = 'MILLER'
+  and a.mgr = b.empno
+  and b.mgr = c.empno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;создание-иерархического-представления-таблицы-стр-510&quot;&gt;Создание иерархического представления таблицы (стр. 510)&lt;/h4&gt;
+
+&lt;h5 id=&quot;mysql-22&quot;&gt;MySQL&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select emp_tree
+  from (
+    select ename as emp_tree
+    from emp
+    where mgr is null
+
+  union
+
+  select concat(a.ename,'  ',b.ename)
+  from emp a
+  join
+    emp b on (a.empno=b.mgr)
+  where a.mgr is null
+
+  union
+
+  select concat(a.ename,'  ',b.ename,'  ',c.ename)
+  from emp a
+  join
+    emp b on (a.empno=b.mgr)
+  left join
+    emp c on (b.empno=c.mgr)
+  where a.ename = 'KING'
+
+  union
+
+  select concat(a.ename,'  ',b.ename,'  ',c.ename,'  ',d.ename)
+  from emp a
+  join
+    emp b on (a.empno=b.mgr)
+  join
+    emp c on (b.empno=c.mgr)
+  left join
+    emp d on (c.empno=d.mgr)
+  where a.ename = 'KING'
+  ) x
+  where tree is not null
+  order by 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;выбор-всех-дочерних-строк-для-заданной-строки-стр-519&quot;&gt;Выбор всех дочерних строк для заданной строки (стр. 519)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* находим EMPNO служащего JONES */
+select ename,empno,mgr
+from emp
+where ename = 'JONES'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;EMPNO&lt;/th&gt;
+      &lt;th&gt;MGR&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JONES&lt;/td&gt;
+      &lt;td&gt;7566&lt;/td&gt;
+      &lt;td&gt;7839&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* есть ли служащие, находящиеся в прямом подчинении у JONES? */
+select count(*)
+from emp
+where mgr = 7566
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;COUNT(*)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* у JONES двое подчиненных, найдем их EMPNO */
+select ename,empno,mgr
+from emp
+where mgr = 7566
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ENAME | EMPNO | MGR
+—– | —– | —&lt;br /&gt;
+SCOTT | 7788 | 7566
+FORD | 7902 | 7566&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* есть ли подчиненные у SCOTT или FORD? */
+select count(*)
+from emp
+where mgr in (7788,7902)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;COUNT(*)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* у SCOTT и FORD двое подчиненных, находим их EMPNO */
+select ename,empno,mgr
+from emp
+where mgr in (7788,7902)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ENAME&lt;/th&gt;
+      &lt;th&gt;EMPNO&lt;/th&gt;
+      &lt;th&gt;MGR&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SMITH&lt;/td&gt;
+      &lt;td&gt;7369&lt;/td&gt;
+      &lt;td&gt;7902&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ADAMS&lt;/td&gt;
+      &lt;td&gt;7876&lt;/td&gt;
+      &lt;td&gt;7788&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;/* есть ли подчиненные у SMITH или ADAMS? */
+select count(*)
+from emp
+where mgr in (7369,7876)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;COUNT(*)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Теперь, когда известна глубина, можно приступать к обходу иерархии сверху вниз. Сначала дважды выполним рефлексивное объединение таблицы EMP. Затем произведем обратное разворачивание вложенного представления Х, чтобы преобразовать три столбца и две строки в один столбец и шесть строк&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select distinct
+    case t100.id
+      when 1 then root
+      when 2 then branch
+      else leaf
+    end as JONES_SUBORDINATES
+  from (
+    select a.ename as root,
+      b.ename as branch,
+      c.ename as leaf
+    from emp a, emp b, emp c
+    where a.ename = 'JONES'
+      and a.empno = b.mgr
+      and b.empno = c.mgr
+  ) x,
+  t100
+  where t100.id &amp;lt;= 6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;определение-узлов-ветвления-концевого-корневого-стр-523&quot;&gt;Определение узлов: ветвления, концевого, корневого (стр. 523)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;select e.ename,
+  (select sign(count(*)) from emp d
+    where 0 =
+    (select count(*) from emp f
+    where f.mgr = e.empno)) as is_leaf,
+  (select sign(count(*)) from emp d
+  where d.mgr = e.empno
+    and e.mgr is not null) as is_branch,
+  (select sign(count(*)) from emp d
+  where d.empno = e.empno
+    and d.mgr is null) as is_root
+  from emp e
+  order by 4 desc,3 desc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;14-всякая-всячина--стр-532&quot;&gt;14 Всякая всячина  (стр. 532)&lt;/h3&gt;
+
+&lt;h4 id=&quot;создание-отчетов-с-перекрестными-ссылками-с-помощью-оператора-sql-server-pivot-стр-532&quot;&gt;Создание отчетов с перекрестными ссылками с помощью оператора SQL Server &lt;code class=&quot;highlighter-rouge&quot;&gt;PIVOT&lt;/code&gt; (стр. 532)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select [10] as dept_10,
+    [20] as dept_20,
+    [30] as dept_30,
+    [40] as dept_40
+  from (select deptno, empno from emp) driver
+  pivot (
+    count(driver.empno)
+    for driver.deptno in ( [10],[20],[30],[40] )
+  ) as empPivot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;обратное-разворачивание-отчета-с-помощью-оператора-sql-server-unpivot-стр-534&quot;&gt;Обратное разворачивание отчета с помощью оператора SQL Server &lt;code class=&quot;highlighter-rouge&quot;&gt;UNPIVOT&lt;/code&gt; (стр. 534)&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  select DNAME, CNT
+  from (
+    select [ACCOUNTING] as ACCOUNTING,
+      [SALES] as SALES,
+      [RESEARCH] as RESEARCH,
+      [OPERATIONS] as OPERATIONS
+    from (
+      select d.dname, e.empno
+      from emp e,dept d
+      where e.deptno=d.deptno
+ 
+  ) driver
+  pivot (
+    count(driver.empno)
+    for driver.dname in
+     ([ACCOUNTING],[SALES],[RESEARCH],[OPERATIONS])
+  ) as empPivot
+  ) new_driver
+  unpivot (cnt for dname in (ACCOUNTING,SALES,RESEARCH,OPERATIONS)
+  ) as un_pivot
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Mollinaro - SQL Cookbook notes</summary></entry><entry><title type="html">Тезисы</title><link href="/2018/11/11/groff-complete-guide.html" rel="alternate" type="text/html" title="Тезисы" /><published>2018-11-11T20:53:21+03:00</published><updated>2018-11-11T20:53:21+03:00</updated><id>/2018/11/11/groff-complete-guide</id><content type="html" xml:base="/2018/11/11/groff-complete-guide.html">&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt; появился как исследовательский продукт  фирмы IBM. Изначально назывался &lt;strong&gt;SEQUEL&lt;/strong&gt; - &lt;strong&gt;S&lt;/strong&gt;tructured &lt;strong&gt;E&lt;/strong&gt;nglish &lt;strong&gt;Que&lt;/strong&gt;ry &lt;strong&gt;L&lt;/strong&gt;anguage но был переименован из-за конфликта прав.&lt;/p&gt;
 
 &lt;p&gt;Возможности:&lt;/p&gt;
 
