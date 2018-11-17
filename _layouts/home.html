@@ -16,7 +16,7 @@ layout: default
       <th>Отчёт</th>
     </tr>
     {%- if site.posts.size > 0 -%}
-        {%- for post in site.posts -%}
+        {%- for post in site.posts reversed -%}
           <tr>
             <td>
               {{ post.subject | escape }}
